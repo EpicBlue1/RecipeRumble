@@ -3,6 +3,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import React, { useCallback, useEffect, useState } from "react";
 import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import CompetitionScreen from "./Screens/CompetitionScreen/CompetitionScreen";
 import HomeScreen from "./Screens/HomeScreen/HomeScreen";
 import TestScreen from "./Screens/TestScreen/TestScreen";
 import { Global } from "./Utils/GlobalStyles";
@@ -37,8 +38,9 @@ export default function App() {
       style={[styles.container, Global.droidSafeArea]}
       onLayout={onLayoutRootView}
     >
-      <TestScreen />
+      {/* <TestScreen /> */}
       {/* <HomeScreen /> */}
+      <CompetitionScreen />
     </SafeAreaView>
   );
 }
@@ -46,10 +48,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
     backgroundColor: "#fff",
-    // alignItems: "center",
-    // justifyContent: "center",
     backgroundColor: Colors.Dirty_White,
   },
 });
