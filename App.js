@@ -1,20 +1,55 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useFonts } from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
+import { StatusBar } from "expo-status-bar";
+import React, { useCallback, useEffect, useState } from "react";
+import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import HomeScreen from "./Screens/HomeScreen/HomeScreen";
+import TestScreen from "./Screens/TestScreen/TestScreen";
+import { Global } from "./Utils/GlobalStyles";
+import { Colors } from "./Utils/ReUsables";
+
+// Keep the splash screen visible while we fetch resources
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    ubuntu_bold: require("./assets/fonts/Ubuntu-Bold.ttf"),
+    ubuntu_regular: require("./assets/fonts/Ubuntu-Regular.ttf"),
+    ubuntu_bold_italic: require("./assets/fonts/Ubuntu-BoldItalic.ttf"),
+    ubuntu_italic: require("./assets/fonts/Ubuntu-Italic.ttf"),
+    karla_bold: require("./assets/fonts/Karla-Bold.ttf"),
+    karla: require("./assets/fonts/Karla-VariableFont_wght.ttf"),
+    karla_italic: require("./assets/fonts/Karla-Italic-VariableFont_wght.ttf"),
+  });
+
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView
+      style={[styles.container, Global.droidSafeArea]}
+      onLayout={onLayoutRootView}
+    >
+      <TestScreen />
+      {/* <HomeScreen /> */}
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    padding: 20,
+    backgroundColor: "#fff",
+    // alignItems: "center",
+    // justifyContent: "center",
+    backgroundColor: Colors.Dirty_White,
   },
 });
