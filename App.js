@@ -3,6 +3,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import React, { useCallback, useEffect, useState } from "react";
 import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import Navigation from "./Components/Partials/Navigation/Navigation";
 import CompetitionScreen from "./Screens/CompetitionScreen/CompetitionScreen";
 import HomeScreen from "./Screens/HomeScreen/HomeScreen";
 import TestScreen from "./Screens/TestScreen/TestScreen";
@@ -39,8 +40,9 @@ export default function App() {
       onLayout={onLayoutRootView}
     >
       {/* <TestScreen /> */}
-      {/* <HomeScreen /> */}
-      <CompetitionScreen />
+      <HomeScreen />
+      {/* <CompetitionScreen /> */}
+      <Navigation />
     </SafeAreaView>
   );
 }
