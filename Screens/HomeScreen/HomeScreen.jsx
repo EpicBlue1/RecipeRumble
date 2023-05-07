@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { Image, ImageBackground, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import CompetitionBox from '../../Components/Common/CompetitionBox/CompetitionBox'
 import { Global } from '../../Utils/GlobalStyles'
 import { HomeStyles } from './HomeScreenStyles'
@@ -7,8 +7,29 @@ import { HomeStyles } from './HomeScreenStyles'
 const HomeScreen = () => {
   return (
     <View style={HomeStyles.Container}>
-        <Text style={Global.HeadingOne}>Home</Text>
-        <CompetitionBox></CompetitionBox>
+        <View style={HomeStyles.TopContainer}>
+            <ImageBackground style={HomeStyles.Logo} source={require("../../assets/Logo.png")}/>
+            <Text style={ [Global.HeadingTwo, HomeStyles.Intro]}>Welcome back Reinhardt</Text>
+        </View>
+        <Text style={Global.HeadingTwo}>Next Event:</Text>
+
+        <TouchableOpacity style={HomeStyles.ButtonVoteSub}>
+                <ImageBackground style={HomeStyles.IconButt} source={require("../../assets/icons/HeartDark.png")}/>
+                <Text style={ [Global.HeadingTwo, HomeStyles.ButtonText]}>Vote</Text>
+                <View style={HomeStyles.IconButtBack}>
+                    <ImageBackground style={HomeStyles.IconButt} source={require("../../assets/icons/Play.png")}/>
+                </View>            
+            </TouchableOpacity>
+
+        <Text style={Global.HeadingTwo}>Competitions:</Text>
+        <View style={HomeStyles.Competitions}>
+          <ScrollView>
+            <CompetitionBox></CompetitionBox>
+            <CompetitionBox></CompetitionBox>
+            <CompetitionBox></CompetitionBox>
+            <CompetitionBox></CompetitionBox>
+          </ScrollView>
+        </View>
     </View>
   )
 }
