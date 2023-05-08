@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         bottom: 0,
         borderRadius: 10,
-        backgroundColor: Colors.Dirty_White_Dark,
+        backgroundColor: Colors.Dirty_White_Darker,
         borderRadius: 10,
         shadowColor: "#464646",
         shadowOffset: {

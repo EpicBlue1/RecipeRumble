@@ -49,8 +49,8 @@ export default function App() {
       {/* <VotingScreen /> */}
       {/* <CompetitionScreen /> */}
       {/* <ResultsScreen /> */}
-      <Login />
-      {/* <Register /> */}
+      {/* <Login /> */}
+      <Register />
       <Navigation />
     </SafeAreaView>
   );

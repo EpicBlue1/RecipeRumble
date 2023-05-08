@@ -7,7 +7,7 @@ import { LoginStyles } from './RegisterStyles'
 const Register = () => {
   return (
     <View style={LoginStyles.Container}>
-        <ImageBackground style={LoginStyles.Image} source={require("../../assets/Backgrounds/Carrot_BackGround.png")}>
+        <ImageBackground style={LoginStyles.Image} source={require("../../assets/Backgrounds/Leaf_Background.png")}>
             <Image style={LoginStyles.Logo} source={require("../../assets/Logo.png")}/>
         </ImageBackground>
 
@@ -18,10 +18,10 @@ const Register = () => {
             </View>
 
             <View style={LoginStyles.InputContainer}>
-                <TextInput style={Global.InputStyle} editable placeholder='Email' keyboardType='email-address' />
-                <TextInput style={Global.InputStyle} keyboardType='default' secureTextEntry={true} placeholder='Password' />
-                <TextInput style={Global.InputStyle} editable placeholder='Email' keyboardType='email-address' />
-                <TextInput style={Global.InputStyle} keyboardType='default' secureTextEntry={true} placeholder='Password' />
+                <TextInput style={Global.InputStyle} editable placeholder='Username' keyboardType='email-address' />
+                <TextInput style={Global.InputStyle} keyboardType='default' secureTextEntry={true} placeholder='Email' />
+                <TextInput style={Global.InputStyle} editable placeholder='Password' keyboardType='email-address' />
+                <TextInput style={Global.InputStyle} keyboardType='default' secureTextEntry={true} placeholder='Confirm Password' />
             </View>
 
             <Button ButtonType={'Primary'} ButText={"Login"}/>

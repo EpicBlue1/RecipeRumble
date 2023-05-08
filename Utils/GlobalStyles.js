@@ -39,17 +39,17 @@ export const Global = StyleSheet.create({
   InputStyle: {
     width: 320,
     height: 50,
-    backgroundColor: Colors.Dirty_White_Dark,
+    backgroundColor: Colors.Dirty_White_Darker,
     borderRadius: 10,
     justifyContent: "center",
     padding: 10,
-    shadowColor: "#464646",
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowOpacity: 0.08,
-    shadowRadius: 5,
-    elevation: 5,
+    // shadowColor: "#464646",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 3,
+    // },
+    // shadowOpacity: 0.08,
+    // shadowRadius: 5,
+    // elevation: 5,
   },
 });
