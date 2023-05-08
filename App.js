@@ -7,6 +7,7 @@ import Navigation from "./Components/Partials/Navigation/Navigation";
 import CompetitionScreen from "./Screens/CompetitionScreen/CompetitionScreen";
 import HomeScreen from "./Screens/HomeScreen/HomeScreen";
 import TestScreen from "./Screens/TestScreen/TestScreen";
+import VotingScreen from "./Screens/VotingScreen/VotingScreen";
 import { Global } from "./Utils/GlobalStyles";
 import { Colors } from "./Utils/ReUsables";
 
@@ -40,7 +41,8 @@ export default function App() {
       onLayout={onLayoutRootView}
     >
       {/* <TestScreen /> */}
-      <HomeScreen />
+      {/* <HomeScreen /> */}
+      <VotingScreen />
       {/* <CompetitionScreen /> */}
       <Navigation />
     </SafeAreaView>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import CompetitionBox from '../../Components/Common/CompetitionBox/CompetitionBox'
+import Voting from '../../Components/Common/VoteIng/Voting'
 import Button from '../../Components/Partials/Button/Button'
 import { Global } from '../../Utils/GlobalStyles'
 
@@ -14,6 +15,7 @@ const TestScreen = () => {
       <Button ButtonType={'Primary'} ButText={'Primary'}></Button>
       <Button ButtonType={'Secondary'} ButText={'Secondary'}></Button>
       <CompetitionBox></CompetitionBox>
+      <Voting/>
     </View>
   )
 }
