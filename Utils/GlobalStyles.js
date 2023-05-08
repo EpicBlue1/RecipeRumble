@@ -36,4 +36,14 @@ export const Global = StyleSheet.create({
     flex: 1,
     paddingTop: Platform.OS === "android" ? 30 : 0,
   },
+  InputStyle: {
+    width: 320,
+    height: 50,
+    backgroundColor: Colors.Dirty_White_Dark,
+    borderRadius: 10,
+    justifyContent: "center",
+    padding: 10,
+    borderColor: Colors.Gray,
+    borderWidth: 3,
+  },
 });
