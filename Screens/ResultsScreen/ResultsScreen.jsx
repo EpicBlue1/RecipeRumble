@@ -7,7 +7,7 @@ import { ResultsStyles } from './ResultsScreenStyles'
 const ResultsScreen = () => {
   return (
     <View style={ResultsStyles.Container}>
-        <ImageBackground style={ResultsStyles.Image} source={require("../../assets/icon.png")}>
+        <ImageBackground style={ResultsStyles.Image} source={require("../../assets/Test.png")}>
             <Text style={Global.HeadingOne}>Title</Text>
             <Text style={Global.HeadingThree}>Results</Text>
         </ImageBackground>

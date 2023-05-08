@@ -7,7 +7,7 @@ const ResultsTopBox = () => {
   return (
     <View style={styles.Container}>
         <View>
-            <ImageBackground style={styles.image} source={require("../../../assets/icon.png")}>
+            <ImageBackground style={styles.image} source={require("../../../assets/Test.png")}>
                 <View style={styles.score}>
                     <Text>120</Text>
                 </View>

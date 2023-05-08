@@ -28,8 +28,6 @@ const Login = () => {
                 <Text style={LoginStyles.Account}>Don't have an account?</Text><Text style={LoginStyles.AccountBold}>Sign Up</Text>
             </View>
         </View>
-
-
     </View>
   )
 }

@@ -30,8 +30,6 @@ const Register = () => {
                 <Text style={LoginStyles.Account}>Already have an account?</Text><Text style={LoginStyles.AccountBold}>Login</Text>
             </View>
         </View>
-
-
     </View>
   )
 }
