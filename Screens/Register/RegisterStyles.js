@@ -35,7 +35,7 @@ export const LoginStyles = StyleSheet.create({
     color: Colors.Red,
   },
   InputContainer: {
-    height: 120,
+    height: 260,
     justifyContent: "space-between",
   },
 });

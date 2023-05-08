@@ -3,7 +3,7 @@ import { Colors } from "../../../Utils/ReUsables";
 
 export const ButtonStyles = StyleSheet.create({
   primary: {
-    width: 300,
+    width: 320,
     height: 55,
     backgroundColor: Colors.Green,
     display: "flex",
@@ -20,7 +20,7 @@ export const ButtonStyles = StyleSheet.create({
     elevation: 5,
   },
   secondary: {
-    width: 300,
+    width: 320,
     height: 55,
     backgroundColor: Colors.Dirty_White,
     borderWidth: 3,

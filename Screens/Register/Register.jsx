@@ -2,9 +2,9 @@ import React from 'react'
 import { Image, ImageBackground, StyleSheet, Text, TextInput, View } from 'react-native'
 import Button from '../../Components/Partials/Button/Button'
 import { Global } from '../../Utils/GlobalStyles'
-import { LoginStyles } from './LoginStyles'
+import { LoginStyles } from './RegisterStyles'
 
-const Login = () => {
+const Register = () => {
   return (
     <View style={LoginStyles.Container}>
         <ImageBackground style={LoginStyles.Image} source={require("../../assets/Backgrounds/Carrot_BackGround.png")}>
@@ -13,11 +13,13 @@ const Login = () => {
 
         <View style={LoginStyles.BottomContainer}>
             <View>
-                <Text style={Global.HeadingOne}>Welcome back</Text>
-                <Text style={Global.HeadingThree}>Login to continue</Text>
+                <Text style={Global.HeadingOne}>Join today!</Text>
+                <Text style={Global.HeadingThree}>Sign Up to continue</Text>
             </View>
 
             <View style={LoginStyles.InputContainer}>
+                <TextInput style={Global.InputStyle} editable placeholder='Email' keyboardType='email-address' />
+                <TextInput style={Global.InputStyle} keyboardType='default' secureTextEntry={true} placeholder='Password' />
                 <TextInput style={Global.InputStyle} editable placeholder='Email' keyboardType='email-address' />
                 <TextInput style={Global.InputStyle} keyboardType='default' secureTextEntry={true} placeholder='Password' />
             </View>
@@ -25,7 +27,7 @@ const Login = () => {
             <Button ButtonType={'Primary'} ButText={"Login"}/>
 
             <View style={{flexDirection: 'row'}}>
-                <Text style={LoginStyles.Account}>Don't have an account?</Text><Text style={LoginStyles.AccountBold}>Sign Up</Text>
+                <Text style={LoginStyles.Account}>Already have an account?</Text><Text style={LoginStyles.AccountBold}>Login</Text>
             </View>
         </View>
 
@@ -34,5 +36,5 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Register
 

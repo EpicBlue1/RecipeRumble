@@ -7,6 +7,7 @@ const Navigation = () => {
     <View style={styles.Container}>
         <Image style={styles.Icon} source={require("../../../assets/icons/ArrowLeft.png")}/>
         <Image style={styles.Icon} source={require("../../../assets/icons/Home.png")}/>
+        <Image style={styles.Icon} source={require("../../../assets/icons/Setting.png")}/>
         <Image style={styles.Profile} source={require("../../../assets/ProfileTemp.jpg")}/>
     </View>
   )

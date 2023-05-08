@@ -6,7 +6,7 @@ import { CompetitionBoxStyles } from './CompetitionBoxStyles'
 const CompetitionBox = () => {
   return (
     <View style={CompetitionBoxStyles.Container}>
-        <Image style={CompetitionBoxStyles.Image} source={require("../../../assets/icon.png")}/>
+        <Image style={CompetitionBoxStyles.Image} source={require("../../../assets/Test.png")}/>
         <Text style={Global.CompetitionFont}>CompetitionBox</Text>
         <View style={CompetitionBoxStyles.innerContainer}>
             <Image style={CompetitionBoxStyles.Icon} source={require("../../../assets/icons/Two-user.png")}/>

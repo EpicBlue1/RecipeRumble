@@ -21,7 +21,7 @@ const Voting = ({VoteImage, Description}) => {
 
   return (
 
-    <ImageBackground style={ShowDesc ? VotingStyles.Container : VotingStyles.ContainerTall } source={require("../../../assets/icon.png")}>
+    <ImageBackground style={ShowDesc ? VotingStyles.Container : VotingStyles.ContainerTall } source={require("../../../assets/Test.png")}>
         <TouchableOpacity style={ Voted ? [VotingStyles.Overlay, VotingStyles.Voted] : [VotingStyles.Overlay] }>
             <TouchableOpacity onPress={Vote} style={  VotingStyles.HeartContainer  }>
                 <Image style={ Voted ? VotingStyles.Heart : [VotingStyles.HeartContainer, VotingStyles.Hide ]} source={require("../../../assets/icons/Heart.png")}/>

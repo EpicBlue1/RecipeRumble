@@ -7,6 +7,7 @@ import Navigation from "./Components/Partials/Navigation/Navigation";
 import CompetitionScreen from "./Screens/CompetitionScreen/CompetitionScreen";
 import HomeScreen from "./Screens/HomeScreen/HomeScreen";
 import Login from "./Screens/Login/Login";
+import Register from "./Screens/Register/Register";
 import ResultsScreen from "./Screens/ResultsScreen/ResultsScreen";
 import TestScreen from "./Screens/TestScreen/TestScreen";
 import VotingScreen from "./Screens/VotingScreen/VotingScreen";
@@ -49,6 +50,7 @@ export default function App() {
       {/* <CompetitionScreen /> */}
       {/* <ResultsScreen /> */}
       <Login />
+      {/* <Register /> */}
       <Navigation />
     </SafeAreaView>
   );
