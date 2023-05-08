@@ -80,4 +80,12 @@ export const CompStyles = StyleSheet.create({
   ButtonText: {
     width: 125,
   },
+  SubmissionSection: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    height: 40,
+    width: null,
+    paddingRight: 20,
+  },
 });

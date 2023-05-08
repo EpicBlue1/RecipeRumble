@@ -8,6 +8,7 @@ const CompetitionScreen = () => {
     <View style={CompStyles.Container}>
         <ImageBackground style={CompStyles.Image} source={require("../../assets/icon.png")}>
             <Text style={Global.HeadingOne}>Title</Text>
+            <Text style={Global.HeadingThree}>Name and surname</Text>
             <View style={CompStyles.innerContainer}>
                 <Image style={CompStyles.Icon} source={require("../../assets/icons/Two-user.png")}/>
                 <Text style={Global.Paragraph}>124</Text>
@@ -20,7 +21,11 @@ const CompetitionScreen = () => {
                 </ScrollView>
             </View>
 
-            <Text style={Global.HeadingTwo}>Submissions:</Text>
+            <View style={CompStyles.SubmissionSection}>
+                <Text style={Global.HeadingTwo}>Submissions:</Text>
+                <Text style={Global.HeadingTwo}>150</Text>
+            </View>
+            
             <Text style={Global.HeadingThree}>1d 5h 32m left</Text>
 
             <TouchableOpacity style={CompStyles.ButtonVoteSub}>

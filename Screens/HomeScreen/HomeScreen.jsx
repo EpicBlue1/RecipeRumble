@@ -14,20 +14,27 @@ const HomeScreen = () => {
         <Text style={Global.HeadingTwo}>Next Event:</Text>
 
         <TouchableOpacity style={HomeStyles.ButtonVoteSub}>
-                <ImageBackground style={HomeStyles.IconButt} source={require("../../assets/icons/HeartDark.png")}/>
-                <Text style={ [Global.HeadingTwo, HomeStyles.ButtonText]}>Vote</Text>
-                <View style={HomeStyles.IconButtBack}>
-                    <ImageBackground style={HomeStyles.IconButt} source={require("../../assets/icons/Play.png")}/>
-                </View>            
-            </TouchableOpacity>
+          <ImageBackground style={HomeStyles.IconButt} source={require("../../assets/icons/HeartDark.png")}/>
+          <View>
+            <Text style={ [Global.HeadingThree, HomeStyles.ButtonText]}>5h 32m</Text>
+            <Text style={ [Global.Paragraph, HomeStyles.ButtonText]}>Something sweet</Text>
+          </View>
+          <View style={HomeStyles.IconButtBack}>
+              <ImageBackground style={HomeStyles.IconButt} source={require("../../assets/icons/Play.png")}/>
+          </View>            
+        </TouchableOpacity>
 
         <Text style={Global.HeadingTwo}>Competitions:</Text>
         <View style={HomeStyles.Competitions}>
           <ScrollView>
-            <CompetitionBox></CompetitionBox>
-            <CompetitionBox></CompetitionBox>
-            <CompetitionBox></CompetitionBox>
-            <CompetitionBox></CompetitionBox>
+            <View style={HomeStyles.innerContainerScroll}>
+              <CompetitionBox></CompetitionBox>
+              <CompetitionBox></CompetitionBox>
+              <CompetitionBox></CompetitionBox>
+              <CompetitionBox></CompetitionBox>
+              <CompetitionBox></CompetitionBox>
+              <CompetitionBox></CompetitionBox>
+            </View>
           </ScrollView>
         </View>
     </View>

@@ -6,6 +6,7 @@ import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import Navigation from "./Components/Partials/Navigation/Navigation";
 import CompetitionScreen from "./Screens/CompetitionScreen/CompetitionScreen";
 import HomeScreen from "./Screens/HomeScreen/HomeScreen";
+import ResultsScreen from "./Screens/ResultsScreen/ResultsScreen";
 import TestScreen from "./Screens/TestScreen/TestScreen";
 import VotingScreen from "./Screens/VotingScreen/VotingScreen";
 import { Global } from "./Utils/GlobalStyles";
@@ -44,6 +45,7 @@ export default function App() {
       {/* <HomeScreen /> */}
       <VotingScreen />
       {/* <CompetitionScreen /> */}
+      {/* <ResultsScreen /> */}
       <Navigation />
     </SafeAreaView>
   );

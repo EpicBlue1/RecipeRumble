@@ -4,7 +4,7 @@ import { Colors } from "../../../Utils/ReUsables";
 export const CompetitionBoxStyles = StyleSheet.create({
   Container: {
     width: 150,
-    height: 160,
+    height: 180,
     backgroundColor: Colors.Dirty_White_Dark,
     borderRadius: 10,
     shadowColor: "#464646",
@@ -18,6 +18,10 @@ export const CompetitionBoxStyles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     justifyContent: "space-around",
+    float: "left",
+    margin: 10,
+    paddingTop: 5,
+    paddingBottom: 5,
   },
   Image: {
     width: 120,

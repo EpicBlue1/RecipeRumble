@@ -1,41 +1,22 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { Colors } from "../../Utils/ReUsables";
 
-export const HomeStyles = StyleSheet.create({
+export const ResultsStyles = StyleSheet.create({
   Container: {
-    padding: 20,
-    height: 780,
-    display: "flex",
-    justifyContent: "space-between",
+    // padding: 20,
   },
-  TopContainer: {
+  Image: {
+    height: 150,
     width: null,
-    height: 120,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
     display: "flex",
-    flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
-    paddingTop: 20,
+    justifyContent: "space-evenly",
   },
-  Intro: {
-    width: 200,
-  },
-  Logo: {
-    width: 100,
-    height: 100,
-    borderRadius: 100,
-    shadowColor: "#464646",
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowOpacity: 0.08,
-    shadowRadius: 5,
-    elevation: 10,
-  },
-  Competitions: {
-    width: null,
-    height: 400,
+  Icon: {
+    width: 24,
+    height: 24,
   },
   IconButt: {
     width: 32,
@@ -68,7 +49,7 @@ export const HomeStyles = StyleSheet.create({
     justifyContent: "space-around",
   },
   BottomContainer: {
-    height: 520,
+    height: 600,
     padding: 20,
     display: "flex",
     flexDirection: "column",
@@ -76,7 +57,7 @@ export const HomeStyles = StyleSheet.create({
   },
   ButtonVoteSub: {
     width: null,
-    height: 80,
+    height: 90,
     backgroundColor: Colors.Dirty_White_Dark,
     borderRadius: 10,
     display: "flex",
@@ -99,10 +80,20 @@ export const HomeStyles = StyleSheet.create({
   ButtonText: {
     width: 125,
   },
-  innerContainerScroll: {
-    flex: 1,
+  SubmissionSection: {
+    display: "flex",
     flexDirection: "row",
-    flexWrap: "wrap",
-    alignItems: "center",
+    justifyContent: "space-between",
+    height: 40,
+    width: null,
+  },
+  ResultsSection: {
+    width: null,
+    height: 35,
+    justifyContent: "space-between",
+    flexDirection: "row",
+  },
+  ParticipantsResults: {
+    height: 180,
   },
 });
