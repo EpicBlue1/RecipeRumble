@@ -18,7 +18,7 @@ const CompetitionScreen = () => {
         <View style={CompStyles.BottomContainer}>
             <View style={CompStyles.Description}>
                 {/* <ScrollView > */}
-                    <Text style={ [Global.Paragraph]}>Get ready to show off your culinary skills in the ultimate pasta cooking competition! This event is open to all pasta lovers who want to showcase their creativity in the kitchen. Whether you prefer classic Italian flavors or want to experiment with unique ingredients, this competition is the perfect opportunity to let your inner chef shine. Get ready to show off your culinary skills in the ultimate pasta cooking competition! This event is open to all pasta lovers who want to showcase their creativity in the kitchen. Whether you prefer classic Italian flavors or want to experiment with unique ingredients, this competition is the perfect opportunity to let your inner chef shine</Text>
+                    <Text style={ [Global.Paragraph]}>Get ready to show off your culinary skills in the ultimate pasta cooking competition! This event is open to all pasta lovers who want to showcase their creativity in the kitchen. Whether you prefer classic Italian flavors or want to experiment with unique ingredients, this competition is the perfect opportunity to let your inner chef shine. Get ready to show off your culinary skills in the ultimate pasta cooking competition! </Text>
                 {/* </ScrollView> */}
             </View>
 

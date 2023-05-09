@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
-import { Colors } from "../../../Utils/ReUsables";
+import { Colors, Shadow } from "../../../Utils/ReUsables";
 
 export const VotingStyles = StyleSheet.create({
   Container: {
@@ -15,6 +15,7 @@ export const VotingStyles = StyleSheet.create({
     elevation: 5,
     borderRadius: 10,
     marginBottom: 10,
+    Shadow,
   },
   ContainerTall: {
     height: 340,
