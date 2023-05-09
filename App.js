@@ -49,10 +49,10 @@ export default function App() {
       {/* <HomeScreen /> */}
       {/* <VotingScreen /> */}
       {/* <CompetitionScreen /> */}
-      {/* <ResultsScreen /> */}
+      <ResultsScreen />
       {/* <Login /> */}
       {/* <Register /> */}
-      <ProfileScreen />
+      {/* <ProfileScreen /> */}
       <Navigation />
     </SafeAreaView>
   );
