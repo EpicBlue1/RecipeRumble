@@ -25,14 +25,14 @@ export const HomeStyles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 100,
-    shadowColor: "#464646",
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowOpacity: 0.08,
-    shadowRadius: 5,
-    elevation: 10,
+    // shadowColor: "#464646",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 3,
+    // },
+    // shadowOpacity: 0.08,
+    // shadowRadius: 5,
+    // elevation: 10,
   },
   Competitions: {
     width: null,

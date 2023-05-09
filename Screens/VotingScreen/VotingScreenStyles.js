@@ -6,8 +6,7 @@ export const VotingScreenStyles = StyleSheet.create({
     // padding: 20,
   },
   TopContainer: {
-    height: 140,
-    width: null,
+    height: 120,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
     display: "flex",
@@ -24,12 +23,13 @@ export const VotingScreenStyles = StyleSheet.create({
     elevation: 5,
   },
   BottomContainer: {
-    height: 600,
     width: null,
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
     alignItems: "center",
     paddingTop: 10,
+    paddingBottom: 75,
+    paddingTop: 20,
   },
 });

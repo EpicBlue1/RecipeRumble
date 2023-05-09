@@ -19,24 +19,24 @@ const ProfileScreen = () => {
                 </View>
             </View>
         </ImageBackground>
+
         <View style={ProfileStyles.BottomContainer}>
             <Text style={Global.HeadingTwo}>
                 Previous Submissions:
             </Text>
-        <View style={ProfileStyles.Competitions}>
-          <ScrollView>
-            <View style={ProfileStyles.innerContainerScroll}>
-              <ProfileSubmissions/>
-              <ProfileSubmissions/>
-              <ProfileSubmissions/>
-              <ProfileSubmissions/>
-              <ProfileSubmissions/>
-            </View>
-          </ScrollView>
-        </View>
+          <View style={ProfileStyles.Competitions}>
+            <ScrollView>
+              <View style={ProfileStyles.innerContainerScroll}>
+                <ProfileSubmissions/>
+                <ProfileSubmissions/>
+                <ProfileSubmissions/>
+                <ProfileSubmissions/>
+                <ProfileSubmissions/>
+              </View>
+            </ScrollView>
+          </View>
 
-        <Button ButtonType={'Secondary'} ButText={'Sign Out'}/>
-            
+          <Button ButtonType={'Secondary'} ButText={'Sign Out'}/>
         </View>
     </View>
   )

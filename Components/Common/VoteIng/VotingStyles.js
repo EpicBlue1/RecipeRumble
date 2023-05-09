@@ -3,8 +3,7 @@ import { Colors } from "../../../Utils/ReUsables";
 
 export const VotingStyles = StyleSheet.create({
   Container: {
-    width: 360,
-    height: 270,
+    // height: 270,
     backgroundColor: Colors.Dirty_White_Dark,
     shadowColor: "#464646",
     shadowOffset: {
@@ -18,7 +17,6 @@ export const VotingStyles = StyleSheet.create({
     marginBottom: 10,
   },
   ContainerTall: {
-    width: 360,
     height: 340,
     backgroundColor: Colors.Dirty_White_Dark,
     shadowColor: "#464646",

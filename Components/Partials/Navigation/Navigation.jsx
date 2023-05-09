@@ -7,7 +7,7 @@ const Navigation = () => {
     <View style={styles.Container}>
         <Image style={styles.Icon} source={require("../../../assets/icons/ArrowLeft.png")}/>
         <Image style={styles.Icon} source={require("../../../assets/icons/Home.png")}/>
-        <Image style={styles.Icon} source={require("../../../assets/icons/Setting.png")}/>
+        {/* <Image style={styles.Icon} source={require("../../../assets/icons/Setting.png")}/> */}
         <Image style={styles.Profile} source={require("../../../assets/ProfileTemp.jpg")}/>
     </View>
   )
@@ -18,7 +18,7 @@ export default Navigation
 const styles = StyleSheet.create({
     Container: {
         position: 'absolute',
-        width: 360,
+        width: "100%",
         height: 65,
         backgroundColor: 'red',
         alignSelf: 'center',

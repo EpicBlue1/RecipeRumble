@@ -46,13 +46,13 @@ export default function App() {
     >
       {/* <StatusBar hidden /> */}
       {/* <TestScreen /> */}
-      <HomeScreen />
+      {/* <HomeScreen /> */}
       {/* <VotingScreen /> */}
       {/* <CompetitionScreen /> */}
       {/* <ResultsScreen /> */}
       {/* <Login /> */}
       {/* <Register /> */}
-      {/* <ProfileScreen /> */}
+      <ProfileScreen />
       <Navigation />
     </SafeAreaView>
   );

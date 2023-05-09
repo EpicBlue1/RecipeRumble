@@ -29,7 +29,7 @@ export const Global = StyleSheet.create({
   },
   Paragraph: {
     fontFamily: "karla",
-    fontSize: 14,
+    fontSize: 16,
     color: Colors.Gray,
   },
   droidSafeArea: {

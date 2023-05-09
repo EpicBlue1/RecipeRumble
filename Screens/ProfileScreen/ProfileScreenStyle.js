@@ -38,7 +38,7 @@ export const ProfileStyles = StyleSheet.create({
   },
   Competitions: {
     marginTop: 30,
-    height: 380,
+    height: "60%",
     // width: 320,
   },
 });

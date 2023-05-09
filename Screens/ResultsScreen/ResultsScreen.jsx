@@ -7,6 +7,7 @@ import { ResultsStyles } from './ResultsScreenStyles'
 const ResultsScreen = () => {
   return (
     <View style={ResultsStyles.Container}>
+        <ScrollView>
         <ImageBackground style={ResultsStyles.Image} source={require("../../assets/Test.png")}>
             <Text style={Global.HeadingOne}>Title</Text>
             <Text style={Global.HeadingThree}>Results</Text>
@@ -24,34 +25,34 @@ const ResultsScreen = () => {
                 <Text style={Global.HeadingTwo}>Score</Text>
             </View>
             <View style={ResultsStyles.ParticipantsResults}>
-                <ScrollView>
-                    <View style={ResultsStyles.ResultsSection}>
-                        <Text style={Global.HeadingThree}>Name</Text>
-                        <Text style={Global.HeadingThree}>180</Text>
-                    </View>
-                    <View style={ResultsStyles.ResultsSection}>
-                        <Text style={Global.HeadingThree}>Name</Text>
-                        <Text style={Global.HeadingThree}>180</Text>
-                    </View>
-                    <View style={ResultsStyles.ResultsSection}>
-                        <Text style={Global.HeadingThree}>Name</Text>
-                        <Text style={Global.HeadingThree}>180</Text>
-                    </View>
-                    <View style={ResultsStyles.ResultsSection}>
-                        <Text style={Global.HeadingThree}>Name</Text>
-                        <Text style={Global.HeadingThree}>180</Text>
-                    </View>
-                    <View style={ResultsStyles.ResultsSection}>
-                        <Text style={Global.HeadingThree}>Name</Text>
-                        <Text style={Global.HeadingThree}>180</Text>
-                    </View>
-                    <View style={ResultsStyles.ResultsSection}>
-                        <Text style={Global.HeadingThree}>Name</Text>
-                        <Text style={Global.HeadingThree}>180</Text>
-                    </View>
-                </ScrollView>
+                <View style={ResultsStyles.ResultsSection}>
+                    <Text style={Global.HeadingThree}>Name</Text>
+                    <Text style={Global.HeadingThree}>180</Text>
+                </View>
+                <View style={ResultsStyles.ResultsSection}>
+                    <Text style={Global.HeadingThree}>Name</Text>
+                    <Text style={Global.HeadingThree}>180</Text>
+                </View>
+                <View style={ResultsStyles.ResultsSection}>
+                    <Text style={Global.HeadingThree}>Name</Text>
+                    <Text style={Global.HeadingThree}>180</Text>
+                </View>
+                <View style={ResultsStyles.ResultsSection}>
+                    <Text style={Global.HeadingThree}>Name</Text>
+                    <Text style={Global.HeadingThree}>180</Text>
+                </View>
+                <View style={ResultsStyles.ResultsSection}>
+                    <Text style={Global.HeadingThree}>Name</Text>
+                    <Text style={Global.HeadingThree}>180</Text>
+                </View>
+                <View style={ResultsStyles.ResultsSection}>
+                    <Text style={Global.HeadingThree}>Name</Text>
+                    <Text style={Global.HeadingThree}>180</Text>
+                </View>
             </View>
         </View>
+        </ScrollView>
+       
     </View> 
   )
 }

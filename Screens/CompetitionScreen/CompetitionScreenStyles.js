@@ -49,13 +49,14 @@ export const CompStyles = StyleSheet.create({
     justifyContent: "space-around",
   },
   BottomContainer: {
-    height: 520,
     padding: 20,
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-between",
+    justifyContent: "space-evenly",
+    paddingBottom: 85,
   },
   ButtonVoteSub: {
+    marginTop: 30,
     width: null,
     height: 90,
     backgroundColor: Colors.Dirty_White_Dark,
@@ -75,7 +76,8 @@ export const CompStyles = StyleSheet.create({
     elevation: 5,
   },
   Description: {
-    height: 120,
+    marginBottom: 35,
+    // height: 120,
   },
   ButtonText: {
     width: 125,

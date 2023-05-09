@@ -4,6 +4,7 @@ import { Global } from '../../../Utils/GlobalStyles'
 import { VotingStyles } from './VotingStyles'
 
 const Voting = ({VoteImage, Description}) => {
+    //useMemo
     const [Voted, setVoted] = useState(false);
     const [ShowDesc, setShowDesc] = useState(true)
 

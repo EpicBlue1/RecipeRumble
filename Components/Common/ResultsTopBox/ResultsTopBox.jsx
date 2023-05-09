@@ -42,7 +42,8 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         paddingLeft: 10,
-        paddingRight: 10
+        paddingRight: 10,
+        marginTop: 20
     },
     image: {
         width: 60,

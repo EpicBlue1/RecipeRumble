@@ -49,11 +49,11 @@ export const ResultsStyles = StyleSheet.create({
     justifyContent: "space-around",
   },
   BottomContainer: {
-    height: 600,
     padding: 20,
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
+    paddingBottom: 100,
   },
   ButtonVoteSub: {
     width: null,
@@ -81,6 +81,7 @@ export const ResultsStyles = StyleSheet.create({
     width: 125,
   },
   SubmissionSection: {
+    marginTop: 25,
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
