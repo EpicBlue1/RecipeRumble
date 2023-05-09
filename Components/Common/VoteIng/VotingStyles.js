@@ -113,7 +113,7 @@ export const VotingStyles = StyleSheet.create({
     width: 360,
     padding: 10,
     height: 140,
-    backgroundColor: "#f2f2f2",
+    backgroundColor: "#ffffff",
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
   },

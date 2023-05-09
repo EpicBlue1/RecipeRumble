@@ -7,16 +7,18 @@ import { HomeStyles } from './HomeScreenStyles'
 const HomeScreen = () => {
   return (
     <View style={HomeStyles.Container}>
-        <View style={HomeStyles.TopContainer}>
+      <ScrollView>
+      <View style={HomeStyles.TopContainer}>
             <ImageBackground style={HomeStyles.Logo} source={require("../../assets/Logo.png")}/>
             <Text style={ [Global.HeadingTwo, HomeStyles.Intro]}>Welcome back Reinhardt</Text>
         </View>
+        
         <Text style={Global.HeadingTwo}>Next Event:</Text>
 
         <TouchableOpacity style={HomeStyles.ButtonVoteSub}>
           <ImageBackground style={HomeStyles.IconButt} source={require("../../assets/icons/HeartDark.png")}/>
           <View>
-            <Text style={ [Global.HeadingThree, HomeStyles.ButtonText]}>5h 32m</Text>
+            <Text style={ [Global.HeadingTwo, HomeStyles.ButtonText]}>5h 32m</Text>
             <Text style={ [Global.Paragraph, HomeStyles.ButtonText]}>Something sweet</Text>
           </View>
           <View style={HomeStyles.IconButtBack}>
@@ -26,7 +28,7 @@ const HomeScreen = () => {
 
         <Text style={Global.HeadingTwo}>Competitions:</Text>
         <View style={HomeStyles.Competitions}>
-          <ScrollView>
+          {/* <ScrollView> */}
             <View style={HomeStyles.innerContainerScroll}>
               <CompetitionBox></CompetitionBox>
               <CompetitionBox></CompetitionBox>
@@ -35,8 +37,9 @@ const HomeScreen = () => {
               <CompetitionBox></CompetitionBox>
               <CompetitionBox></CompetitionBox>
             </View>
-          </ScrollView>
+          {/* </ScrollView> */}
         </View>
+      </ScrollView>
     </View>
   )
 }

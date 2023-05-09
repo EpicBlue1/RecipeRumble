@@ -4,7 +4,6 @@ import { Colors } from "../../Utils/ReUsables";
 export const HomeStyles = StyleSheet.create({
   Container: {
     padding: 20,
-    height: 780,
     display: "flex",
     justifyContent: "space-between",
   },
@@ -14,11 +13,13 @@ export const HomeStyles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
-    paddingTop: 20,
+    marginBottom: 10,
+    // justifyContent: "space-between",
+    // paddingTop: 20,
   },
   Intro: {
     width: 200,
+    marginLeft: "10%",
   },
   Logo: {
     width: 100,
@@ -35,7 +36,9 @@ export const HomeStyles = StyleSheet.create({
   },
   Competitions: {
     width: null,
-    height: 400,
+    marginTop: 15,
+    paddingBottom: 55,
+    // height: 400,
   },
   IconButt: {
     width: 32,
@@ -75,8 +78,10 @@ export const HomeStyles = StyleSheet.create({
     justifyContent: "space-between",
   },
   ButtonVoteSub: {
+    marginTop: 15,
+    marginBottom: 30,
     width: null,
-    height: 80,
+    height: 90,
     backgroundColor: Colors.Dirty_White_Dark,
     borderRadius: 10,
     display: "flex",
@@ -104,5 +109,6 @@ export const HomeStyles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     alignItems: "center",
+    justifyContent: "space-around",
   },
 });

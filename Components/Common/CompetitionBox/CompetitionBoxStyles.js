@@ -3,8 +3,8 @@ import { Colors } from "../../../Utils/ReUsables";
 
 export const CompetitionBoxStyles = StyleSheet.create({
   Container: {
-    width: 150,
-    height: 180,
+    width: "42%",
+    height: 200,
     backgroundColor: Colors.Dirty_White_Dark,
     borderRadius: 10,
     shadowColor: "#464646",
@@ -24,8 +24,8 @@ export const CompetitionBoxStyles = StyleSheet.create({
     paddingBottom: 5,
   },
   Image: {
-    width: 120,
-    height: 70,
+    width: "80%",
+    height: 80,
     borderRadius: 10,
   },
   Icon: {
@@ -33,7 +33,7 @@ export const CompetitionBoxStyles = StyleSheet.create({
     height: 24,
   },
   innerContainer: {
-    width: 120,
+    width: "80%",
     height: 24,
     display: "flex",
     flexDirection: "row",
