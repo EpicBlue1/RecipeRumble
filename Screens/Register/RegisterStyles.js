@@ -16,11 +16,12 @@ export const LoginStyles = StyleSheet.create({
     height: 110,
   },
   BottomContainer: {
-    height: 600,
     display: "flex",
     alignItems: "center",
     flexDirection: "column",
     justifyContent: "space-around",
+    padding: 20,
+    paddingBottom: 100,
   },
   Account: {
     fontFamily: "ubuntu_regular",
@@ -35,6 +36,7 @@ export const LoginStyles = StyleSheet.create({
     color: Colors.Red,
   },
   InputContainer: {
+    marginBottom: 50,
     height: 260,
     justifyContent: "space-between",
   },

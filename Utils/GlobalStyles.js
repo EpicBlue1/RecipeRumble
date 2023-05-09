@@ -37,7 +37,7 @@ export const Global = StyleSheet.create({
     paddingTop: Platform.OS === "android" ? 30 : 0,
   },
   InputStyle: {
-    width: 320,
+    width: 340,
     height: 50,
     backgroundColor: Colors.Dirty_White_Darker,
     borderRadius: 10,

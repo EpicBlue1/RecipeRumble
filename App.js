@@ -50,9 +50,9 @@ export default function App() {
       {/* <VotingScreen /> */}
       {/* <CompetitionScreen /> */}
       {/* <ResultsScreen /> */}
-      {/* <Login /> */}
+      <Login />
       {/* <Register /> */}
-      <ProfileScreen />
+      {/* <ProfileScreen /> */}
       <Navigation />
     </SafeAreaView>
   );
