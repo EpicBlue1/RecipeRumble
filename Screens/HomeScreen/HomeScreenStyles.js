@@ -14,8 +14,6 @@ export const HomeStyles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     marginBottom: 10,
-    // justifyContent: "space-between",
-    // paddingTop: 20,
   },
   Intro: {
     width: 200,
@@ -25,20 +23,11 @@ export const HomeStyles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 100,
-    // shadowColor: "#464646",
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 3,
-    // },
-    // shadowOpacity: 0.08,
-    // shadowRadius: 5,
-    // elevation: 10,
   },
   Competitions: {
     width: null,
     marginTop: 15,
     paddingBottom: 55,
-    // height: 400,
   },
   IconButt: {
     width: 32,

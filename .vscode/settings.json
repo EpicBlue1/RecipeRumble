@@ -1,0 +1,13 @@
+{
+  "workbench.colorTheme": "Monokai Pro (Filter Octagon)",
+  "window.zoomLevel": 0,
+  "editor.fontSize": 14,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.sortImports": true
+  },
+  "[css]": {
+    "editor.suggest.insertMode": "replace"
+  }
+}
