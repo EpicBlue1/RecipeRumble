@@ -27,6 +27,7 @@ const VotingScreen = () => {
           <Voting />
           <Voting />
           <Voting />
+          <Voting />
 
           {/* </ScrollView> */}
         </View>

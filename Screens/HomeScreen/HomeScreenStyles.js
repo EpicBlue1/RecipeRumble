@@ -4,7 +4,6 @@ import { Colors } from "../../Utils/ReUsables";
 export const HomeStyles = StyleSheet.create({
   Container: {
     padding: 20,
-    // display: "flex",
     justifyContent: "space-between",
   },
   TopContainer: {

@@ -56,7 +56,7 @@ export default function App() {
         {/* <StatusBar hidden /> */}
         {/* <TestScreen /> */}
         {/* <HomeScreen /> */}
-        {/* <VotingScreen /> */}
+        <VotingScreen />
         {/* <CompetitionScreen /> */}
         {/* <ResultsScreen /> */}
         {/* <Login /> */}
