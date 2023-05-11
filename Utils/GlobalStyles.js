@@ -25,7 +25,7 @@ export const Global = StyleSheet.create({
   CompetitionFont: {
     fontFamily: "karla_italic",
     fontSize: 18,
-    width: "90%",
+    width: "80%",
     height: 50,
     color: Colors.Gray,
   },

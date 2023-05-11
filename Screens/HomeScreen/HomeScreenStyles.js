@@ -4,7 +4,7 @@ import { Colors } from "../../Utils/ReUsables";
 export const HomeStyles = StyleSheet.create({
   Container: {
     padding: 20,
-    display: "flex",
+    // display: "flex",
     justifyContent: "space-between",
   },
   TopContainer: {
@@ -26,8 +26,8 @@ export const HomeStyles = StyleSheet.create({
   },
   Competitions: {
     width: null,
-    marginTop: 15,
-    paddingBottom: 55,
+    marginTop: 5,
+    paddingBottom: 60,
   },
   IconButt: {
     width: 32,
@@ -68,24 +68,25 @@ export const HomeStyles = StyleSheet.create({
   },
   ButtonVoteSub: {
     marginTop: 15,
-    marginBottom: 30,
-    width: null,
+    marginBottom: 20,
+    width: "100%",
     height: 90,
-    backgroundColor: Colors.Dirty_White_Dark,
+    backgroundColor: Colors.Dirty_White_Darker,
     borderRadius: 10,
+    alignSelf: "center",
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-around",
     borderRadius: 10,
-    shadowColor: "#464646",
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowOpacity: 0.08,
-    shadowRadius: 5,
-    elevation: 5,
+    // shadowColor: "#464646",
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 3,
+    // },
+    // shadowOpacity: 0.08,
+    // shadowRadius: 5,
+    // elevation: 5,
   },
   Description: {
     height: 120,
@@ -98,6 +99,6 @@ export const HomeStyles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     alignItems: "center",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
   },
 });

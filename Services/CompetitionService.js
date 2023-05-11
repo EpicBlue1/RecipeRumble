@@ -1,6 +1,8 @@
 export const CompetitionData = [
   {
     competitionName: "Tasty Treats Recipe",
+    competitionImage:
+      "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=684&q=80",
     description:
       "Welcome to the Tasty Treats Recipe Competition! Show off your culinary prowess by submitting your most mouthwatering recipes. Whether it's a savory dish or a delectable dessert, we want to see what you've got!",
     startTime: "2023-07-10 18:00:00",
@@ -36,6 +38,8 @@ export const CompetitionData = [
   },
   {
     competitionName: "Spicy Delights Cook-Off",
+    competitionImage:
+      "https://images.unsplash.com/photo-1567539549213-cc1697632146?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
     description:
       "Get ready for the Spicy Delights Cook-Off! Showcase your culinary skills by preparing the most tantalizing and fiery dishes. We're looking for the best spicy recipes out there!",
     startTime: "2023-08-20 14:00:00",
@@ -71,6 +75,8 @@ export const CompetitionData = [
   },
   {
     competitionName: "Healthy Eats Challenge",
+    competitionImage:
+      "https://images.unsplash.com/photo-1540337706094-da10342c93d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
     description:
       "Welcome to the Healthy Eats Challenge! Show us your best nutritious and delicious recipes that promote a healthy lifestyle. Let's make eating well exciting and flavorful!",
     startTime: "2023-09-05 10:00:00",

@@ -2,7 +2,13 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import React, { useCallback, useEffect, useState } from "react";
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import {
+  ImageBackground,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import Navigation from "./Components/Partials/Navigation/Navigation";
 import CompetitionScreen from "./Screens/CompetitionScreen/CompetitionScreen";
 import HomeScreen from "./Screens/HomeScreen/HomeScreen";
@@ -44,15 +50,19 @@ export default function App() {
       style={[styles.container, Global.droidSafeArea]}
       onLayout={onLayoutRootView}
     >
-      {/* <StatusBar hidden /> */}
-      {/* <TestScreen /> */}
-      <HomeScreen />
-      {/* <VotingScreen /> */}
-      {/* <CompetitionScreen /> */}
-      {/* <ResultsScreen /> */}
-      {/* <Login /> */}
-      {/* <Register /> */}
-      {/* <ProfileScreen /> */}
+      <ImageBackground
+        source={require("./assets/Backgrounds/AppBackground.png")}
+      >
+        {/* <StatusBar hidden /> */}
+        {/* <TestScreen /> */}
+        {/* <HomeScreen /> */}
+        {/* <VotingScreen /> */}
+        {/* <CompetitionScreen /> */}
+        {/* <ResultsScreen /> */}
+        {/* <Login /> */}
+        {/* <Register /> */}
+        <ProfileScreen />
+      </ImageBackground>
       <Navigation />
     </SafeAreaView>
   );

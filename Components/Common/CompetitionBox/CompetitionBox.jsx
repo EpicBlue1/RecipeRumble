@@ -4,12 +4,13 @@ import { Global } from "../../../Utils/GlobalStyles";
 import { CompetitionBoxStyles } from "./CompetitionBoxStyles";
 
 const CompetitionBox = ({ CompData }) => {
+  const imageSource = {
+    uri: CompData.competitionImage,
+  };
+
   return (
     <View style={CompetitionBoxStyles.Container}>
-      <Image
-        style={CompetitionBoxStyles.Image}
-        source={require("../../../assets/Test.png")}
-      />
+      <Image style={CompetitionBoxStyles.Image} source={imageSource} />
       <Text style={Global.CompetitionFont}>{CompData.competitionName}</Text>
       <View style={CompetitionBoxStyles.innerContainer}>
         <Image

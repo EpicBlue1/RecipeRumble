@@ -57,8 +57,8 @@ const HomeScreen = () => {
         <Text style={Global.HeadingTwo}>Competitions:</Text>
         <View style={HomeStyles.Competitions}>
           <View style={HomeStyles.innerContainerScroll}>
-            {Data.map((item) => {
-              return <CompetitionBox CompData={item} />;
+            {Data.map((item, index) => {
+              return <CompetitionBox key={index} CompData={item} />;
             })}
           </View>
         </View>
