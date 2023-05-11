@@ -1,6 +1,6 @@
-export const TempCompetitionData = [
+export const CompetitionData = [
   {
-    competitionName: "Tasty Treats Recipe Competition",
+    competitionName: "Tasty Treats Recipe",
     description:
       "Welcome to the Tasty Treats Recipe Competition! Show off your culinary prowess by submitting your most mouthwatering recipes. Whether it's a savory dish or a delectable dessert, we want to see what you've got!",
     startTime: "2023-07-10 18:00:00",
@@ -66,6 +66,41 @@ export const TempCompetitionData = [
         votes: 5,
         description:
           "Transport yourself to the flavors of Louisiana with these Cajun-spiced shrimp served with a zesty dipping sauce.",
+      },
+    ],
+  },
+  {
+    competitionName: "Healthy Eats Challenge",
+    description:
+      "Welcome to the Healthy Eats Challenge! Show us your best nutritious and delicious recipes that promote a healthy lifestyle. Let's make eating well exciting and flavorful!",
+    startTime: "2023-09-05 10:00:00",
+    type: "event",
+    competitionDone: false,
+    participants: [],
+    submissions: [
+      {
+        subName: "Quinoa Power Salad",
+        userId: "user123",
+        image: "/path/to/image/quinoa_salad.jpg",
+        votes: 9,
+        description:
+          "Fuel your body with this nutrient-packed quinoa salad loaded with colorful veggies, protein, and a tangy vinaigrette.",
+      },
+      {
+        subName: "Vegan Lentil Curry",
+        userId: "user456",
+        image: "/path/to/image/lentil_curry.jpg",
+        votes: 6,
+        description:
+          "Delight in the aromatic spices and wholesome goodness of this vegan lentil curry that's both nutritious and satisfying.",
+      },
+      {
+        subName: "Fresh Berry Smoothie Bowl",
+        userId: "user789",
+        image: "/path/to/image/smoothie_bowl.jpg",
+        votes: 11,
+        description:
+          "Start your day with a burst of flavors and vitamins with this refreshing smoothie bowl topped with fresh berries and crunchy granola.",
       },
     ],
   },

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import {
   Image,
   ImageBackground,
@@ -9,10 +9,15 @@ import {
   View,
 } from "react-native";
 import CompetitionBox from "../../Components/Common/CompetitionBox/CompetitionBox";
+import { CompetitionData } from "../../Services/CompetitionService";
 import { Global } from "../../Utils/GlobalStyles";
 import { HomeStyles } from "./HomeScreenStyles";
 
 const HomeScreen = () => {
+  const Data = useMemo(() => {
+    return CompetitionData;
+  }, [CompetitionData]);
+
   return (
     <View style={HomeStyles.Container}>
       <ScrollView>
@@ -52,12 +57,9 @@ const HomeScreen = () => {
         <Text style={Global.HeadingTwo}>Competitions:</Text>
         <View style={HomeStyles.Competitions}>
           <View style={HomeStyles.innerContainerScroll}>
-            <CompetitionBox></CompetitionBox>
-            <CompetitionBox></CompetitionBox>
-            <CompetitionBox></CompetitionBox>
-            <CompetitionBox></CompetitionBox>
-            <CompetitionBox></CompetitionBox>
-            <CompetitionBox></CompetitionBox>
+            {Data.map((item) => {
+              return <CompetitionBox CompData={item} />;
+            })}
           </View>
         </View>
       </ScrollView>

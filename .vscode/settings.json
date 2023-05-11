@@ -1,6 +1,6 @@
 {
   "workbench.colorTheme": "Monokai Pro (Filter Octagon)",
-  "window.zoomLevel": 0,
+  "window.zoomLevel": -1,
   "editor.fontSize": 14,
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
