@@ -5,10 +5,10 @@ import { Colors } from "../../../Utils/ReUsables";
 const ProfileSubmissions = () => {
   return (
     <View>
-      <Image
+      <ImageBackground
         style={styles.Container}
         source={require("../../../assets/Test.png")}
-      />
+      ></ImageBackground>
       <Text style={styles.Bottom}>255</Text>
     </View>
   );
@@ -22,6 +22,14 @@ const styles = StyleSheet.create({
     height: 75,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
+    shadowColor: "#464646",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.08,
+    shadowRadius: 2,
+    elevation: 2,
   },
   Bottom: {
     width: 100,

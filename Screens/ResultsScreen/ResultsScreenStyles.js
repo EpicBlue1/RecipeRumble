@@ -65,14 +65,6 @@ export const ResultsStyles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-around",
     borderRadius: 10,
-    // shadowColor: "#464646",
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 3,
-    // },
-    // shadowOpacity: 0.08,
-    // shadowRadius: 5,
-    // elevation: 5,
   },
   Description: {
     height: 120,
