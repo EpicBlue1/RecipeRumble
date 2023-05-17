@@ -1,3 +1,5 @@
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
@@ -20,9 +22,10 @@ import TestScreen from "./Screens/TestScreen/TestScreen";
 import VotingScreen from "./Screens/VotingScreen/VotingScreen";
 import { Global } from "./Utils/GlobalStyles";
 import { Colors } from "./Utils/ReUsables";
+import HomeTab from "./navigation/HomeTab";
 
 // Keep the splash screen visible while we fetch resources
-SplashScreen.preventAutoHideAsync();
+// SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -45,33 +48,59 @@ export default function App() {
     return null;
   }
 
+  // useEffect(() => {
+  //   if (fontsLoaded) {
+  //     SplashScreen.hideAsync();
+  //   }
+  // }, [fontsLoaded]);
+
+  const Stack = createNativeStackNavigator();
+
   return (
-    <SafeAreaView
-      style={[styles.container, Global.droidSafeArea]}
-      onLayout={onLayoutRootView}
-    >
-      <ImageBackground
-        source={require("./assets/Backgrounds/AppBackground.png")}
+    <NavigationContainer styles={styles.container}>
+      <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={{ headerShown: false }}
       >
-        {/* <StatusBar hidden /> */}
-        {/* <TestScreen /> */}
-        {/* <HomeScreen /> */}
-        <VotingScreen />
-        {/* <CompetitionScreen /> */}
-        {/* <ResultsScreen /> */}
-        {/* <Login /> */}
-        {/* <Register /> */}
-        <ProfileScreen />
-      </ImageBackground>
-      <Navigation />
-    </SafeAreaView>
+        <Stack.Screen name="HomeTab" component={HomeTab}></Stack.Screen>
+        <Stack.Screen
+          name="Competitions"
+          component={CompetitionScreen}
+        ></Stack.Screen>
+        <Stack.Screen name="Results" component={ResultsScreen}></Stack.Screen>
+        <Stack.Screen name="Voting" component={VotingScreen}></Stack.Screen>
+        <Stack.Screen name="Login" component={Login}></Stack.Screen>
+        <Stack.Screen name="Register" component={Register}></Stack.Screen>
+        <Stack.Screen name="Profile" component={ProfileScreen}></Stack.Screen>
+      </Stack.Navigator>
+    </NavigationContainer>
+    // <SafeAreaView
+    //   style={[styles.container, Global.droidSafeArea]}
+    //   onLayout={onLayoutRootView}
+    // >
+    //   {/* <ImageBackground
+    //     source={require("./assets/Backgrounds/AppBackground.png")}
+    //   > */}
+    //   {/* <StatusBar hidden /> */}
+    //   {/* <TestScreen /> */}
+    //   {/* <HomeScreen /> */}
+    //   {/* <VotingScreen /> */}
+    //   {/* <CompetitionScreen /> */}
+    //   {/* <ResultsScreen /> */}
+    //   {/* <Login /> */}
+    //   {/* <Register /> */}
+    //   {/* <ProfileScreen /> */}
+    //   {/* </ImageBackground> */}
+    //   <Navigation />
+    // </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    padding: 0,
+    // backgroundColor: "#fff",
     backgroundColor: Colors.Dirty_White,
   },
 });

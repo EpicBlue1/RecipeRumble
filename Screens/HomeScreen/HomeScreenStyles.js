@@ -3,16 +3,19 @@ import { Colors } from "../../Utils/ReUsables";
 
 export const HomeStyles = StyleSheet.create({
   Container: {
-    padding: 20,
+    // padding: 20,
+    paddingTop: 30,
     justifyContent: "space-between",
   },
   TopContainer: {
+    paddingLeft: 20,
+    paddingRight: 20,
     width: null,
     height: 120,
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 10,
+    // marginBottom: 10,
   },
   Intro: {
     width: 200,
@@ -26,7 +29,7 @@ export const HomeStyles = StyleSheet.create({
   Competitions: {
     width: null,
     marginTop: 5,
-    paddingBottom: 60,
+    // paddingBottom: 60,
   },
   IconButt: {
     width: 32,
@@ -59,7 +62,6 @@ export const HomeStyles = StyleSheet.create({
     justifyContent: "space-around",
   },
   BottomContainer: {
-    height: 520,
     padding: 20,
     display: "flex",
     flexDirection: "column",
@@ -78,14 +80,6 @@ export const HomeStyles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-around",
     borderRadius: 10,
-    // shadowColor: "#464646",
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 3,
-    // },
-    // shadowOpacity: 0.08,
-    // shadowRadius: 5,
-    // elevation: 5,
   },
   Description: {
     height: 120,

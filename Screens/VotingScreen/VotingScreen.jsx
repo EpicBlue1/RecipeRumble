@@ -1,3 +1,5 @@
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import {
   Image,
@@ -11,6 +13,8 @@ import {
 import CompetitionBox from "../../Components/Common/CompetitionBox/CompetitionBox";
 import Voting from "../../Components/Common/VoteIng/Voting";
 import { Global } from "../../Utils/GlobalStyles";
+import CompetitionScreen from "../CompetitionScreen/CompetitionScreen";
+import HomeScreen from "../HomeScreen/HomeScreen";
 import { VotingScreenStyles } from "./VotingScreenStyles";
 
 const VotingScreen = () => {
@@ -28,7 +32,6 @@ const VotingScreen = () => {
           <Voting />
           <Voting />
           <Voting />
-
           {/* </ScrollView> */}
         </View>
       </ScrollView>

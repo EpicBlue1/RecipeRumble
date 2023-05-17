@@ -31,6 +31,8 @@ const HomeScreen = () => {
           </Text>
         </View>
 
+        <View style={HomeStyles.BottomContainer}></View>
+
         <Text style={Global.HeadingTwo}>Next Event:</Text>
 
         <TouchableOpacity style={HomeStyles.ButtonVoteSub}>
