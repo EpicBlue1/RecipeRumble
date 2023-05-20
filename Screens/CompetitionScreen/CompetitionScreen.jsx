@@ -8,45 +8,50 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import BackButton from "../../Components/Partials/BackButton/BackButton";
 import { Global } from "../../Utils/GlobalStyles";
 import { CompStyles } from "./CompetitionScreenStyles";
 
-const CompetitionScreen = () => {
+const CompetitionScreen = ({ route, navigation }) => {
+  const project = route.params.CompData;
+
+  const imageSource = {
+    uri: project.competitionImage,
+  };
+
+  let CompDate = new Date();
+  CompDate.setDate();
+  // console.log(delta);
+
   return (
     <View style={CompStyles.Container}>
       <ScrollView>
-        <ImageBackground
-          style={CompStyles.Image}
-          source={require("../../assets/Test.png")}
-        >
-          <Text style={Global.HeadingOne}>Title</Text>
+        <ImageBackground style={CompStyles.Image} source={imageSource}>
+          <BackButton />
+          <Text style={Global.HeadingOne}>{project.competitionName}</Text>
           <Text style={Global.HeadingThree}>Name and surname</Text>
           <View style={CompStyles.innerContainer}>
             <Image
               style={CompStyles.Icon}
               source={require("../../assets/icons/Two-user.png")}
             />
-            <Text style={Global.Paragraph}>124</Text>
+            <Text style={Global.Paragraph}>
+              {project.participants.length === 0
+                ? 0
+                : project.participants.length}
+            </Text>
           </View>
         </ImageBackground>
         <View style={CompStyles.BottomContainer}>
           <View style={CompStyles.Description}>
             {/* <ScrollView > */}
-            <Text style={[Global.Paragraph]}>
-              Get ready to show off your culinary skills in the ultimate pasta
-              cooking competition! This event is open to all pasta lovers who
-              want to showcase their creativity in the kitchen. Whether you
-              prefer classic Italian flavors or want to experiment with unique
-              ingredients, this competition is the perfect opportunity to let
-              your inner chef shine. Get ready to show off your culinary skills
-              in the ultimate pasta cooking competition!{" "}
-            </Text>
+            <Text style={[Global.Paragraph]}>{project.description}</Text>
             {/* </ScrollView> */}
           </View>
 
           <View style={CompStyles.SubmissionSection}>
             <Text style={Global.HeadingTwo}>Submissions:</Text>
-            <Text style={Global.HeadingTwo}>150</Text>
+            <Text style={Global.HeadingTwo}>{project.submissions.length}</Text>
           </View>
 
           <Text style={Global.HeadingThree}>1d 5h 32m left</Text>

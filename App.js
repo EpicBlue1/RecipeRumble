@@ -1,4 +1,4 @@
-import { NavigationContainer } from "@react-navigation/native";
+import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
@@ -48,24 +48,36 @@ export default function App() {
     return null;
   }
 
-  // useEffect(() => {
-  //   if (fontsLoaded) {
-  //     SplashScreen.hideAsync();
-  //   }
-  // }, [fontsLoaded]);
+  const Theme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      background: Colors.Dirty_White,
+    },
+  };
 
   const Stack = createNativeStackNavigator();
 
   return (
-    <NavigationContainer styles={styles.container}>
+    <NavigationContainer theme={Theme} styles={styles.container}>
       <Stack.Navigator
-        initialRouteName="Home"
-        screenOptions={{ headerShown: false }}
+        initialRouteName="HomeTab"
+        screenOptions={{
+          headerShown: false,
+          headerMode: "screen",
+          headerTintColor: "white",
+          headerStyle: { backgroundColor: "tomato" },
+          backgroundColor: "green",
+        }}
       >
         <Stack.Screen name="HomeTab" component={HomeTab}></Stack.Screen>
         <Stack.Screen
           name="Competitions"
           component={CompetitionScreen}
+          options={({ route }) => ({
+            headerShown: false,
+            title: route.params.CompData.competitionName,
+          })}
         ></Stack.Screen>
         <Stack.Screen name="Results" component={ResultsScreen}></Stack.Screen>
         <Stack.Screen name="Voting" component={VotingScreen}></Stack.Screen>
@@ -74,25 +86,6 @@ export default function App() {
         <Stack.Screen name="Profile" component={ProfileScreen}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
-    // <SafeAreaView
-    //   style={[styles.container, Global.droidSafeArea]}
-    //   onLayout={onLayoutRootView}
-    // >
-    //   {/* <ImageBackground
-    //     source={require("./assets/Backgrounds/AppBackground.png")}
-    //   > */}
-    //   {/* <StatusBar hidden /> */}
-    //   {/* <TestScreen /> */}
-    //   {/* <HomeScreen /> */}
-    //   {/* <VotingScreen /> */}
-    //   {/* <CompetitionScreen /> */}
-    //   {/* <ResultsScreen /> */}
-    //   {/* <Login /> */}
-    //   {/* <Register /> */}
-    //   {/* <ProfileScreen /> */}
-    //   {/* </ImageBackground> */}
-    //   <Navigation />
-    // </SafeAreaView>
   );
 }
 
@@ -100,7 +93,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 0,
-    // backgroundColor: "#fff",
     backgroundColor: Colors.Dirty_White,
   },
 });

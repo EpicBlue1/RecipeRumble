@@ -6,13 +6,14 @@ export const CompStyles = StyleSheet.create({
     // padding: 20,
   },
   Image: {
-    height: 180,
+    height: 300,
     width: null,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
     display: "flex",
     alignItems: "center",
     justifyContent: "space-evenly",
+    padding: 10,
   },
   Icon: {
     width: 24,
@@ -66,14 +67,6 @@ export const CompStyles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-around",
     borderRadius: 10,
-    // shadowColor: "#464646",
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 3,
-    // },
-    // shadowOpacity: 0.08,
-    // shadowRadius: 5,
-    // elevation: 5,
   },
   Description: {
     marginBottom: 35,
@@ -89,5 +82,11 @@ export const CompStyles = StyleSheet.create({
     height: 40,
     width: null,
     paddingRight: 20,
+  },
+  BackButton: {
+    position: "absolute",
+    width: 60,
+    height: 60,
+    backgroundColor: Colors.Dirty_White_Dark,
   },
 });

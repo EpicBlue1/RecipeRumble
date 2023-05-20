@@ -1,15 +1,21 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Global } from "../../../Utils/GlobalStyles";
 import { CompetitionBoxStyles } from "./CompetitionBoxStyles";
 
-const CompetitionBox = ({ CompData }) => {
+const CompetitionBox = ({ CompData, route }) => {
   const imageSource = {
     uri: CompData.competitionImage,
   };
 
+  const navigation = useNavigation();
+
   return (
-    <View style={CompetitionBoxStyles.Container}>
+    <TouchableOpacity
+      onPress={() => navigation.navigate("Competitions", { CompData })}
+      style={CompetitionBoxStyles.Container}
+    >
       <Image style={CompetitionBoxStyles.Image} source={imageSource} />
       <Text style={Global.CompetitionFont}>{CompData.competitionName}</Text>
       <View style={CompetitionBoxStyles.innerContainer}>
@@ -24,7 +30,7 @@ const CompetitionBox = ({ CompData }) => {
           source={require("../../../assets/icons/Play.png")}
         />
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

@@ -3,7 +3,8 @@ import { Colors } from "../../Utils/ReUsables";
 
 export const HomeStyles = StyleSheet.create({
   Container: {
-    // padding: 20,
+    padding: 10,
+    paddingBottom: 0,
     paddingTop: 30,
     justifyContent: "space-between",
   },
@@ -62,7 +63,6 @@ export const HomeStyles = StyleSheet.create({
     justifyContent: "space-around",
   },
   BottomContainer: {
-    padding: 20,
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
