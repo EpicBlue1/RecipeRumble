@@ -6,7 +6,7 @@ import { ButtonStyles } from "./ButtonStyles";
 const Button = ({ ButText, ButtonType, OnPress }) => {
   return (
     <TouchableOpacity
-      OnPress={OnPress}
+      onPress={() => OnPress()}
       style={
         ButtonType === "Primary"
           ? ButtonStyles.primary

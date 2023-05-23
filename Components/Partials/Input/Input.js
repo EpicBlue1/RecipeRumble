@@ -2,7 +2,7 @@ import React from "react";
 import { Image, StyleSheet, Text, TextInput, View } from "react-native";
 import { Colors } from "../../../Utils/ReUsables";
 
-const Input = ({ Icon, Place, Type, SecureEntry }) => {
+const Input = ({ Icon, Place, Type, SecureEntry, setProp }) => {
   return (
     <View style={styles.Container}>
       <Image
@@ -12,6 +12,8 @@ const Input = ({ Icon, Place, Type, SecureEntry }) => {
             ? require("../../../assets/icons/User.png")
             : Icon === "Lock"
             ? require("../../../assets/icons/Lock.png")
+            : Icon === "Mail"
+            ? require("../../../assets/icons/Mail.png")
             : require("../../../assets/icons/User.png")
         }
       />
@@ -21,6 +23,7 @@ const Input = ({ Icon, Place, Type, SecureEntry }) => {
         placeholder={Place}
         keyboardType={Type}
         secureTextEntry={SecureEntry}
+        onChangeText={(newValue) => setProp(newValue)}
       />
     </View>
   );
@@ -44,8 +47,10 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   Icon: {
-    width: 25,
-    height: 25,
-    resizeMode: "cover",
+    width: 24,
+    height: 24,
+    resizeMode: "center",
+    marginLeft: 10,
+    marginRight: 5,
   },
 });

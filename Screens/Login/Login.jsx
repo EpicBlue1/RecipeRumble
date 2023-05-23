@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import {
   Image,
@@ -16,9 +17,10 @@ import { Colors } from "../../Utils/ReUsables";
 import { LoginStyles } from "./LoginStyles";
 
 const Login = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={LoginStyles.Container}>
-      {/* <ScrollView> */}
       <ImageBackground
         style={LoginStyles.Image}
         source={require("../../assets/Backgrounds/Carrot_BackGround.png")}
@@ -70,14 +72,13 @@ const Login = () => {
           }}
         >
           <Text style={Global.CompetitionFont}>Don't have an account?</Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("Register")}>
             <Text style={[LoginStyles.AccountBold, { color: Colors.Red }]}>
               Sign Up
             </Text>
           </TouchableOpacity>
         </View>
       </View>
-      {/* </ScrollView> */}
     </View>
   );
 };

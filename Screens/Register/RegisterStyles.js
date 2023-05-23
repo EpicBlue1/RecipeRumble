@@ -2,9 +2,12 @@ import { StyleSheet } from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 
 export const LoginStyles = StyleSheet.create({
-  Container: {},
+  Container: {
+    height: "100%",
+  },
   Image: {
-    height: 165,
+    height: 170,
+    paddingTop: 20,
     width: null,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
@@ -16,12 +19,14 @@ export const LoginStyles = StyleSheet.create({
     height: 110,
   },
   BottomContainer: {
+    flex: 1,
     display: "flex",
     alignItems: "center",
     flexDirection: "column",
     justifyContent: "space-around",
     padding: 20,
-    paddingBottom: 100,
+    paddingTop: 20,
+    paddingBottom: 20,
   },
   Account: {
     fontFamily: "ubuntu_regular",
@@ -36,8 +41,7 @@ export const LoginStyles = StyleSheet.create({
     color: Colors.Red,
   },
   InputContainer: {
-    marginBottom: 50,
-    height: 260,
+    height: 230,
     justifyContent: "space-between",
   },
 });

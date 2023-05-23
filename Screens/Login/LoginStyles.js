@@ -6,7 +6,8 @@ export const LoginStyles = StyleSheet.create({
     height: "100%",
   },
   Image: {
-    height: 165,
+    height: 170,
+    paddingTop: 20,
     width: null,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
@@ -23,7 +24,7 @@ export const LoginStyles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "column",
     justifyContent: "space-around",
-    padding: 10,
+    padding: 20,
     paddingTop: 20,
     paddingBottom: 20,
   },
