@@ -25,13 +25,38 @@ const Register = () => {
   const [passwordCon, setpasswordCon] = useState("");
   const [userName, setUserName] = useState("");
 
+  const [emailError, setemailError] = useState("");
+  const [passwordError, setpasswordError] = useState("");
+  const [passwordErrorCon, setpasswordErrorCon] = useState("");
+  const [userNameError, setuserNameError] = useState("");
+
   useEffect(() => {
     console.log(userName);
   }, [userName]);
 
   const Register = () => {
     console.log("Registering");
-    RegisterNewUser(userName, email, password);
+    if (email === "") {
+      setemailError("Please enter your email");
+    }
+    if (password === "") {
+      setpasswordError("Please enter a password");
+    }
+    if (passwordCon === "") {
+      setpasswordErrorCon("Please confirm your password");
+    }
+    if (userName == "") {
+      setuserNameError("Please enter a user name");
+    }
+
+    if (
+      email !== "" &&
+      password !== "" &&
+      passwordCon !== "" &&
+      userName !== ""
+    ) {
+      RegisterNewUser(userName, email, password);
+    }
   };
 
   return (
@@ -65,30 +90,34 @@ const Register = () => {
           <Input
             Place={"Username"}
             Type={"default"}
-            Icon={"User"}
+            Icon={userNameError === "" ? "User" : "UserRed"}
             SecureEntry={false}
             setProp={setUserName}
+            Error={userNameError}
           />
           <Input
             Place={"Email"}
             Type={"email-address"}
-            Icon={"Mail"}
+            Icon={emailError === "" ? "Mail" : "MailRed"}
             SecureEntry={false}
             setProp={setEmail}
+            Error={emailError}
           />
           <Input
             Place={"Password"}
             Type={"default"}
-            Icon={"Lock"}
+            Icon={passwordError === "" ? "Lock" : "LockRed"}
             SecureEntry={true}
             setProp={setPassword}
+            Error={passwordError}
           />
           <Input
             Place={"Confirm Password"}
             Type={"default"}
-            Icon={"Lock"}
+            Icon={passwordError === "" ? "Lock" : "LockRed"}
             SecureEntry={true}
             setProp={setpasswordCon}
+            Error={passwordErrorCon}
           />
         </View>
 

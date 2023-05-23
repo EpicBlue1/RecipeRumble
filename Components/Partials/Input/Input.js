@@ -1,30 +1,40 @@
 import React from "react";
 import { Image, StyleSheet, Text, TextInput, View } from "react-native";
+import { Global } from "../../../Utils/GlobalStyles";
 import { Colors } from "../../../Utils/ReUsables";
 
-const Input = ({ Icon, Place, Type, SecureEntry, setProp }) => {
+const Input = ({ Icon, Place, Type, SecureEntry, setProp, Error }) => {
   return (
-    <View style={styles.Container}>
-      <Image
-        style={styles.Icon}
-        source={
-          Icon === "User"
-            ? require("../../../assets/icons/User.png")
-            : Icon === "Lock"
-            ? require("../../../assets/icons/Lock.png")
-            : Icon === "Mail"
-            ? require("../../../assets/icons/Mail.png")
-            : require("../../../assets/icons/User.png")
-        }
-      />
-      <TextInput
-        style={styles.InputStyle}
-        editable
-        placeholder={Place}
-        keyboardType={Type}
-        secureTextEntry={SecureEntry}
-        onChangeText={(newValue) => setProp(newValue)}
-      />
+    <View>
+      <View style={styles.Container}>
+        <Image
+          style={styles.Icon}
+          source={
+            Icon === "User"
+              ? require("../../../assets/icons/User.png")
+              : Icon === "Lock"
+              ? require("../../../assets/icons/Lock.png")
+              : Icon === "Mail"
+              ? require("../../../assets/icons/Mail.png")
+              : Icon === "UserRed"
+              ? require("../../../assets/icons/UserRed.png")
+              : Icon === "LockRed"
+              ? require("../../../assets/icons/LockRed.png")
+              : Icon === "MailRed"
+              ? require("../../../assets/icons/MailRed.png")
+              : require("../../../assets/icons/User.png")
+          }
+        />
+        <TextInput
+          style={styles.InputStyle}
+          editable
+          placeholder={Place}
+          keyboardType={Type}
+          secureTextEntry={SecureEntry}
+          onChangeText={(newValue) => setProp(newValue)}
+        />
+      </View>
+      <Text style={Global.Error}>{Error === "" ? "" : Error}</Text>
     </View>
   );
 };
@@ -34,8 +44,10 @@ export default Input;
 const styles = StyleSheet.create({
   InputStyle: {
     width: 300,
-    height: 50,
+    height: 46,
     padding: 10,
+    borderRadius: 10,
+
     // backgroundColor: "red",
   },
   Container: {

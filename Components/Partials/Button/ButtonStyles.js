@@ -4,7 +4,7 @@ import { Colors } from "../../../Utils/ReUsables";
 export const ButtonStyles = StyleSheet.create({
   primary: {
     width: 340,
-    height: 55,
+    height: 50,
     backgroundColor: Colors.Green,
     display: "flex",
     alignItems: "center",
@@ -21,7 +21,7 @@ export const ButtonStyles = StyleSheet.create({
   },
   secondary: {
     width: 340,
-    height: 55,
+    height: 50,
     backgroundColor: Colors.Dirty_White,
     borderWidth: 3,
     borderColor: Colors.Red,

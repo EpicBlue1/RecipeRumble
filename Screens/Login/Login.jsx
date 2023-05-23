@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import React from "react";
+import React, { useState } from "react";
 import {
   Image,
   ImageBackground,
@@ -12,12 +12,33 @@ import {
 } from "react-native";
 import Button from "../../Components/Partials/Button/Button";
 import Input from "../../Components/Partials/Input/Input";
+import { LogInFun } from "../../Services/firebaseAuth";
 import { Global } from "../../Utils/GlobalStyles";
 import { Colors } from "../../Utils/ReUsables";
 import { LoginStyles } from "./LoginStyles";
 
 const Login = () => {
   const navigation = useNavigation();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [emailError, setemailError] = useState("");
+  const [passwordError, setpasswordError] = useState("");
+
+  const LogIn = () => {
+    console.log("Logging in");
+    if (email === "") {
+      setemailError("Please enter your email");
+    }
+    if (password === "") {
+      setpasswordError("Please enter a password");
+    }
+
+    if (email !== "" && password !== "") {
+      LogInFun(email, password);
+    }
+  };
 
   return (
     <View style={LoginStyles.Container}>
@@ -50,18 +71,22 @@ const Login = () => {
           <Input
             Place={"Email"}
             Type={"email-address"}
-            Icon={"User"}
+            Icon={emailError === "" ? "User" : "UserRed"}
+            Error={emailError}
+            setProp={setEmail}
             SecureEntry={false}
           />
           <Input
             Place={"Password"}
             Type={"default"}
-            Icon={"Lock"}
+            Icon={passwordError === "" ? "Lock" : "LockRed"}
+            Error={passwordError}
+            setProp={setPassword}
             SecureEntry={true}
           />
         </View>
 
-        <Button ButtonType={"Primary"} ButText={"Login"} />
+        <Button OnPress={LogIn} ButtonType={"Primary"} ButText={"Login"} />
 
         <View
           style={{

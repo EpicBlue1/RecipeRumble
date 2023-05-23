@@ -1,3 +1,4 @@
+import { useNavigationBuilder } from "@react-navigation/native";
 import {
   Auth,
   createUserWithEmailAndPassword,
@@ -9,6 +10,8 @@ import { Alert } from "react-native";
 import { auth } from "../Utils/Firebase";
 
 export const RegisterNewUser = (username, email, password) => {
+  const navigation = useNavigationBuilder();
+
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
@@ -18,13 +21,33 @@ export const RegisterNewUser = (username, email, password) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log(errorCode + ": " + errorMessage);
-      Alert.alert("Aint Happening ", errorMessage, [
-        { text: "Nope", onPress: () => {} },
+      Alert.alert("Error ", errorMessage, [
+        { text: "Okay", onPress: () => {} },
       ]);
     });
 };
 
-export const LogIn = async (email, password) => {};
+export const LogInFun = async (email, password) => {
+  await signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      console.log(user);
+      Alert.alert("Logged In", "You can continue to the app", [
+        {
+          text: "Continue",
+          onPress: () => {},
+        },
+      ]);
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode + ": " + errorMessage);
+      Alert.alert("Email or Password is incorrect", errorMessage, [
+        { text: "Back", onPress: () => {} },
+      ]);
+    });
+};
 
 export const LogOut = () => {};
 

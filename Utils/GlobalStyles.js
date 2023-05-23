@@ -38,4 +38,11 @@ export const Global = StyleSheet.create({
     flex: 1,
     paddingTop: Platform.OS === "android" ? 30 : 0,
   },
+  Error: {
+    fontFamily: "karla_bold",
+    fontSize: 12,
+    paddingBottom: 7,
+    paddingLeft: 15,
+    color: Colors.Red,
+  },
 });
