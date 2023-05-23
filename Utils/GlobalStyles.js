@@ -4,7 +4,7 @@ import { Colors } from "./ReUsables";
 export const Global = StyleSheet.create({
   HeadingOne: {
     fontFamily: "ubuntu_bold",
-    fontSize: 38,
+    fontSize: 36,
     color: Colors.Gray,
   },
   HeadingTwo: {
@@ -37,21 +37,5 @@ export const Global = StyleSheet.create({
   droidSafeArea: {
     flex: 1,
     paddingTop: Platform.OS === "android" ? 30 : 0,
-  },
-  InputStyle: {
-    width: 340,
-    height: 50,
-    backgroundColor: Colors.Dirty_White_Darker,
-    borderRadius: 10,
-    justifyContent: "center",
-    padding: 10,
-    // shadowColor: "#464646",
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 3,
-    // },
-    // shadowOpacity: 0.08,
-    // shadowRadius: 5,
-    // elevation: 5,
   },
 });

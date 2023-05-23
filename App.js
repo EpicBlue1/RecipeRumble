@@ -61,7 +61,7 @@ export default function App() {
   return (
     <NavigationContainer theme={Theme} styles={styles.container}>
       <Stack.Navigator
-        initialRouteName="HomeTab"
+        initialRouteName="Login"
         screenOptions={{
           headerShown: false,
           headerMode: "screen",
