@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
+import { onAuthStateChanged } from "firebase/auth";
 import React, { useCallback, useEffect, useState } from "react";
 import {
   ImageBackground,
@@ -20,6 +21,7 @@ import Register from "./Screens/Register/Register";
 import ResultsScreen from "./Screens/ResultsScreen/ResultsScreen";
 import TestScreen from "./Screens/TestScreen/TestScreen";
 import VotingScreen from "./Screens/VotingScreen/VotingScreen";
+import { auth } from "./Utils/Firebase";
 import { Global } from "./Utils/GlobalStyles";
 import { Colors } from "./Utils/ReUsables";
 import HomeTab from "./navigation/HomeTab";
@@ -28,6 +30,17 @@ import HomeTab from "./navigation/HomeTab";
 // SplashScreen.preventAutoHideAsync();
 
 export default function App() {
+  const Stack = createNativeStackNavigator();
+  const [LoggedIn, setLoggedIn] = useState(false);
+
+  const Theme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      background: Colors.Dirty_White,
+    },
+  };
+
   const [fontsLoaded] = useFonts({
     ubuntu_bold: require("./assets/fonts/Ubuntu-Bold.ttf"),
     ubuntu_regular: require("./assets/fonts/Ubuntu-Regular.ttf"),
@@ -38,6 +51,19 @@ export default function App() {
     karla_italic: require("./assets/fonts/Karla-Italic-VariableFont_wght.ttf"),
   });
 
+  useEffect(async () => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      console.log("Check Log In");
+      if (user) {
+        setLoggedIn(true);
+        console.log("Cool Beans");
+      } else {
+        setLoggedIn(false);
+      }
+    });
+    return unsubscribe;
+  }, []);
+
   const onLayoutRootView = useCallback(async () => {
     if (fontsLoaded) {
       await SplashScreen.hideAsync();
@@ -47,16 +73,6 @@ export default function App() {
   if (!fontsLoaded) {
     return null;
   }
-
-  const Theme = {
-    ...DefaultTheme,
-    colors: {
-      ...DefaultTheme.colors,
-      background: Colors.Dirty_White,
-    },
-  };
-
-  const Stack = createNativeStackNavigator();
 
   return (
     <NavigationContainer theme={Theme} styles={styles.container}>
@@ -70,7 +86,14 @@ export default function App() {
           backgroundColor: "green",
         }}
       >
-        <Stack.Screen name="HomeTab" component={HomeTab}></Stack.Screen>
+        {!LoggedIn ? (
+          <>
+            <Stack.Screen name="Login" component={Login}></Stack.Screen>
+          </>
+        ) : (
+          <Stack.Screen name="HomeTab" component={HomeTab}></Stack.Screen>
+        )}
+
         <Stack.Screen
           name="Competitions"
           component={CompetitionScreen}
@@ -81,7 +104,6 @@ export default function App() {
         ></Stack.Screen>
         <Stack.Screen name="Results" component={ResultsScreen}></Stack.Screen>
         <Stack.Screen name="Voting" component={VotingScreen}></Stack.Screen>
-        <Stack.Screen name="Login" component={Login}></Stack.Screen>
         <Stack.Screen name="Register" component={Register}></Stack.Screen>
         <Stack.Screen name="Profile" component={ProfileScreen}></Stack.Screen>
       </Stack.Navigator>

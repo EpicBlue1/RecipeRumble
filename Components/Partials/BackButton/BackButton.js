@@ -1,10 +1,16 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Colors } from "../../../Utils/ReUsables";
 
 const BackButton = ({ Route }) => {
+  const navigation = useNavigation();
+
   return (
-    <TouchableOpacity style={styles.BackButton}>
+    <TouchableOpacity
+      onPress={() => navigation.goBack()}
+      style={styles.BackButton}
+    >
       <Image
         style={styles.BackImage}
         source={require("../../../assets/icons/ArrowLeft.png")}

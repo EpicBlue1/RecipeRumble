@@ -34,7 +34,6 @@ const Login = () => {
     if (password === "") {
       setpasswordError("Please enter a password");
     }
-
     if (email !== "" && password !== "") {
       LogInFun(email, password);
     }
