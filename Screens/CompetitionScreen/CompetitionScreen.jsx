@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import BackButton from "../../Components/Partials/BackButton/BackButton";
 import { Global } from "../../Utils/GlobalStyles";
+import { Colors } from "../../Utils/ReUsables";
 import { CompStyles } from "./CompetitionScreenStyles";
 
 const CompetitionScreen = ({ route, navigation }) => {
@@ -28,18 +29,20 @@ const CompetitionScreen = ({ route, navigation }) => {
       <ScrollView>
         <ImageBackground style={CompStyles.Image} source={imageSource}>
           <BackButton />
-          <Text style={Global.HeadingOne}>{project.competitionName}</Text>
-          <Text style={Global.HeadingThree}>Name and surname</Text>
-          <View style={CompStyles.innerContainer}>
-            <Image
-              style={CompStyles.Icon}
-              source={require("../../assets/icons/Two-user.png")}
-            />
-            <Text style={Global.Paragraph}>
-              {project.participants.length === 0
-                ? 0
-                : project.participants.length}
-            </Text>
+          <View style={CompStyles.InfoContainer}>
+            <Text style={Global.HeadingTwo}>{project.competitionName}</Text>
+            <Text style={Global.HeadingThree}>Name and surname</Text>
+            <View style={CompStyles.innerContainer}>
+              <Image
+                style={CompStyles.Icon}
+                source={require("../../assets/icons/Two-user.png")}
+              />
+              <Text style={Global.Paragraph}>
+                {project.participants.length === 0
+                  ? 0
+                  : project.participants.length}
+              </Text>
+            </View>
           </View>
         </ImageBackground>
         <View style={CompStyles.BottomContainer}>

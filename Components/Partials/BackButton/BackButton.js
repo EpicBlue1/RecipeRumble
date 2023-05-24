@@ -26,10 +26,17 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     backgroundColor: Colors.Dirty_White_Darker,
-    marginTop: 25,
     alignSelf: "baseline",
     justifyContent: "center",
     borderRadius: 15,
+    shadowColor: "#464646",
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.08,
+    shadowRadius: 5,
+    elevation: 5,
   },
   BackImage: {
     width: 40,
