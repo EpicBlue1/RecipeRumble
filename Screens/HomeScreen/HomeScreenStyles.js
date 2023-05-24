@@ -12,7 +12,7 @@ export const HomeStyles = StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 20,
     width: null,
-    height: 120,
+    height: 220,
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
@@ -29,7 +29,7 @@ export const HomeStyles = StyleSheet.create({
   },
   Competitions: {
     width: null,
-    marginTop: 5,
+    marginTop: 20,
     // paddingBottom: 60,
   },
   IconButt: {
@@ -68,8 +68,8 @@ export const HomeStyles = StyleSheet.create({
     justifyContent: "space-between",
   },
   ButtonVoteSub: {
-    marginTop: 15,
-    marginBottom: 20,
+    marginTop: 25,
+    marginBottom: 50,
     width: "100%",
     height: 90,
     backgroundColor: Colors.Dirty_White_Darker,

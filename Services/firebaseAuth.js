@@ -49,8 +49,18 @@ export const LogInFun = async (email, password) => {
     });
 };
 
-export const LogOut = () => {};
+export const LogOut = () => {
+  signOut(auth)
+    .then(() => {
+      console.log("Cheers!");
+    })
+    .catch((err) => {
+      console.log(err.errorMessage);
+    });
+};
 
-export const GetCurrentUser = () => {};
+export const GetCurrentUser = () => {
+  return auth.currentUser;
+};
 
 const updateAuthProfile = (username) => {};

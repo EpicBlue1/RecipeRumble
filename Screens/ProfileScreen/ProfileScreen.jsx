@@ -9,11 +9,16 @@ import {
 } from "react-native";
 import ProfileSubmissions from "../../Components/Common/ProfileSubmissions/ProfileSubmissions";
 import Button from "../../Components/Partials/Button/Button";
+import { GetCurrentUser, LogOut } from "../../Services/firebaseAuth";
 import { Global } from "../../Utils/GlobalStyles";
 import { HomeStyles } from "../HomeScreen/HomeScreenStyles";
 import { ProfileStyles } from "./ProfileScreenStyle";
 
 const ProfileScreen = () => {
+  const user = GetCurrentUser();
+
+  console.log(user);
+
   return (
     <View>
       <ImageBackground
@@ -31,7 +36,7 @@ const ProfileScreen = () => {
               Reinhardt van Aarde
             </Text>
             <Text style={[Global.HeadingThree, ProfileStyles.white]}>
-              reinardt.vanAarde@gmail.com
+              {user.email}
             </Text>
           </View>
         </View>
@@ -51,7 +56,7 @@ const ProfileScreen = () => {
           </ScrollView>
         </View>
 
-        <Button ButtonType={"Secondary"} ButText={"Sign Out"} />
+        <Button OnPress={LogOut} ButtonType={"Secondary"} ButText={"Log Out"} />
       </View>
     </View>
   );
