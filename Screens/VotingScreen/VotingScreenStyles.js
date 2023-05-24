@@ -6,12 +6,15 @@ export const VotingScreenStyles = StyleSheet.create({
     // padding: 20,
   },
   TopContainer: {
-    height: 120,
+    height: 150,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-evenly",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    padding: 10,
+    paddingTop: 50,
     backgroundColor: Colors.Dirty_White_Dark,
     shadowColor: "#464646",
     shadowOffset: {
@@ -21,6 +24,7 @@ export const VotingScreenStyles = StyleSheet.create({
     shadowOpacity: 0.08,
     shadowRadius: 5,
     elevation: 5,
+    zIndex: 999,
   },
   BottomContainer: {
     width: null,
@@ -29,7 +33,7 @@ export const VotingScreenStyles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     paddingTop: 10,
-    paddingBottom: 75,
+    paddingBottom: 200,
     paddingTop: 20,
   },
 });

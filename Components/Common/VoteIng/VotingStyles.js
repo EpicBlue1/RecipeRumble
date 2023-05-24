@@ -14,22 +14,7 @@ export const VotingStyles = StyleSheet.create({
     shadowRadius: 5,
     elevation: 5,
     borderRadius: 10,
-    marginBottom: 10,
-    Shadow,
-  },
-  ContainerTall: {
-    height: 340,
-    backgroundColor: Colors.Dirty_White_Dark,
-    shadowColor: "#464646",
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowOpacity: 0.08,
-    shadowRadius: 5,
-    elevation: 5,
-    borderRadius: 10,
-    marginBottom: 10,
+    marginBottom: 25,
   },
   Icon: {
     width: 36,
@@ -46,6 +31,10 @@ export const VotingStyles = StyleSheet.create({
     elevation: 5,
     borderRadius: 10,
     marginBottom: 10,
+  },
+  LeftIcon: {
+    width: 30,
+    height: 30,
   },
   IconOne: {
     width: 36,
@@ -103,10 +92,13 @@ export const VotingStyles = StyleSheet.create({
   Description: {
     width: 360,
     padding: 10,
-    height: 70,
+    height: 100,
     backgroundColor: "#ffffff",
+    paddingTop: 15,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
+    flexDirection: "column",
+    justifyContent: "space-between",
   },
   DescriptionTall: {
     width: 360,

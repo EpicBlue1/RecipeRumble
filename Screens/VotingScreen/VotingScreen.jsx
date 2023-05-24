@@ -12,6 +12,8 @@ import {
 } from "react-native";
 import CompetitionBox from "../../Components/Common/CompetitionBox/CompetitionBox";
 import Voting from "../../Components/Common/VoteIng/Voting";
+import BackButton from "../../Components/Partials/BackButton/BackButton";
+import Button from "../../Components/Partials/Button/Button";
 import { Global } from "../../Utils/GlobalStyles";
 import CompetitionScreen from "../CompetitionScreen/CompetitionScreen";
 import HomeScreen from "../HomeScreen/HomeScreen";
@@ -20,19 +22,31 @@ import { VotingScreenStyles } from "./VotingScreenStyles";
 const VotingScreen = () => {
   return (
     <View style={VotingScreenStyles.Container}>
-      <ScrollView>
-        <View style={VotingScreenStyles.TopContainer}>
-          <Text style={Global.HeadingOne}>Competition Title</Text>
+      <View style={VotingScreenStyles.TopContainer}>
+        <BackButton />
+        <View style={{ width: null, paddingLeft: "10%" }}>
+          <Text style={Global.HeadingTwo}>Competition Title</Text>
           <Text style={Global.HeadingThree}>Voting</Text>
         </View>
+      </View>
+      <ScrollView>
         <View style={VotingScreenStyles.BottomContainer}>
-          {/* <ScrollView> */}
           <Voting />
           <Voting />
           <Voting />
           <Voting />
           <Voting />
-          {/* </ScrollView> */}
+          <View
+            style={{
+              height: 130,
+              alignItems: "center",
+              justifyContent: "space-around",
+              marginTop: 20,
+            }}
+          >
+            <Text style={Global.HeadingThree}>The end!</Text>
+            <Button ButtonType={"Primary"} ButText={"Return to competition"} />
+          </View>
         </View>
       </ScrollView>
     </View>

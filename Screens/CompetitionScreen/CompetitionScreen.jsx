@@ -22,7 +22,6 @@ const CompetitionScreen = ({ route, navigation }) => {
 
   let CompDate = new Date();
   CompDate.setDate();
-  // console.log(delta);
 
   return (
     <View style={CompStyles.Container}>
@@ -59,7 +58,10 @@ const CompetitionScreen = ({ route, navigation }) => {
 
           <Text style={Global.HeadingThree}>1d 5h 32m left</Text>
 
-          <TouchableOpacity style={CompStyles.ButtonVoteSub}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Voting")}
+            style={CompStyles.ButtonVoteSub}
+          >
             <ImageBackground
               style={CompStyles.IconButt}
               source={require("../../assets/icons/HeartDark.png")}

@@ -15,18 +15,28 @@ const Voting = ({ VoteImage, Description }) => {
   //useMemo
   const [Voted, setVoted] = useState(false);
   const [ShowDesc, setShowDesc] = useState(true);
+  const [voteCount, setVoteCount] = useState(0);
 
   const Vote = () => {
-    setVoted((Value) => !Value);
-  };
+    setVoteCount((value) => (value < 1 ? value + 1 : value));
 
-  const ShowDescription = () => {
-    setShowDesc((Value) => !Value);
+    if (voteCount === 1) {
+      setVoted(true);
+    } else if (voteCount < 1) {
+      setTimeout(function () {
+        setVoteCount(0);
+        console.log("Like reset");
+      }, 1800);
+    }
   };
 
   useEffect(() => {
-    console.log(Voted);
-  }, [Voted]);
+    if (voteCount === 2) {
+      console.log("Vote count reached 2");
+    }
+  }, [voteCount]);
+
+  console.log(voteCount);
 
   return (
     <ImageBackground
@@ -63,34 +73,24 @@ const Voting = ({ VoteImage, Description }) => {
             Voted!
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          onPress={ShowDescription}
-          style={VotingStyles.IconsContainer}
-        >
-          <ImageBackground
-            style={VotingStyles.IconOne}
-            source={require("../../../assets/Info.png")}
-          ></ImageBackground>
-          <ImageBackground
-            style={VotingStyles.Icon}
-            source={require("../../../assets/clicking.png")}
-          ></ImageBackground>
-        </TouchableOpacity>
       </TouchableOpacity>
-      <TouchableOpacity
-        onPress={ShowDescription}
-        style={
-          ShowDesc ? VotingStyles.Description : VotingStyles.DescriptionTall
-        }
-      >
-        <ScrollView>
-          <Text style={Global.HeadingTwo}>Submission Title</Text>
-          <Text style={Global.Paragraph}>
-            Get ready to show off your culinary skills in the ultimate pasta
-            cooking competition! This event is open to all pasta lovers who want
-            to showcase their creativity in the kitchen. Whether you prefer.
-          </Text>
-        </ScrollView>
+      <TouchableOpacity style={VotingStyles.Description}>
+        <Text style={Global.HeadingTwo}>Submission Title</Text>
+        <View
+          style={{
+            width: 130,
+            flexDirection: "row-reverse",
+            justifyContent: "space-between",
+            alignItems: "center",
+            alignSelf: "flex-end",
+          }}
+        >
+          <Image
+            style={VotingStyles.LeftIcon}
+            source={require("../../../assets/icons/Play.png")}
+          />
+          <Text style={Global.Paragraph}>Read More</Text>
+        </View>
       </TouchableOpacity>
     </ImageBackground>
   );
