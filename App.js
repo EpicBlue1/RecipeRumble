@@ -51,7 +51,7 @@ export default function App() {
     karla_italic: require("./assets/fonts/Karla-Italic-VariableFont_wght.ttf"),
   });
 
-  useEffect(async () => {
+  useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       console.log("Check Log In");
       if (user) {

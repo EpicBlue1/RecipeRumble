@@ -10,12 +10,13 @@ import { Alert } from "react-native";
 import { auth } from "../Utils/Firebase";
 
 export const RegisterNewUser = (username, email, password) => {
-  const navigation = useNavigationBuilder();
-
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
       console.log(user);
+      Alert.alert("Registered ", "Return to log in", [
+        { text: "Okay", onPress: () => {} },
+      ]);
     })
     .catch((error) => {
       const errorCode = error.code;
