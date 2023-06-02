@@ -3,7 +3,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Global } from "../../../Utils/GlobalStyles";
 import { ButtonStyles } from "./ButtonStyles";
 
-const Button = ({ ButText, ButtonType, OnPress }) => {
+const Button = ({ ButText, ButtonType, OnPress, Styling }) => {
   return (
     <TouchableOpacity
       onPress={() => OnPress()}
@@ -15,7 +15,7 @@ const Button = ({ ButText, ButtonType, OnPress }) => {
           : ""
       }
     >
-      <Text style={Global.ButtonFont}>{ButText}</Text>
+      <Text style={[Global.ButtonFont, Styling]}>{ButText}</Text>
     </TouchableOpacity>
   );
 };

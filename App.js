@@ -91,7 +91,7 @@ export default function App() {
             <Stack.Screen name="Login" component={Login}></Stack.Screen>
           </>
         ) : (
-          <Stack.Screen name="HomeTab" component={HomeTab}></Stack.Screen>
+          <Stack.Screen name="HomeTab" component={ResultsScreen}></Stack.Screen>
         )}
 
         <Stack.Screen

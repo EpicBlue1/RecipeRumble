@@ -2,9 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { Colors } from "../../Utils/ReUsables";
 
 export const ResultsStyles = StyleSheet.create({
-  Container: {
-    // padding: 20,
-  },
+  Container: {},
   Image: {
     height: 150,
     width: null,
@@ -28,14 +26,6 @@ export const ResultsStyles = StyleSheet.create({
     height: 55,
     backgroundColor: Colors.Dirty_White_Dark,
     borderRadius: 10,
-    // shadowColor: "#464646",
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 3,
-    // },
-    // shadowOpacity: 0.08,
-    // shadowRadius: 5,
-    // elevation: 5,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -49,11 +39,9 @@ export const ResultsStyles = StyleSheet.create({
     justifyContent: "space-around",
   },
   BottomContainer: {
+    height: "70%",
     padding: 20,
-    display: "flex",
     flexDirection: "column",
-    justifyContent: "space-between",
-    paddingBottom: 100,
   },
   ButtonVoteSub: {
     width: null,
@@ -88,5 +76,9 @@ export const ResultsStyles = StyleSheet.create({
   },
   ParticipantsResults: {
     height: 180,
+  },
+  Butt: {
+    height: "10%",
+    alignSelf: "center",
   },
 });

@@ -6,16 +6,15 @@ import { Colors } from "../../../Utils/ReUsables";
 const ResultsTopBox = () => {
   return (
     <View style={styles.Container}>
-      <View>
-        <ImageBackground
-          style={styles.image}
-          source={require("../../../assets/Test.png")}
-        >
-          <View style={styles.score}>
-            <Text>120</Text>
-          </View>
-        </ImageBackground>
-      </View>
+      <ImageBackground
+        style={styles.image}
+        source={require("../../../assets/Test.png")}
+      >
+        <View style={styles.score}>
+          <Text>120</Text>
+        </View>
+      </ImageBackground>
+
       <View style={styles.Texts}>
         <Text style={Global.HeadingThree}>Dish Name</Text>
         <Text style={Global.Paragraph}>Participant Name</Text>
@@ -31,14 +30,6 @@ const styles = StyleSheet.create({
     width: null,
     height: 80,
     backgroundColor: Colors.Dirty_White_Darker,
-    // shadowColor: "#464646",
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 3,
-    // },
-    // shadowOpacity: 0.08,
-    // shadowRadius: 5,
-    // elevation: 5,
     borderRadius: 10,
     justifyContent: "space-between",
     alignItems: "center",
@@ -64,7 +55,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   Texts: {
-    width: 240,
+    width: "70%",
     height: 50,
     justifyContent: "space-around",
   },
