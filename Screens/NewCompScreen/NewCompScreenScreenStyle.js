@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import { Colors } from "../../Utils/ReUsables";
 
-export const SubmitScreenStyle = StyleSheet.create({
+export const NewCompScreenStyle = StyleSheet.create({
   Container: {},
   Image: {
     height: 160,

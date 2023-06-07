@@ -1,4 +1,4 @@
-import { Timestamp, collection, doc, setDoc } from "firebase/firestore";
+import { Timestamp, addDoc, collection, doc, setDoc } from "firebase/firestore";
 import { db } from "../Utils/Firebase";
 
 export const CompetitionData = [
@@ -115,6 +115,20 @@ export const CompetitionData = [
     ],
   },
 ];
+
+export const createCompetition = async (competition) => {
+  try {
+    const docRef = await addDoc(collection(db, "competitions"), competition);
+    console.log("Added Competition " + docRef.id);
+    if (docRef.id) {
+      return true;
+    } else {
+      return false;
+    }
+  } catch (error) {
+    console.log("competition not added: " + error);
+  }
+};
 
 export const createSubmission = async (submission) => {
   try {

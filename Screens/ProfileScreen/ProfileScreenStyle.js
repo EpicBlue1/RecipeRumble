@@ -23,8 +23,10 @@ export const ProfileStyles = StyleSheet.create({
     color: Colors.Dirty_White,
   },
   BottomContainer: {
+    height: 600,
     padding: 20,
     alignItems: "center",
+    justifyContent: "space-between",
   },
   ParticipantsResults: {
     height: 180,
@@ -39,6 +41,5 @@ export const ProfileStyles = StyleSheet.create({
   Competitions: {
     marginTop: 30,
     height: "60%",
-    // width: 320,
   },
 });

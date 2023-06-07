@@ -16,6 +16,7 @@ import Navigation from "./Components/Partials/Navigation/Navigation";
 import CompetitionScreen from "./Screens/CompetitionScreen/CompetitionScreen";
 import HomeScreen from "./Screens/HomeScreen/HomeScreen";
 import Login from "./Screens/Login/Login";
+import NewCompScreen from "./Screens/NewCompScreen/NewCompScreenScreen";
 import ProfileScreen from "./Screens/ProfileScreen/ProfileScreen";
 import Register from "./Screens/Register/Register";
 import ResultsScreen from "./Screens/ResultsScreen/ResultsScreen";
@@ -129,6 +130,7 @@ export default function App() {
             title: route.params.project.competitionName,
           })}
         ></Stack.Screen>
+        <Stack.Screen name="NewComp" component={NewCompScreen}></Stack.Screen>
         <Stack.Screen name="Voting" component={VotingScreen}></Stack.Screen>
         <Stack.Screen name="Register" component={Register}></Stack.Screen>
         <Stack.Screen name="Profile" component={ProfileScreen}></Stack.Screen>
