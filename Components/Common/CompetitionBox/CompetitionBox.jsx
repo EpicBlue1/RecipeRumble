@@ -6,8 +6,9 @@ import { CompetitionBoxStyles } from "./CompetitionBoxStyles";
 
 const CompetitionBox = ({ CompData, route }) => {
   const imageSource = {
-    uri: CompData.competitionImage,
+    uri: CompData.Image,
   };
+  console.log(CompData);
 
   const navigation = useNavigation();
 
@@ -17,13 +18,13 @@ const CompetitionBox = ({ CompData, route }) => {
       style={CompetitionBoxStyles.Container}
     >
       <Image style={CompetitionBoxStyles.Image} source={imageSource} />
-      <Text style={Global.CompetitionFont}>{CompData.competitionName}</Text>
+      <Text style={Global.CompetitionFont}>{CompData.EventName}</Text>
       <View style={CompetitionBoxStyles.innerContainer}>
         <Image
           style={CompetitionBoxStyles.Icon}
           source={require("../../../assets/icons/Two-user.png")}
         />
-        <Text style={Global.Paragraph}>{CompData.submissions.length}</Text>
+        <Text style={Global.Paragraph}>0</Text>
         <View style={CompetitionBoxStyles.HorSpacer}></View>
         <Image
           style={CompetitionBoxStyles.Icon}

@@ -1,4 +1,5 @@
-import React, { useMemo } from "react";
+import { useFocusEffect } from "@react-navigation/native";
+import React, { useCallback, useMemo, useState } from "react";
 import {
   Image,
   ImageBackground,
@@ -9,15 +10,37 @@ import {
   View,
 } from "react-native";
 import CompetitionBox from "../../Components/Common/CompetitionBox/CompetitionBox";
-import { CompetitionData } from "../../Services/CompetitionService";
+import {
+  CompetitionData,
+  getAllCompetitions,
+} from "../../Services/CompetitionService";
 import { GetCurrentUser } from "../../Services/firebaseAuth";
 import { Global } from "../../Utils/GlobalStyles";
 import { HomeStyles } from "./HomeScreenStyles";
 
 const HomeScreen = () => {
-  const Data = useMemo(() => {
-    return CompetitionData;
-  }, [CompetitionData]);
+  const [Competitions, setCompetitions] = useState([]);
+
+  // const Data = useMemo(() => {
+  //   return Competitions;
+  // }, [Competitions]);
+
+  useFocusEffect(
+    useCallback(() => {
+      //get data when viewing screen
+      getAll();
+      return () => {
+        //clean up
+        console.log("not in view");
+      };
+    }, [])
+  );
+
+  const getAll = async () => {
+    console.log("getting data");
+    const allCompetitions = await getAllCompetitions();
+    setCompetitions(allCompetitions);
+  };
 
   const user = GetCurrentUser();
   console.log(user);
@@ -63,7 +86,7 @@ const HomeScreen = () => {
         <Text style={Global.HeadingTwo}>Competitions:</Text>
         <View style={HomeStyles.Competitions}>
           <View style={HomeStyles.innerContainerScroll}>
-            {Data.map((item, index) => {
+            {Competitions.map((item, index) => {
               return <CompetitionBox key={index} CompData={item} />;
             })}
           </View>

@@ -1,4 +1,11 @@
-import { Timestamp, addDoc, collection, doc, setDoc } from "firebase/firestore";
+import {
+  Timestamp,
+  addDoc,
+  collection,
+  doc,
+  getDocs,
+  setDoc,
+} from "firebase/firestore";
 import { db } from "../Utils/Firebase";
 
 export const CompetitionData = [
@@ -140,5 +147,22 @@ export const createSubmission = async (submission) => {
     });
   } catch (error) {
     console.log("user not added: " + error);
+  }
+};
+
+export const getAllCompetitions = async () => {
+  try {
+    var Competitions = [];
+    const snapshot = await getDocs(collection(db, "competitions"));
+
+    snapshot.forEach((doc) => {
+      console.log(doc.id, "=>", doc.data());
+      Competitions.push(doc.data());
+    });
+
+    return Competitions;
+  } catch (error) {
+    console.log(error);
+    return [];
   }
 };

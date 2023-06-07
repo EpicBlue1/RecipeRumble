@@ -66,12 +66,14 @@ const NewCompScreen = ({ navigation }) => {
       Description: Description,
       Requirements: Ingredients,
       Rules: Steps,
+      Submissions: [],
       Userid: GetCurrentUser().uid,
     };
 
     const success = createCompetition(Submission);
     if (success) {
       console.log("Added Submission");
+      navigation.goBack();
     } else {
       console.log("Not added Submission");
     }
