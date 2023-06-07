@@ -75,7 +75,10 @@ const CompetitionScreen = ({ route, navigation }) => {
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity style={CompStyles.ButtonVoteSub}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("SubmitComp", { project })}
+            style={CompStyles.ButtonVoteSub}
+          >
             <ImageBackground
               style={CompStyles.IconButt}
               source={require("../../assets/icons/HeartDark.png")}

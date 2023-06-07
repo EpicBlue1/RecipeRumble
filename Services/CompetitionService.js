@@ -1,3 +1,6 @@
+import { Timestamp, collection, doc, setDoc } from "firebase/firestore";
+import { db } from "../Utils/Firebase";
+
 export const CompetitionData = [
   {
     competitionName: "Tasty Treats Recipe",
@@ -112,3 +115,16 @@ export const CompetitionData = [
     ],
   },
 ];
+
+export const createSubmission = async (submission) => {
+  try {
+    const docRef = await addDoc(doc(db, "submissions"), {
+      username,
+      email,
+      createdAt: Timestamp.now(),
+      PrevSubmissions: [],
+    });
+  } catch (error) {
+    console.log("user not added: " + error);
+  }
+};

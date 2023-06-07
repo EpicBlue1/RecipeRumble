@@ -75,6 +75,25 @@ export default function App() {
     return null;
   }
 
+  // const [showDatePicker, setShowDatePicker] = useState(false);
+
+  // const openDatePicker = () => {
+  //   setShowDatePicker(true);
+  // };
+
+  // const onCancel = () => {
+  //   // You should close the modal in here
+  //   setShowDatePicker(false);
+  // };
+
+  // const onConfirm = (date) => {
+  //   // You should close the modal in here
+  //   setShowDatePicker(false);
+
+  //   // The parameter 'date' is a Date object so that you can use any Date prototype method.
+  //   console.log(date.getDate());
+  // };
+
   return (
     <NavigationContainer theme={Theme} styles={styles.container}>
       <Stack.Navigator
@@ -90,10 +109,7 @@ export default function App() {
         {!LoggedIn ? (
           <Stack.Screen name="Login" component={Login}></Stack.Screen>
         ) : (
-          <Stack.Screen
-            name="HomeTab"
-            component={SubmitCompScreen}
-          ></Stack.Screen>
+          <Stack.Screen name="HomeTab" component={HomeTab}></Stack.Screen>
         )}
 
         <Stack.Screen
@@ -105,6 +121,14 @@ export default function App() {
           })}
         ></Stack.Screen>
         <Stack.Screen name="Results" component={ResultsScreen}></Stack.Screen>
+        <Stack.Screen
+          name="SubmitComp"
+          component={SubmitCompScreen}
+          options={({ route }) => ({
+            headerShown: false,
+            title: route.params.project.competitionName,
+          })}
+        ></Stack.Screen>
         <Stack.Screen name="Voting" component={VotingScreen}></Stack.Screen>
         <Stack.Screen name="Register" component={Register}></Stack.Screen>
         <Stack.Screen name="Profile" component={ProfileScreen}></Stack.Screen>

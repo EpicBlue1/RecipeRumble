@@ -3,7 +3,7 @@ import { Image, StyleSheet, Text, TextInput, View } from "react-native";
 import { Global } from "../../../Utils/GlobalStyles";
 import { Colors } from "../../../Utils/ReUsables";
 
-const Input = ({ Icon, Place, Type, SecureEntry, setProp, Error }) => {
+const Input = ({ Icon, Place, Type, SecureEntry, setProp, Error, Ref }) => {
   return (
     <View>
       <View style={styles.Container}>
@@ -22,10 +22,13 @@ const Input = ({ Icon, Place, Type, SecureEntry, setProp, Error }) => {
               ? require("../../../assets/icons/LockRed.png")
               : Icon === "MailRed"
               ? require("../../../assets/icons/MailRed.png")
+              : Icon === "Edit"
+              ? require("../../../assets/icons/Edit.png")
               : require("../../../assets/icons/User.png")
           }
         />
         <TextInput
+          ref={Ref}
           style={styles.InputStyle}
           editable
           placeholder={Place}

@@ -9,7 +9,9 @@ export const ButtonStyles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 10,
+    borderRadius: 15,
+    margin: 0,
+    padding: 0,
     // shadowColor: "#464646",
     // shadowOffset: {
     //   width: 0,
@@ -28,7 +30,9 @@ export const ButtonStyles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 10,
+    borderRadius: 15,
+    margin: 0,
+    padding: 0,
     // shadowColor: "#464646",
     // shadowOffset: {
     //   width: 0,

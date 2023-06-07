@@ -17,6 +17,7 @@ import ProfileScreen from "../Screens/ProfileScreen/ProfileScreen";
 
 const Tab = createBottomTabNavigator();
 
+//TODO add indicators
 const HomeTab = () => {
   return (
     <Tab.Navigator
