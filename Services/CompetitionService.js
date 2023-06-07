@@ -169,14 +169,16 @@ export const getAllCompetitions = async () => {
   }
 };
 
-export const getSubmissionsById = async () => {
+export const getSubmissionsById = async (id) => {
   try {
     var Competitions = [];
-    const snapshot = await getDocs(collection(db, "competitions"));
+    const snapshot = await getDocs(collection(db, "submissions"));
 
     snapshot.forEach((doc) => {
-      console.log(doc.id, "=>", doc.data());
-      Competitions.push(doc.data());
+      console.log(doc.id, "=>", doc.data().CompetitionId);
+      if (id === doc.data().CompetitionId) {
+        Competitions.push(doc.data());
+      }
     });
 
     return Competitions;

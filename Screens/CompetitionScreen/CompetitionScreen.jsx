@@ -100,7 +100,7 @@ const CompetitionScreen = ({ route, navigation }) => {
           <Text style={Global.HeadingThree}>1d 5h 32m left</Text>
 
           <TouchableOpacity
-            onPress={() => navigation.navigate("Voting")}
+            onPress={() => navigation.navigate("Voting", { project })}
             style={CompStyles.ButtonVoteSub}
           >
             <ImageBackground

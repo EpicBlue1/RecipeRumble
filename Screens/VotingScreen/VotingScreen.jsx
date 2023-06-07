@@ -1,6 +1,6 @@
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, useFocusEffect } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React from "react";
+import React, { useCallback, useState } from "react";
 import {
   Image,
   ImageBackground,
@@ -14,12 +14,34 @@ import CompetitionBox from "../../Components/Common/CompetitionBox/CompetitionBo
 import Voting from "../../Components/Common/VoteIng/Voting";
 import BackButton from "../../Components/Partials/BackButton/BackButton";
 import Button from "../../Components/Partials/Button/Button";
+import { getSubmissionsById } from "../../Services/CompetitionService";
 import { Global } from "../../Utils/GlobalStyles";
 import CompetitionScreen from "../CompetitionScreen/CompetitionScreen";
 import HomeScreen from "../HomeScreen/HomeScreen";
 import { VotingScreenStyles } from "./VotingScreenStyles";
 
-const VotingScreen = () => {
+const VotingScreen = ({ route }) => {
+  const data = route.params.project;
+  const [Competitions, setCompetitions] = useState([]);
+
+  useFocusEffect(
+    useCallback(() => {
+      //get data when viewing screen
+      getAll();
+      return () => {
+        //clean up
+        console.log("not in view");
+      };
+    }, [])
+  );
+
+  const getAll = async () => {
+    console.log("getting data");
+    const allCompetitions = await getSubmissionsById(data.CompId);
+    setCompetitions(allCompetitions);
+    console.log(allCompetitions);
+  };
+
   return (
     <View style={VotingScreenStyles.Container}>
       <View style={VotingScreenStyles.TopContainer}>
@@ -31,11 +53,9 @@ const VotingScreen = () => {
       </View>
       <ScrollView>
         <View style={VotingScreenStyles.BottomContainer}>
-          <Voting />
-          <Voting />
-          <Voting />
-          <Voting />
-          <Voting />
+          {Competitions.map((item) => (
+            <Voting VoteData={item} />
+          ))}
           <View
             style={{
               height: 130,

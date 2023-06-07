@@ -11,7 +11,7 @@ import {
 import { Global } from "../../../Utils/GlobalStyles";
 import { VotingStyles } from "./VotingStyles";
 
-const Voting = ({ VoteImage, Description }) => {
+const Voting = ({ VoteData }) => {
   //useMemo
   const [Voted, setVoted] = useState(false);
   const [ShowDesc, setShowDesc] = useState(true);
@@ -38,10 +38,14 @@ const Voting = ({ VoteImage, Description }) => {
 
   console.log(voteCount);
 
+  const imageSource = {
+    uri: VoteData.Image,
+  };
+
   return (
     <ImageBackground
       style={ShowDesc ? VotingStyles.Container : VotingStyles.ContainerTall}
-      source={require("../../../assets/Test.png")}
+      source={imageSource}
     >
       <TouchableOpacity
         style={
@@ -75,7 +79,7 @@ const Voting = ({ VoteImage, Description }) => {
         </TouchableOpacity>
       </TouchableOpacity>
       <TouchableOpacity style={VotingStyles.Description}>
-        <Text style={Global.HeadingTwo}>Submission Title</Text>
+        <Text style={Global.HeadingTwo}>{VoteData.SubName}</Text>
         <View
           style={{
             width: 130,

@@ -56,6 +56,7 @@ const SubmitCompScreen = ({ route, navigation }) => {
       Ingredients: Ingredients,
       Userid: GetCurrentUser().uid,
       CompetitionId: data.CompId,
+      Likes: 0,
     };
 
     const success = createSubmission(Submission);
