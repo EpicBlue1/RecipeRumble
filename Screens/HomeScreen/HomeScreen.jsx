@@ -40,6 +40,7 @@ const HomeScreen = () => {
     console.log("getting data");
     const allCompetitions = await getAllCompetitions();
     setCompetitions(allCompetitions);
+    console.log(allCompetitions);
   };
 
   const user = GetCurrentUser();

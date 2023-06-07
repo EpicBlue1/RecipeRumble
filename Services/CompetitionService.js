@@ -139,18 +139,37 @@ export const createCompetition = async (competition) => {
 
 export const createSubmission = async (submission) => {
   try {
-    const docRef = await addDoc(doc(db, "submissions"), {
-      username,
-      email,
-      createdAt: Timestamp.now(),
-      PrevSubmissions: [],
-    });
+    const docRef = await addDoc(collection(db, "submissions"), submission);
+    console.log("Added Submission " + docRef.id);
+    if (docRef.id) {
+      return true;
+    } else {
+      return false;
+    }
   } catch (error) {
     console.log("user not added: " + error);
   }
 };
 
 export const getAllCompetitions = async () => {
+  try {
+    var Competitions = [];
+    const snapshot = await getDocs(collection(db, "competitions"));
+
+    snapshot.forEach((doc) => {
+      console.log(doc.id, "=>", doc.data());
+
+      Competitions.push({ ...doc.data(), CompId: doc.id });
+    });
+
+    return Competitions;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};
+
+export const getSubmissionsById = async () => {
   try {
     var Competitions = [];
     const snapshot = await getDocs(collection(db, "competitions"));

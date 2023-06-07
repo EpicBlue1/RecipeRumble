@@ -22,7 +22,7 @@ import { SubmitScreenStyle } from "./SubmitCompScreenStyle";
 
 const SubmitCompScreen = ({ route, navigation }) => {
   const data = route.params.project;
-  console.log(data);
+  console.log(data.CompId);
   const [Image, setImage] = useState("");
   const [SubName, setSubName] = useState("");
   const [Description, setDescription] = useState("");
@@ -49,17 +49,19 @@ const SubmitCompScreen = ({ route, navigation }) => {
 
   const addSubmission = async () => {
     let Submission = {
-      Image: Image,
+      Image:
+        "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
       SubName: SubName,
       Description: Description,
       Ingredients: Ingredients,
       Userid: GetCurrentUser().uid,
-      CompetitionId: 1,
+      CompetitionId: data.CompId,
     };
 
     const success = createSubmission(Submission);
     if (success) {
-      console.log("Added Submission");
+      console.log("Added Competition");
+      navigation.goBack();
     } else {
       console.log("Not added Submission");
     }
