@@ -30,10 +30,6 @@ const Register = () => {
   const [passwordErrorCon, setpasswordErrorCon] = useState("");
   const [userNameError, setuserNameError] = useState("");
 
-  useEffect(() => {
-    console.log(userName);
-  }, [userName]);
-
   const Register = () => {
     console.log("Registering");
     if (email === "") {
@@ -136,7 +132,7 @@ const Register = () => {
           }}
         >
           <Text style={Global.CompetitionFont}>Already have an account?</Text>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
+          <TouchableOpacity onPress={() => navigation.navigate("Login")}>
             <Text style={[LoginStyles.AccountBold, { color: Colors.Red }]}>
               Log In
             </Text>

@@ -8,31 +8,45 @@ import {
 } from "firebase/auth";
 import { Alert } from "react-native";
 import { auth } from "../Utils/Firebase";
+import { createUserDB } from "./UserService";
 
-export const RegisterNewUser = (username, email, password) => {
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      console.log(user);
-      Alert.alert("Registered ", "Return to log in", [
-        { text: "Okay", onPress: () => {} },
-      ]);
+export const RegisterNewUser = async (username, email, password) => {
+  try {
+    await createUserWithEmailAndPassword(auth, email, password)
+      .then(async (userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+        await createUserDB(username, email, user.uid);
+        Alert.alert("Registered ", "Return to log in", [
+          { text: "Okay", onPress: () => {} },
+        ]);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode + ": " + errorMessage);
+        Alert.alert("Error ", errorMessage, [
+          { text: "Okay", onPress: () => {} },
+        ]);
+      });
+
+    await updateProfile(auth.currentUser, {
+      displayName: username,
+      photoURL: "https://i.ytimg.com/vi/g744_sUBsgo/maxresdefault.jpg",
     })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorCode + ": " + errorMessage);
-      Alert.alert("Error ", errorMessage, [
-        { text: "Okay", onPress: () => {} },
-      ]);
-    });
+      .then((feedback) => {
+        console.log(feedback);
+      })
+      .catch((err) => console.log(err));
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const LogInFun = async (email, password) => {
   await signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      console.log(user);
       Alert.alert("Logged In", "You can continue to the app", [
         {
           text: "Continue",

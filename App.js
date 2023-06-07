@@ -19,6 +19,7 @@ import Login from "./Screens/Login/Login";
 import ProfileScreen from "./Screens/ProfileScreen/ProfileScreen";
 import Register from "./Screens/Register/Register";
 import ResultsScreen from "./Screens/ResultsScreen/ResultsScreen";
+import SubmitCompScreen from "./Screens/SubmitCompScreen/SubmitCompScreen";
 import TestScreen from "./Screens/TestScreen/TestScreen";
 import VotingScreen from "./Screens/VotingScreen/VotingScreen";
 import { auth } from "./Utils/Firebase";
@@ -87,11 +88,12 @@ export default function App() {
         }}
       >
         {!LoggedIn ? (
-          <>
-            <Stack.Screen name="Login" component={Login}></Stack.Screen>
-          </>
+          <Stack.Screen name="Login" component={Login}></Stack.Screen>
         ) : (
-          <Stack.Screen name="HomeTab" component={ResultsScreen}></Stack.Screen>
+          <Stack.Screen
+            name="HomeTab"
+            component={SubmitCompScreen}
+          ></Stack.Screen>
         )}
 
         <Stack.Screen

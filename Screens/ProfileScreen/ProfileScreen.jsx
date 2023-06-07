@@ -33,7 +33,7 @@ const ProfileScreen = () => {
 
           <View>
             <Text style={[Global.HeadingTwo, ProfileStyles.white]}>
-              Reinhardt van Aarde
+              {user.displayName}
             </Text>
             <Text style={[Global.HeadingThree, ProfileStyles.white]}>
               {user.email}

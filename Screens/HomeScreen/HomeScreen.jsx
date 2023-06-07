@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import CompetitionBox from "../../Components/Common/CompetitionBox/CompetitionBox";
 import { CompetitionData } from "../../Services/CompetitionService";
+import { GetCurrentUser } from "../../Services/firebaseAuth";
 import { Global } from "../../Utils/GlobalStyles";
 import { HomeStyles } from "./HomeScreenStyles";
 
@@ -17,6 +18,9 @@ const HomeScreen = () => {
   const Data = useMemo(() => {
     return CompetitionData;
   }, [CompetitionData]);
+
+  const user = GetCurrentUser();
+  console.log(user);
 
   return (
     <View style={HomeStyles.Container}>
@@ -27,7 +31,7 @@ const HomeScreen = () => {
             source={require("../../assets/Logo.png")}
           />
           <Text style={[Global.HeadingTwo, HomeStyles.Intro]}>
-            Welcome back Reinhardt
+            Welcome back {user.displayName}
           </Text>
         </View>
 
