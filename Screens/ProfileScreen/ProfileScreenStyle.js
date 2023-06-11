@@ -3,11 +3,12 @@ import { Colors } from "../../Utils/ReUsables";
 
 export const ProfileStyles = StyleSheet.create({
   image: {
-    height: 210,
+    height: 240,
   },
   InnerContainer: {
     width: null,
-    height: 210,
+    paddingTop: 35,
+    height: 240,
     backgroundColor: "rgba(97, 94, 99, 0.5)",
     display: "flex",
     justifyContent: "space-evenly",
@@ -23,7 +24,7 @@ export const ProfileStyles = StyleSheet.create({
     color: Colors.Dirty_White,
   },
   BottomContainer: {
-    height: 600,
+    height: 550,
     padding: 20,
     alignItems: "center",
     justifyContent: "space-between",
