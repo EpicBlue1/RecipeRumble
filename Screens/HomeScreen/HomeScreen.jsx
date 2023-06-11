@@ -21,10 +21,6 @@ import { HomeStyles } from "./HomeScreenStyles";
 const HomeScreen = () => {
   const [Competitions, setCompetitions] = useState([]);
 
-  // const Data = useMemo(() => {
-  //   return Competitions;
-  // }, [Competitions]);
-
   useFocusEffect(
     useCallback(() => {
       //get data when viewing screen

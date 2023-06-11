@@ -6,8 +6,8 @@ export const LoginStyles = StyleSheet.create({
     height: "100%",
   },
   Image: {
-    height: 170,
-    paddingTop: 20,
+    height: 200,
+    paddingTop: 40,
     width: null,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
@@ -38,7 +38,6 @@ export const LoginStyles = StyleSheet.create({
   InputContainer: {
     height: 120,
     justifyContent: "space-between",
-    // marginBottom: 50,
   },
   Headings: {
     textAlign: "left",

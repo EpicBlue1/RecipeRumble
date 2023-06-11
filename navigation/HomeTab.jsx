@@ -22,7 +22,7 @@ const HomeTab = () => {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarStyle: { height: 60 },
+        tabBarStyle: { height: 70 },
         headerShown: false,
       }}
     >
@@ -36,7 +36,7 @@ const HomeTab = () => {
           tabBarIcon: ({ size, focused, color }) => {
             return (
               <Image
-                style={{ width: 35, height: 35 }}
+                style={{ width: 32, height: 32 }}
                 source={require("../assets/icons/Home.png")}
               />
             );
@@ -53,7 +53,7 @@ const HomeTab = () => {
           tabBarIcon: ({ size, focused, color }) => {
             return (
               <Image
-                style={{ width: 35, height: 35 }}
+                style={{ width: 32, height: 32 }}
                 source={require("../assets/icons/Setting.png")}
               />
             );

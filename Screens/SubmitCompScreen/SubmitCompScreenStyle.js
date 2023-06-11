@@ -79,7 +79,7 @@ export const SubmitScreenStyle = StyleSheet.create({
     height: 30,
     paddingLeft: 10,
     paddingRight: 10,
-    backgroundColor: Colors.Green,
+    backgroundColor: Colors.Red,
     borderRadius: 15,
     justifyContent: "center",
   },

@@ -33,6 +33,7 @@ import HomeTab from "./navigation/HomeTab";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
+
   const [LoggedIn, setLoggedIn] = useState(false);
 
   const Theme = {
@@ -75,25 +76,6 @@ export default function App() {
   if (!fontsLoaded) {
     return null;
   }
-
-  // const [showDatePicker, setShowDatePicker] = useState(false);
-
-  // const openDatePicker = () => {
-  //   setShowDatePicker(true);
-  // };
-
-  // const onCancel = () => {
-  //   // You should close the modal in here
-  //   setShowDatePicker(false);
-  // };
-
-  // const onConfirm = (date) => {
-  //   // You should close the modal in here
-  //   setShowDatePicker(false);
-
-  //   // The parameter 'date' is a Date object so that you can use any Date prototype method.
-  //   console.log(date.getDate());
-  // };
 
   return (
     <NavigationContainer theme={Theme} styles={styles.container}>

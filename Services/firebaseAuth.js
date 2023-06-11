@@ -10,6 +10,27 @@ import { Alert } from "react-native";
 import { auth } from "../Utils/Firebase";
 import { createUserDB } from "./UserService";
 
+export const LogInFun = async (email, password) => {
+  await signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      Alert.alert("Logged In", "You can continue to the app", [
+        {
+          text: "Continue",
+          onPress: () => {},
+        },
+      ]);
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode + ": " + errorMessage);
+      Alert.alert("Email or Password is incorrect", errorMessage, [
+        { text: "Back", onPress: () => {} },
+      ]);
+    });
+};
+
 export const RegisterNewUser = async (username, email, password) => {
   try {
     await createUserWithEmailAndPassword(auth, email, password)
@@ -17,8 +38,13 @@ export const RegisterNewUser = async (username, email, password) => {
         const user = userCredential.user;
         console.log(user);
         await createUserDB(username, email, user.uid);
-        Alert.alert("Registered ", "Return to log in", [
-          { text: "Okay", onPress: () => {} },
+        Alert.alert("Registered ", "", [
+          {
+            text: "Okay",
+            onPress: () => {
+              LogInFun(email, password);
+            },
+          },
         ]);
       })
       .catch((error) => {
@@ -43,32 +69,9 @@ export const RegisterNewUser = async (username, email, password) => {
   }
 };
 
-export const LogInFun = async (email, password) => {
-  await signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      Alert.alert("Logged In", "You can continue to the app", [
-        {
-          text: "Continue",
-          onPress: () => {},
-        },
-      ]);
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorCode + ": " + errorMessage);
-      Alert.alert("Email or Password is incorrect", errorMessage, [
-        { text: "Back", onPress: () => {} },
-      ]);
-    });
-};
-
 export const LogOut = () => {
   signOut(auth)
-    .then(() => {
-      console.log("Cheers!");
-    })
+    .then(() => {})
     .catch((err) => {
       console.log(err.errorMessage);
     });

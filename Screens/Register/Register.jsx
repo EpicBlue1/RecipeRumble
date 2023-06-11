@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import {
   Image,
   ImageBackground,
+  KeyboardAvoidingView,
   ScrollView,
   StyleSheet,
   Text,
@@ -51,12 +52,16 @@ const Register = () => {
       passwordCon !== "" &&
       userName !== ""
     ) {
-      RegisterNewUser(userName, email, password);
+      if (passwordCon === password) {
+        RegisterNewUser(userName, email, password);
+      } else {
+        setpasswordErrorCon("Passwords don't match");
+      }
     }
   };
 
   return (
-    <View style={LoginStyles.Container}>
+    <ScrollView style={LoginStyles.Container}>
       <ImageBackground
         style={LoginStyles.Image}
         source={require("../../assets/Backgrounds/Leaf_Background.png")}
@@ -107,21 +112,26 @@ const Register = () => {
             setProp={setPassword}
             Error={passwordError}
           />
-          <Input
-            Place={"Confirm Password"}
-            Type={"default"}
-            Icon={passwordError === "" ? "Lock" : "LockRed"}
-            SecureEntry={true}
-            setProp={setpasswordCon}
-            Error={passwordErrorCon}
-          />
+          <KeyboardAvoidingView behavior="position" true>
+            <Input
+              Place={"Confirm Password"}
+              Type={"default"}
+              Icon={passwordError === "" ? "Lock" : "LockRed"}
+              SecureEntry={true}
+              setProp={setpasswordCon}
+              Error={passwordErrorCon}
+            />
+          </KeyboardAvoidingView>
         </View>
+        <View style={{ marginTop: "20%" }}></View>
 
-        <Button
-          OnPress={Register}
-          ButtonType={"Primary"}
-          ButText={"Register"}
-        />
+        <KeyboardAvoidingView behavior="position" true>
+          <Button
+            OnPress={Register}
+            ButtonType={"Primary"}
+            ButText={"Register"}
+          />
+        </KeyboardAvoidingView>
 
         <View
           style={{
@@ -139,7 +149,7 @@ const Register = () => {
           </TouchableOpacity>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

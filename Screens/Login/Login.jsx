@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import {
   Image,
   ImageBackground,
+  KeyboardAvoidingView,
   ScrollView,
   StyleSheet,
   Text,
@@ -40,7 +41,7 @@ const Login = () => {
   };
 
   return (
-    <View style={LoginStyles.Container}>
+    <ScrollView style={LoginStyles.Container}>
       <ImageBackground
         style={LoginStyles.Image}
         source={require("../../assets/Backgrounds/Carrot_BackGround.png")}
@@ -66,24 +67,32 @@ const Login = () => {
           </Text>
         </View>
 
+        <View style={{ marginTop: "10%" }}></View>
+
         <View style={LoginStyles.InputContainer}>
-          <Input
-            Place={"Email"}
-            Type={"email-address"}
-            Icon={emailError === "" ? "User" : "UserRed"}
-            Error={emailError}
-            setProp={setEmail}
-            SecureEntry={false}
-          />
-          <Input
-            Place={"Password"}
-            Type={"default"}
-            Icon={passwordError === "" ? "Lock" : "LockRed"}
-            Error={passwordError}
-            setProp={setPassword}
-            SecureEntry={true}
-          />
+          <KeyboardAvoidingView behavior="padding" enabled>
+            <Input
+              Place={"Email"}
+              Type={"email-address"}
+              Icon={emailError === "" ? "User" : "UserRed"}
+              Error={emailError}
+              setProp={setEmail}
+              SecureEntry={false}
+            />
+          </KeyboardAvoidingView>
+          <KeyboardAvoidingView behavior="padding" enabled>
+            <Input
+              Place={"Password"}
+              Type={"default"}
+              Icon={passwordError === "" ? "Lock" : "LockRed"}
+              Error={passwordError}
+              setProp={setPassword}
+              SecureEntry={true}
+            />
+          </KeyboardAvoidingView>
         </View>
+
+        <View style={{ marginTop: "20%" }}></View>
 
         <Button OnPress={LogIn} ButtonType={"Primary"} ButText={"Login"} />
 
@@ -103,7 +112,7 @@ const Login = () => {
           </TouchableOpacity>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
