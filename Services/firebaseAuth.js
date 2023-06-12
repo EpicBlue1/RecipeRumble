@@ -13,13 +13,12 @@ import { createUserDB } from "./UserService";
 export const LogInFun = async (email, password) => {
   await signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      const user = userCredential.user;
-      Alert.alert("Logged In", "You can continue to the app", [
-        {
-          text: "Continue",
-          onPress: () => {},
-        },
-      ]);
+      // Alert.alert("Logged In", "You can continue to the app", [
+      //   {
+      //     text: "Continue",
+      //     onPress: () => {},
+      //   },
+      // ]);
     })
     .catch((error) => {
       const errorCode = error.code;

@@ -13,6 +13,7 @@ import {
 } from "react-native";
 import Button from "../../Components/Partials/Button/Button";
 import Input from "../../Components/Partials/Input/Input";
+import Loader from "../../Components/Partials/Loader/Loader";
 import { LogInFun } from "../../Services/firebaseAuth";
 import { Global } from "../../Utils/GlobalStyles";
 import { Colors } from "../../Utils/ReUsables";
@@ -27,21 +28,30 @@ const Login = () => {
   const [emailError, setemailError] = useState("");
   const [passwordError, setpasswordError] = useState("");
 
-  const LogIn = () => {
-    console.log("Logging in");
+  const [Loading, setLoading] = useState(false);
+
+  const LogIn = async () => {
+    // console.log("Logging in");
+    setLoading(true);
+
     if (email === "") {
       setemailError("Please enter your email");
+      setLoading(false);
     }
     if (password === "") {
       setpasswordError("Please enter a password");
+      setLoading(false);
     }
     if (email !== "" && password !== "") {
-      LogInFun(email, password);
+      await LogInFun(email, password).then(() => {
+        setLoading(false);
+      });
     }
   };
 
   return (
     <ScrollView style={LoginStyles.Container}>
+      <Loader loading={Loading} position={"abso"} />
       <ImageBackground
         style={LoginStyles.Image}
         source={require("../../assets/Backgrounds/Carrot_BackGround.png")}

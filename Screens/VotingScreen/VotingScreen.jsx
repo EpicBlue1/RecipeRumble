@@ -23,6 +23,7 @@ import { VotingScreenStyles } from "./VotingScreenStyles";
 const VotingScreen = ({ route }) => {
   const data = route.params.project;
   const [Competitions, setCompetitions] = useState([]);
+  const [Loading, setLoading] = useState(false);
 
   useFocusEffect(
     useCallback(() => {
@@ -36,11 +37,20 @@ const VotingScreen = ({ route }) => {
   );
 
   const getAll = async () => {
+    setLoading(true);
     console.log("getting data");
     const allCompetitions = await getSubmissionsById(data.CompId);
     setCompetitions(allCompetitions);
     console.log(allCompetitions);
   };
+
+  useEffect(() => {
+    if (Competitions.length === 0) {
+      setLoading(true);
+    } else {
+      setLoading(false);
+    }
+  }, [Competitions]);
 
   return (
     <View style={VotingScreenStyles.Container}>
@@ -53,6 +63,7 @@ const VotingScreen = ({ route }) => {
       </View>
       <ScrollView>
         <View style={VotingScreenStyles.BottomContainer}>
+          <Loader loading={Loading} position={""} />
           {Competitions.map((item) => (
             <Voting VoteData={item} />
           ))}

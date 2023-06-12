@@ -1,5 +1,5 @@
 import { useFocusEffect } from "@react-navigation/native";
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import {
   Image,
   ImageBackground,
@@ -21,6 +21,7 @@ import { HomeStyles } from "./HomeScreenStyles";
 
 const HomeScreen = () => {
   const [Competitions, setCompetitions] = useState([]);
+  const [Loading, setLoading] = useState(false);
 
   useFocusEffect(
     useCallback(() => {
@@ -34,18 +35,26 @@ const HomeScreen = () => {
   );
 
   const getAll = async () => {
+    setLoading(true);
     console.log("getting data");
     const allCompetitions = await getAllCompetitions();
     setCompetitions(allCompetitions);
     console.log(allCompetitions);
   };
 
+  useEffect(() => {
+    if (Competitions.length === 0) {
+      setLoading(true);
+    } else {
+      setLoading(false);
+    }
+  }, [Competitions]);
+
   const user = GetCurrentUser();
   console.log(user);
 
   return (
     <View style={HomeStyles.Container}>
-      <Loader />
       <ScrollView>
         <View style={HomeStyles.TopContainer}>
           <ImageBackground
@@ -85,6 +94,7 @@ const HomeScreen = () => {
         <Text style={Global.HeadingTwo}>Competitions:</Text>
         <View style={HomeStyles.Competitions}>
           <View style={HomeStyles.innerContainerScroll}>
+            <Loader loading={Loading} position={""} />
             {Competitions.map((item, index) => {
               return <CompetitionBox key={index} CompData={item} />;
             })}
