@@ -10,6 +10,7 @@ import {
   View,
 } from "react-native";
 import CompetitionBox from "../../Components/Common/CompetitionBox/CompetitionBox";
+import Loader from "../../Components/Partials/Loader/Loader";
 import {
   CompetitionData,
   getAllCompetitions,
@@ -44,6 +45,7 @@ const HomeScreen = () => {
 
   return (
     <View style={HomeStyles.Container}>
+      <Loader />
       <ScrollView>
         <View style={HomeStyles.TopContainer}>
           <ImageBackground

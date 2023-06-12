@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   ImageBackground,
   ScrollView,
@@ -45,6 +45,8 @@ const SubmitCompScreen = ({ route, navigation }) => {
   const addStep = () => {
     setSteps((items) => [...items, Step]);
     this.textInput.clear();
+    console.log(Steps);
+    console.log("lol");
   };
 
   const addSubmission = async () => {
@@ -67,6 +69,10 @@ const SubmitCompScreen = ({ route, navigation }) => {
       console.log("Not added Submission");
     }
   };
+
+  useEffect(() => {
+    console.log(Steps);
+  }, [Step]);
 
   return (
     <View style={SubmitScreenStyle.Container}>
@@ -146,14 +152,27 @@ const SubmitCompScreen = ({ route, navigation }) => {
           />
           <Text style={Global.HeadingThree}>Steps:</Text>
           <View style={SubmitScreenStyle.StepsContainer}>
-            {Ingredients.length === 0 ? (
+            {Steps.length === 0 ? (
               <Text>Add steps below!</Text>
             ) : (
               Steps.map((Item, index) => (
                 <View key={index} style={SubmitScreenStyle.StepsView}>
-                  <Text>
-                    {index + 1}. {Item}
+                  <Text
+                    style={{
+                      height: 26,
+                      alignItems: "center",
+                      justifyContent: "center",
+                      textAlign: "center",
+                      fontWeight: "bold",
+                      marginRight: 20,
+                      width: 26,
+                      backgroundColor: Colors.Dirty_White,
+                      borderRadius: 15,
+                    }}
+                  >
+                    {index + 1}.
                   </Text>
+                  <Text> {Item}</Text>
                 </View>
               ))
             )}
