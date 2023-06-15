@@ -1,6 +1,6 @@
 import { NavigationContainer, useFocusEffect } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
   Image,
   ImageBackground,
@@ -14,6 +14,7 @@ import CompetitionBox from "../../Components/Common/CompetitionBox/CompetitionBo
 import Voting from "../../Components/Common/VoteIng/Voting";
 import BackButton from "../../Components/Partials/BackButton/BackButton";
 import Button from "../../Components/Partials/Button/Button";
+import Loader from "../../Components/Partials/Loader/Loader";
 import { getSubmissionsById } from "../../Services/CompetitionService";
 import { Global } from "../../Utils/GlobalStyles";
 import CompetitionScreen from "../CompetitionScreen/CompetitionScreen";
@@ -57,25 +58,28 @@ const VotingScreen = ({ route }) => {
       <View style={VotingScreenStyles.TopContainer}>
         <BackButton />
         <View style={{ width: null, paddingLeft: "10%" }}>
-          <Text style={Global.HeadingTwo}>Competition Title</Text>
-          <Text style={Global.HeadingThree}>Voting</Text>
+          <Text style={Global.HeadingTwo}>{data.EventName}</Text>
         </View>
       </View>
       <ScrollView>
         <View style={VotingScreenStyles.BottomContainer}>
-          <Loader loading={Loading} position={""} />
-          {Competitions.map((item) => (
-            <Voting VoteData={item} />
+          {Competitions.map((item, index) => (
+            <Voting key={index} VoteData={item} />
           ))}
+
           <View
             style={{
-              height: 130,
+              height: 250,
               alignItems: "center",
               justifyContent: "space-around",
-              marginTop: 20,
+              // marginTop: 20,
+              // backgroundColor: "red",
             }}
           >
-            <Text style={Global.HeadingThree}>The end!</Text>
+            <Loader loading={Loading} position={""} />
+            <Text style={Global.HeadingThree}>
+              {Loading ? "Loading" : "The end!"}
+            </Text>
             <Button ButtonType={"Primary"} ButText={"Return to competition"} />
           </View>
         </View>

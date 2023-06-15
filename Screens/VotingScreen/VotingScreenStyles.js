@@ -6,15 +6,15 @@ export const VotingScreenStyles = StyleSheet.create({
     // padding: 20,
   },
   TopContainer: {
-    height: 150,
+    height: 140,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
     display: "flex",
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "flex-start",
-    padding: 10,
-    paddingTop: 50,
+    padding: 20,
+    paddingTop: 60,
     backgroundColor: Colors.Dirty_White_Dark,
     shadowColor: "#464646",
     shadowOffset: {

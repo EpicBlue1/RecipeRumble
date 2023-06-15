@@ -18,6 +18,7 @@ import HomeScreen from "./Screens/HomeScreen/HomeScreen";
 import Login from "./Screens/Login/Login";
 import NewCompScreen from "./Screens/NewCompScreen/NewCompScreenScreen";
 import ProfileScreen from "./Screens/ProfileScreen/ProfileScreen";
+import RecipeView from "./Screens/RecipeView/RecipeView";
 import Register from "./Screens/Register/Register";
 import ResultsScreen from "./Screens/ResultsScreen/ResultsScreen";
 import SubmitCompScreen from "./Screens/SubmitCompScreen/SubmitCompScreen";
@@ -90,7 +91,10 @@ export default function App() {
         }}
       >
         {!LoggedIn ? (
-          <Stack.Screen name="Login" component={Login}></Stack.Screen>
+          <>
+            <Stack.Screen name="Register" component={Register}></Stack.Screen>
+            <Stack.Screen name="Login" component={Login}></Stack.Screen>
+          </>
         ) : (
           <Stack.Screen name="HomeTab" component={HomeTab}></Stack.Screen>
         )}
@@ -113,8 +117,8 @@ export default function App() {
           })}
         ></Stack.Screen>
         <Stack.Screen name="NewComp" component={NewCompScreen}></Stack.Screen>
+        <Stack.Screen name="IndRecipe" component={RecipeView}></Stack.Screen>
         <Stack.Screen name="Voting" component={VotingScreen}></Stack.Screen>
-        <Stack.Screen name="Register" component={Register}></Stack.Screen>
         <Stack.Screen name="Profile" component={ProfileScreen}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>

@@ -67,7 +67,6 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     elevation: 5,
     zIndex: 999,
-    bottom: "40%",
   },
   hidden: {
     display: "none",

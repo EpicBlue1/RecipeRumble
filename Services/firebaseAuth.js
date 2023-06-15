@@ -37,14 +37,14 @@ export const RegisterNewUser = async (username, email, password) => {
         const user = userCredential.user;
         console.log(user);
         await createUserDB(username, email, user.uid);
-        Alert.alert("Registered ", "", [
-          {
-            text: "Okay",
-            onPress: () => {
-              LogInFun(email, password);
-            },
-          },
-        ]);
+        // Alert.alert("Registered ", "", [
+        //   {
+        //     text: "Okay",
+        //     onPress: () => {
+        //       // LogInFun(email, password);
+        //     },
+        //   },
+        // ]);
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -61,6 +61,7 @@ export const RegisterNewUser = async (username, email, password) => {
     })
       .then((feedback) => {
         console.log(feedback);
+        // LogInFun(email, password);
       })
       .catch((err) => console.log(err));
   } catch (error) {

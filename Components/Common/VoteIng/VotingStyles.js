@@ -15,6 +15,7 @@ export const VotingStyles = StyleSheet.create({
     elevation: 5,
     borderRadius: 10,
     marginBottom: 25,
+    borderRadius: 10,
   },
   Icon: {
     width: 36,
@@ -91,12 +92,12 @@ export const VotingStyles = StyleSheet.create({
   },
   Description: {
     width: 360,
-    padding: 10,
+    padding: 20,
     height: 100,
     backgroundColor: "#ffffff",
     paddingTop: 15,
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 10,
+    // borderBottomLeftRadius: 10,
+    // borderBottomRightRadius: 10,
     flexDirection: "column",
     justifyContent: "space-between",
   },

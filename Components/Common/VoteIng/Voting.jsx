@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useEffect, useState } from "react";
 import {
   Image,
@@ -16,6 +17,8 @@ const Voting = ({ VoteData }) => {
   const [Voted, setVoted] = useState(false);
   const [ShowDesc, setShowDesc] = useState(true);
   const [voteCount, setVoteCount] = useState(0);
+
+  const navigation = useNavigation();
 
   const Vote = () => {
     setVoteCount((value) => (value < 1 ? value + 1 : value));
@@ -48,13 +51,18 @@ const Voting = ({ VoteData }) => {
       source={imageSource}
     >
       <TouchableOpacity
+        activeOpacity={0.1}
         style={
           Voted
             ? [VotingStyles.Overlay, VotingStyles.Voted]
             : [VotingStyles.Overlay]
         }
       >
-        <TouchableOpacity onPress={Vote} style={VotingStyles.HeartContainer}>
+        <TouchableOpacity
+          activeOpacity={0.1}
+          onPress={Vote}
+          style={VotingStyles.HeartContainer}
+        >
           <Image
             style={
               Voted
@@ -78,7 +86,11 @@ const Voting = ({ VoteData }) => {
           </Text>
         </TouchableOpacity>
       </TouchableOpacity>
-      <TouchableOpacity style={VotingStyles.Description}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("IndRecipe", { VoteData })}
+        activeOpacity={0.9}
+        style={VotingStyles.Description}
+      >
         <Text style={Global.HeadingTwo}>{VoteData.SubName}</Text>
         <View
           style={{
