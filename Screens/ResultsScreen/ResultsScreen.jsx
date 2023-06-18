@@ -1,4 +1,4 @@
-import { useFocusEffect } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import React, { useCallback, useEffect, useState } from "react";
 import {
   FlatList,
@@ -22,6 +22,7 @@ import { ResultsStyles } from "./ResultsScreenStyles";
 const ResultsScreen = ({ route }) => {
   let project = route.params.project;
   console.log(project);
+  const navigation = useNavigation();
 
   const [Competitions, setCompetitions] = useState([]);
   const [Loading, setLoading] = useState(false);
@@ -84,6 +85,7 @@ const ResultsScreen = ({ route }) => {
           />
           {Competitions.sort((a, b) => b.Likes - a.Likes).map((item, index) => (
             <ResultsTopBox
+              project={item}
               key={index}
               DishName={item.SubName}
               UserName={item.UserSubName}

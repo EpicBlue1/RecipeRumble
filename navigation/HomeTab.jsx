@@ -27,7 +27,7 @@ const HomeTab = () => {
       screenOptions={{
         tabBarStyle: { height: 70 },
         tabBarActiveTintColor: Colors.Dirty_White_Darker,
-        tabBarInactiveTintColor: Colors.Dirty_White,
+        tabBarInactiveTintColor: "#ffffff",
 
         headerShown: false,
       }}

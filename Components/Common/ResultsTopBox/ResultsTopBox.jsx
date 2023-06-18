@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import {
   ImageBackground,
@@ -11,10 +12,19 @@ import { CompStyles } from "../../../Screens/CompetitionScreen/CompetitionScreen
 import { Global } from "../../../Utils/GlobalStyles";
 import { Colors } from "../../../Utils/ReUsables";
 
-const ResultsTopBox = ({ DishName, UserName, Image, Likes, Index }) => {
+const ResultsTopBox = ({
+  DishName,
+  UserName,
+  Image,
+  Likes,
+  Index,
+  project,
+}) => {
   const imageSource = {
     uri: Image,
   };
+  const navigation = useNavigation();
+
   return (
     <View
       style={[

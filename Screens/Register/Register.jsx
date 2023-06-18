@@ -33,9 +33,10 @@ const Register = () => {
   const [userNameError, setuserNameError] = useState("");
 
   const [Loading, setLoading] = useState(false);
-  setLoading(true);
 
   const Register = async () => {
+    setLoading(true);
+
     console.log("Registering");
     if (email === "") {
       setemailError("Please enter your email");
