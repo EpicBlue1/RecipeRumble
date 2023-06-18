@@ -1,5 +1,5 @@
 import * as ImagePicker from "expo-image-picker";
-import { getStorage, ref } from "firebase/storage";
+import { getDownloadURL, getStorage, ref } from "firebase/storage";
 import React, { useEffect, useState } from "react";
 import {
   Image,
@@ -21,23 +21,36 @@ import { ProfileStyles } from "./ProfileScreenStyle";
 
 const ProfileScreen = ({ navigation }) => {
   const user = GetCurrentUser();
-  console.log(user);
   const storage = getStorage();
-  // let allUserData = getCurrentUserData(user.email);
 
   const [image, setImage] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const [userData, setUserData] = useState([]);
 
-  useEffect(() => {
-    let allUserData = getCurrentUserData(user.email);
-    setUserData(allUserData);
-    console.log("DATAA");
-    console.log(userData);
-  }, [allUserData]);
+  const imageSource = {
+    uri: imageUrl,
+  };
 
-  const gsReference = ref(storage, userData.ProfileImage);
-  // const httpsReference = ref(storage, user.photoURL);
+  getDownloadURL(
+    ref(storage, "gs://reciperumble-f3601.appspot.com/profile.jpg")
+  )
+    .then((url) => {
+      const xhr = new XMLHttpRequest();
+      xhr.responseType = "blob";
+      xhr.onload = (event) => {
+        const blob = xhr.response;
+      };
+      xhr.open("GET", url);
+      xhr.send();
+
+      // Or inserted into an <img> element
+      console.log("URL");
+      console.log(url);
+      setImageUrl(url);
+    })
+    .catch((error) => {
+      console.log(error);
+      // Handle any errors
+    });
 
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -73,7 +86,7 @@ const ProfileScreen = ({ navigation }) => {
               style={{ borderRadius: 15 }}
               onPress={pickImage}
             >
-              <Image style={ProfileStyles.Profile} source={gsReference} />
+              <Image style={ProfileStyles.Profile} source={imageSource} />
             </TouchableHighlight>
 
             <TouchableHighlight

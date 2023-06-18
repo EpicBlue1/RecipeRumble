@@ -39,15 +39,16 @@ const HomeScreen = () => {
     console.log("getting data");
     const allCompetitions = await getAllCompetitions();
     setCompetitions(allCompetitions);
+    setLoading(false);
   };
 
-  useEffect(() => {
-    if (Competitions.length === 0) {
-      setLoading(true);
-    } else {
-      setLoading(false);
-    }
-  }, [Competitions]);
+  // useEffect(() => {
+  //   if (Competitions) {
+  //     setLoading(true);
+  //   } else {
+  //     setLoading(false);
+  //   }
+  // }, [Competitions]);
 
   const user = GetCurrentUser();
 
@@ -90,6 +91,13 @@ const HomeScreen = () => {
         </TouchableOpacity>
 
         <Text style={Global.HeadingTwo}>Competitions:</Text>
+        <Text
+          style={
+            Competitions.length === 0 ? Global.HeadingThree : HomeStyles.hide
+          }
+        >
+          Just you wait! Competitions on their way.
+        </Text>
         <View style={HomeStyles.Competitions}>
           <View style={HomeStyles.innerContainerScroll}>
             <Loader loading={Loading} position={""} />

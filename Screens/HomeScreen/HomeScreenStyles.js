@@ -36,6 +36,9 @@ export const HomeStyles = StyleSheet.create({
     marginTop: 20,
     // paddingBottom: 60,
   },
+  hide: {
+    display: "none",
+  },
   IconButt: {
     width: 32,
     height: 32,

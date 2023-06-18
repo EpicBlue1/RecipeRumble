@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import * as ImagePicker from "expo-image-picker";
+import React, { useRef, useState } from "react";
 import {
+  Alert,
   AlertIOS,
   ImageBackground,
   Platform,
@@ -7,6 +9,7 @@ import {
   StyleSheet,
   Text,
   ToastAndroid,
+  TouchableHighlight,
   View,
 } from "react-native";
 import DatePicker from "react-native-neat-date-picker";
@@ -17,6 +20,7 @@ import {
   createCompetition,
   createSubmission,
 } from "../../Services/CompetitionService";
+import { uploadToStorage } from "../../Services/ImageService";
 import { GetCurrentUser } from "../../Services/firebaseAuth";
 import { Global } from "../../Utils/GlobalStyles";
 import { Colors } from "../../Utils/ReUsables";
@@ -28,6 +32,8 @@ import { NewCompScreenStyle } from "./NewCompScreenScreenStyle";
 
 const NewCompScreen = ({ navigation }) => {
   const [Image, setImage] = useState("");
+  const [imageNUri, setImageNUri] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const [SubName, setSubName] = useState("");
   const [Description, setDescription] = useState("");
   const [Ingredient, setIngredient] = useState("");
@@ -46,16 +52,26 @@ const NewCompScreen = ({ navigation }) => {
   const [Ingredients, setIngredients] = useState([]);
   const [Steps, setSteps] = useState([]);
 
+  const inputRef = useRef(null);
+
   const addRecipe = () => {
+    if (Ingredient === "") {
+      Alert.alert("Field can not be empty", "Please enter a requirement");
+    } else {
+      setIngredients((items) => [...items, Ingredient]);
+      inputRef.current.clear();
+    }
     //TODO check if item is already added
     //TODO max items?
-    setIngredients((items) => [...items, Ingredient]);
-    this.textInput.clear();
   };
 
   const addStep = () => {
-    setSteps((items) => [...items, Step]);
-    this.textInput.clear();
+    if (Step === "") {
+      Alert.alert("Field can not be empty", "Please enter a step");
+    } else {
+      setSteps((items) => [...items, Step]);
+      inputRef.current.clear();
+    }
   };
 
   function notifyMessage() {
@@ -66,6 +82,33 @@ const NewCompScreen = ({ navigation }) => {
     }
   }
 
+  const pickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [1, 1],
+      quality: 1,
+    });
+
+    console.log("IMAGE");
+    console.log(JSON.stringify(result, null, 2));
+    if (!result.canceled) {
+      const imageSource = {
+        uri: result.assets[0].uri,
+      };
+      setImageNUri(result.assets[0].uri);
+      setImage(imageSource);
+    }
+    console.log(image);
+  };
+
+  const uploadImage = async (image, name) => {
+    const result = await uploadToStorage(image, `competitionImages/${name}`);
+    setImageUrl(result);
+    console.log(imageUrl);
+    return result;
+  };
+
   const addSubmission = async () => {
     if (
       SubName === "" ||
@@ -75,9 +118,12 @@ const NewCompScreen = ({ navigation }) => {
     ) {
       setDescError("Make sure to fill in all the required fields");
     } else {
+      let image = await uploadImage(
+        imageNUri,
+        SubName.trim().replace(/ +/g, "")
+      );
       let Submission = {
-        Image:
-          "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+        Image: image,
         Date: date,
         StartDate: startDate,
         EndDate: endDate,
@@ -85,6 +131,7 @@ const NewCompScreen = ({ navigation }) => {
         Description: Description,
         Requirements: Ingredients,
         Rules: Steps,
+        Ongoing: true,
         Submissions: [],
         Userid: GetCurrentUser().uid,
       };
@@ -100,7 +147,7 @@ const NewCompScreen = ({ navigation }) => {
   };
 
   const openDatePickerSingle = () => setShowDatePickerSingle(true);
-  const openDatePickerRange = () => setShowDatePickerRange(true);
+  // const openDatePickerRange = () => setShowDatePickerRange(true);
 
   const onCancelSingle = () => {
     // You should close the modal in here
@@ -115,14 +162,6 @@ const NewCompScreen = ({ navigation }) => {
     // For range mode, the output contains startDate, startDateString, endDate, and EndDateString
     console.log(output);
     setDate(output.dateString);
-  };
-
-  const onCancelRange = () => {
-    setShowDatePickerRange(false);
-  };
-
-  const onConfirmRange = (output) => {
-    setShowDatePickerRange(false);
     setStartDate(output.startDateString);
     setEndDate(output.endDateString);
   };
@@ -130,10 +169,10 @@ const NewCompScreen = ({ navigation }) => {
   return (
     <View style={NewCompScreenStyle.Container}>
       <DatePicker
-        isVisible={showDatePickerRange}
+        isVisible={showDatePickerSingle}
         mode={"range"}
-        onCancel={onCancelRange}
-        onConfirm={onConfirmRange}
+        onCancel={onCancelSingle}
+        onConfirm={onConfirmSingle}
       />
 
       <ScrollView>
@@ -147,15 +186,33 @@ const NewCompScreen = ({ navigation }) => {
           </View>
         </ImageBackground>
         <View style={NewCompScreenStyle.InputContainer}>
-          <ImageBackground
-            style={NewCompScreenStyle.addImage}
-            source={require("../../assets/Backgrounds/Blank.jpg")}
-          >
+          {Image === "" ? (
             <ImageBackground
               style={NewCompScreenStyle.addImageInner}
               source={require("../../assets/icons/Gallery.png")}
             ></ImageBackground>
-          </ImageBackground>
+          ) : (
+            <ImageBackground
+              resizeMode={"cover"}
+              style={NewCompScreenStyle.addImage}
+              source={Image}
+            ></ImageBackground>
+          )}
+
+          <Button
+            OnPress={pickImage}
+            ButtonType={"Secondary"}
+            ButText={"Add Image"}
+          />
+          <View
+            style={{
+              marginTop: 30,
+              marginBottom: 30,
+              width: "90%",
+              borderBottomColor: Colors.Gray,
+              borderBottomWidth: 0.5,
+            }}
+          />
           <Input
             Place={"Competition/Event Name"}
             Type={"default"}
@@ -192,12 +249,10 @@ const NewCompScreen = ({ navigation }) => {
             SecureEntry={false}
             setProp={setIngredient}
             Error={""}
-            Ref={(input) => {
-              this.textInput = input;
-            }}
+            Ref={inputRef}
           />
           <Button
-            OnPress={Ingredients.length === 0 ? notifyMessage : addRecipe}
+            OnPress={addRecipe}
             ButtonType={"Secondary"}
             ButText={"Add Requirement"}
           />
@@ -236,7 +291,7 @@ const NewCompScreen = ({ navigation }) => {
             }}
           />
           <Button
-            OnPress={Steps.length === 0 ? notifyMessage : addStep}
+            OnPress={addStep}
             ButtonType={"Secondary"}
             ButText={"Add Step"}
           />
@@ -272,7 +327,7 @@ const NewCompScreen = ({ navigation }) => {
           />
 
           <Button
-            OnPress={openDatePickerRange}
+            OnPress={openDatePickerSingle}
             ButtonType={"Secondary"}
             ButText={"Close Date Range"}
           />

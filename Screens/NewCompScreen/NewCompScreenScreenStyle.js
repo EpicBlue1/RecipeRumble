@@ -50,17 +50,20 @@ export const NewCompScreenStyle = StyleSheet.create({
   },
   addImage: {
     width: 300,
-    backgroundColor: "red",
+    backgroundColor: Colors.Dirty_White_Darker,
     alignSelf: "center",
     height: 150,
     resizeMode: "center",
-    flex: 1,
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 15,
     marginBottom: 20,
   },
+  hide: {
+    display: "none",
+  },
   addImageInner: {
+    marginBottom: 20,
     width: 40,
     height: 40,
     opacity: 0.5,

@@ -22,14 +22,12 @@ const Voting = ({ VoteData }) => {
 
   const Vote = () => {
     setVoteCount((value) => (value < 1 ? value + 1 : value));
-
-    if (voteCount === 1) {
-      setVoted(true);
-    } else if (voteCount < 1) {
+    if (voteCount < 1) {
       setTimeout(function () {
-        setVoteCount(0);
         console.log("Like reset");
-      }, 1800);
+      }, 500);
+    } else {
+      setVoted(true);
     }
   };
 
