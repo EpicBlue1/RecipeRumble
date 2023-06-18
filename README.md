@@ -8,7 +8,7 @@ Maybe you can mention me or this repo in the acknowledgements too
 -->
 <div align="center">
 
-  <img src="assetsread/logo.png" alt="logo" width="200" height="auto" />
+  <img src="assetsread/Logo.png" alt="logo" width="250" height="auto" />
   <h1>RecipeRumble</h1>
   
   <p>
@@ -18,23 +18,23 @@ Maybe you can mention me or this repo in the acknowledgements too
   
 <!-- Badges -->
 <p>
-  <a href="https://github.com/Louis3797/awesome-readme-template/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/Louis3797/awesome-readme-template" alt="contributors" />
+  <a href="https://github.com/EpicBlue1/RecipeRumble/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/EpicBlue1/RecipeRumble" alt="contributors" />
   </a>
   <a href="">
-    <img src="https://img.shields.io/github/last-commit/Louis3797/awesome-readme-template" alt="last update" />
+    <img src="https://img.shields.io/github/last-commit/EpicBlue1/RecipeRumble" alt="last update" />
   </a>
-  <a href="https://github.com/Louis3797/awesome-readme-template/network/members">
-    <img src="https://img.shields.io/github/forks/Louis3797/awesome-readme-template" alt="forks" />
+  <a href="https://github.com/EpicBlue1/RecipeRumble/network/members">
+    <img src="https://img.shields.io/github/forks/EpicBlue1/RecipeRumble" alt="forks" />
   </a>
-  <a href="https://github.com/Louis3797/awesome-readme-template/stargazers">
-    <img src="https://img.shields.io/github/stars/Louis3797/awesome-readme-template" alt="stars" />
+  <a href="https://github.com/EpicBlue1/RecipeRumble/stargazers">
+    <img src="https://img.shields.io/github/stars/EpicBlue1/RecipeRumble" alt="stars" />
   </a>
-  <a href="https://github.com/Louis3797/awesome-readme-template/issues/">
-    <img src="https://img.shields.io/github/issues/Louis3797/awesome-readme-template" alt="open issues" />
+  <a href="https://github.com/EpicBlue1/RecipeRumble/issues/">
+    <img src="https://img.shields.io/github/issues/EpicBlue1/RecipeRumble" alt="open issues" />
   </a>
-  <a href="https://github.com/Louis3797/awesome-readme-template/blob/master/LICENSE">
-    <img src="https://img.shields.io/github/license/Louis3797/awesome-readme-template.svg" alt="license" />
+  <a href="https://github.com/EpicBlue1/RecipeRumble/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/EpicBlue1/RecipeRumble.svg" alt="license" />
   </a>
 </p>
   
@@ -76,7 +76,13 @@ Maybe you can mention me or this repo in the acknowledgements too
 ### :camera: Idea Dump
 
 <div align="center"> 
-  <img src="assetsread/IdeaDump.png" alt="screenshot" width="400" height="auto" />
+  <img src="assetsread/IdeaDump.png" alt="screenshot" width="600" height="auto" />
+</div>
+
+### :: Moodboard
+
+<div align="center"> 
+  <img src="assetsread/Moodboard.png" alt="screenshot" width="600" height="auto" />
 </div>
 
 <!-- TechStack -->
@@ -86,48 +92,37 @@ Maybe you can mention me or this repo in the acknowledgements too
 <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="https://www.typescriptlang.org/">Typescript</a></li>
-    <li><a href="https://nextjs.org/">Next.js</a></li>
-    <li><a href="https://reactjs.org/">React.js</a></li>
-    <li><a href="https://tailwindcss.com/">TailwindCSS</a></li>
+    <li><a href="https://reactnative.dev/">React Native</a></li>
+    <li><a href="https://expo.dev/">Expo</a></li>
   </ul>
 </details>
 
 <details>
   <summary>Server</summary>
   <ul>
-    <li><a href="https://www.typescriptlang.org/">Typescript</a></li>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
-    <li><a href="https://go.dev/">Golang</a></li>
-    <li><a href="https://nestjs.com/">Nest.js</a></li>
-    <li><a href="https://socket.io/">SocketIO</a></li>
-    <li><a href="https://www.prisma.io/">Prisma</a></li>    
-    <li><a href="https://www.apollographql.com/">Apollo</a></li>
-    <li><a href="https://graphql.org/">GraphQL</a></li>
+    <li><a href="https://firebase.google.com/">Firebase</a></li>
   </ul>
 </details>
 
 <details>
 <summary>Database</summary>
   <ul>
-    <li><a href="https://www.mysql.com/">MySQL</a></li>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-    <li><a href="https://redis.io/">Redis</a></li>
-    <li><a href="https://neo4j.com/">Neo4j</a></li>
-    <li><a href="https://www.mongodb.com/">MongoDB</a></li>
+    <li><a href="https://firebase.google.com/docs/firestore/">Firestore</a></li>
   </ul>
 </details>
 
 <details>
 <summary>DevOps</summary>
   <ul>
-    <li><a href="https://www.docker.com/">Docker</a></li>
-    <li><a href="https://www.jenkins.io/">Jenkins</a></li>
-    <li><a href="https://circleci.com/">CircleCLI</a></li>
+    <li><a href="https://www.figma.com/">Figma</a></li>
+    <li><a href="https://www.blender.org/">Blender</a></li>
   </ul>
 </details>
 
 <!-- Features -->
+<div align="center">
+  <img src="assetsread/Loader.gif" alt="logo" width="200" height="auto" />
+</div>
 
 ### :dart: Features
 
@@ -139,12 +134,15 @@ Maybe you can mention me or this repo in the acknowledgements too
 
 ### :art: Color Reference
 
-| Color           | Hex                                                              |
-| --------------- | ---------------------------------------------------------------- |
-| Primary Color   | ![#222831](https://via.placeholder.com/10/222831?text=+) #222831 |
-| Secondary Color | ![#393E46](https://via.placeholder.com/10/393E46?text=+) #393E46 |
-| Accent Color    | ![#00ADB5](https://via.placeholder.com/10/00ADB5?text=+) #00ADB5 |
-| Text Color      | ![#EEEEEE](https://via.placeholder.com/10/EEEEEE?text=+) #EEEEEE |
+| Color              | Hex                                                              |
+| ------------------ | ---------------------------------------------------------------- |
+| Dirty_White        | ![#FFFCF2](https://via.placeholder.com/10/FFFCF2?text=+) #FFFCF2 |
+| Dirty_White_Dark   | ![#FFF9E8](https://via.placeholder.com/10/FFF9E8?text=+) #FFF9E8 |
+| Dirty_White_Darker | ![#FFF5D9](https://via.placeholder.com/10/00ADB5?text=+) #FFF5D9 |
+| Red                | ![#E54545](https://via.placeholder.com/10/EEEEEE?text=+) #E54545 |
+| Green              | ![#AFE595](https://via.placeholder.com/10/EEEEEE?text=+) #AFE595 |
+| LightRed           | ![#FFD9D9](https://via.placeholder.com/10/EEEEEE?text=+) #FFD9D9 |
+| LightGreen         | ![#E5FFD9](https://via.placeholder.com/10/EEEEEE?text=+) #E5FFD9 |
 
 <!-- Env Variables -->
 
@@ -198,7 +196,7 @@ To run tests, run the following command
 Clone the project
 
 ```bash
-  git clone https://github.com/Louis3797/awesome-readme-template.git
+  git clone https://github.com/EpicBlue1/RecipeRumble.git
 ```
 
 Go to the project directory
@@ -254,8 +252,8 @@ function App() {
 
 ## :wave: Contributing
 
-<a href="https://github.com/Louis3797/awesome-readme-template/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Louis3797/awesome-readme-template" />
+<a href="https://github.com/EpicBlue1/RecipeRumble/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=EpicBlue1/RecipeRumble" />
 </a>
 
 Contributions are always welcome!
@@ -266,7 +264,7 @@ See `contributing.md` for ways to get started.
 
 ### :scroll: Code of Conduct
 
-Please read the [Code of Conduct](https://github.com/Louis3797/awesome-readme-template/blob/master/CODE_OF_CONDUCT.md)
+Please read the [Code of Conduct](https://github.com/EpicBlue1/RecipeRumble/blob/master/CODE_OF_CONDUCT.md)
 
 <!-- FAQ -->
 
@@ -292,7 +290,7 @@ Distributed under the no License. See LICENSE.txt for more information.
 
 Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
 
-Project Link: [https://github.com/Louis3797/awesome-readme-template](https://github.com/Louis3797/awesome-readme-template)
+Project Link: [https://github.com/EpicBlue1/RecipeRumble](https://github.com/EpicBlue1/RecipeRumble)
 
 <!-- Acknowledgments -->
 
