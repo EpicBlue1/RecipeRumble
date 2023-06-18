@@ -51,29 +51,27 @@ Maybe you can mention me or this repo in the acknowledgements too
   - [Tech Stack](#space_invader-tech-stack)
   - [Features](#dart-features)
   - [Color Reference](#art-color-reference)
-  - [Environment Variables](#key-environment-variables)
 - [Getting Started](#toolbox-getting-started)
   - [Prerequisites](#bangbang-prerequisites)
   - [Installation](#gear-installation)
-  - [Running Tests](#test_tube-running-tests)
   - [Run Locally](#running-run-locally)
   - [Deployment](#triangular_flag_on_post-deployment)
 - [Usage](#eyes-usage)
 - [Roadmap](#compass-roadmap)
+- [FinalProduct](#Final-Product)
 - [Contributing](#wave-contributing)
   - [Code of Conduct](#scroll-code-of-conduct)
-- [FAQ](#grey_question-faq)
 - [License](#warning-license)
 - [Contact](#handshake-contact)
 - [Acknowledgements](#gem-acknowledgements)
 
 <!-- About the Project -->
 
-## :star2: About the Project
+## :: About the Project
 
 <!-- Screenshots -->
 
-### :camera: Idea Dump
+### :: Idea Dump
 
 <div align="center"> 
   <img src="assetsread/IdeaDump.png" alt="screenshot" width="600" height="auto" />
@@ -87,7 +85,7 @@ Maybe you can mention me or this repo in the acknowledgements too
 
 <!-- TechStack -->
 
-### :space_invader: Tech Stack
+### :: Tech Stack
 
 <details>
   <summary>Client</summary>
@@ -124,11 +122,48 @@ Maybe you can mention me or this repo in the acknowledgements too
   <img src="assetsread/Loader.gif" alt="logo" width="200" height="auto" />
 </div>
 
-### :dart: Features
+## :dart: Features
 
-- Feature 1
-- Feature 2
-- Feature 3
+### :: Log In Screen
+
+- Log In
+- Validation
+- Loading indicator
+
+### :: Register Screen
+
+- Register new user
+- Validation
+- Loading indicator
+
+### :: Competitions Screen
+
+- View all competitions
+- Display current logged in user
+- Loading indicator
+
+### :: Competition Screen
+
+- Description, Required Ingredients, Rules, Banner Image
+- Submit button to submit own entry
+- Vote button to vote other entries within this competition
+
+### :: Submit Screen
+
+- Upload picture
+- Ingredients Section, Steps Section, Description Section
+
+### :: Voting Screen
+
+- Double tap to vote
+- View more on the recipe before voting
+- Ingredients preview on voting card
+- Loading indicator
+
+### :: Leaderboard Screen
+
+- Top 3 recipes
+- View Recipes
 
 <!-- Color Reference -->
 
@@ -138,21 +173,11 @@ Maybe you can mention me or this repo in the acknowledgements too
 | ------------------ | ---------------------------------------------------------------- |
 | Dirty_White        | ![#FFFCF2](https://via.placeholder.com/10/FFFCF2?text=+) #FFFCF2 |
 | Dirty_White_Dark   | ![#FFF9E8](https://via.placeholder.com/10/FFF9E8?text=+) #FFF9E8 |
-| Dirty_White_Darker | ![#FFF5D9](https://via.placeholder.com/10/00ADB5?text=+) #FFF5D9 |
-| Red                | ![#E54545](https://via.placeholder.com/10/EEEEEE?text=+) #E54545 |
-| Green              | ![#AFE595](https://via.placeholder.com/10/EEEEEE?text=+) #AFE595 |
-| LightRed           | ![#FFD9D9](https://via.placeholder.com/10/EEEEEE?text=+) #FFD9D9 |
-| LightGreen         | ![#E5FFD9](https://via.placeholder.com/10/EEEEEE?text=+) #E5FFD9 |
-
-<!-- Env Variables -->
-
-### :key: Environment Variables
-
-To run this project, you will need to add the following environment variables to your .env file
-
-`API_KEY`
-
-`ANOTHER_API_KEY`
+| Dirty_White_Darker | ![#FFF5D9](https://via.placeholder.com/10/FFF5D9?text=+) #FFF5D9 |
+| Red                | ![#E54545](https://via.placeholder.com/10/E54545?text=+) #E54545 |
+| Green              | ![#AFE595](https://via.placeholder.com/10/AFE595?text=+) #AFE595 |
+| LightRed           | ![#FFD9D9](https://via.placeholder.com/10/FFD9D9?text=+) #FFD9D9 |
+| LightGreen         | ![#E5FFD9](https://via.placeholder.com/10/E5FFD9?text=+) #E5FFD9 |
 
 <!-- Getting Started -->
 
@@ -162,36 +187,11 @@ To run this project, you will need to add the following environment variables to
 
 ### :bangbang: Prerequisites
 
-This project uses Yarn as package manager
-
-```bash
- npm install --global yarn
-```
+This project uses npm as package manager
 
 <!-- Installation -->
 
 ### :gear: Installation
-
-Install my-project with npm
-
-```bash
-  yarn install my-project
-  cd my-project
-```
-
-<!-- Running Tests -->
-
-### :test_tube: Running Tests
-
-To run tests, run the following command
-
-```bash
-  yarn test test
-```
-
-<!-- Run Locally -->
-
-### :running: Run Locally
 
 Clone the project
 
@@ -199,33 +199,18 @@ Clone the project
   git clone https://github.com/EpicBlue1/RecipeRumble.git
 ```
 
-Go to the project directory
-
 ```bash
-  cd my-project
-```
-
-Install dependencies
-
-```bash
-  yarn install
+  npm install
 ```
 
 Start the server
 
 ```bash
-  yarn start
+  npm start
 ```
 
-<!-- Deployment -->
-
-### :triangular_flag_on_post: Deployment
-
-To deploy this project run
-
-```bash
-  yarn deploy
-```
+Make sure you have expo installed on your mobile device
+Scan qr code with Ios or Android Device.
 
 <!-- Usage -->
 
@@ -245,8 +230,24 @@ function App() {
 
 ## :compass: Roadmap
 
-- [x] Todo 1
-- [ ] Todo 2
+⬜ Like only once
+⬜ Navbar indicator
+✅ Show a few ingredients on the vote card
+✅ Profile Picture update and name?
+✅ Previous submissions
+✅ Individual view
+✅ Leaderboard
+✅ Date and competition over func
+⬜ Vote and submit buttons replace with leaderboard
+✅ Circle event timer
+✅ Fix styling on iphone
+✅ Navigate when registered
+✅ Context
+✅ Real Competitions
+✅ Can Submit
+✅ Real Postings
+
+# :: Final Product
 
 <!-- Contributing -->
 
@@ -256,27 +257,11 @@ function App() {
   <img src="https://contrib.rocks/image?repo=EpicBlue1/RecipeRumble" />
 </a>
 
-Contributions are always welcome!
-
-See `contributing.md` for ways to get started.
-
 <!-- Code of Conduct -->
 
 ### :scroll: Code of Conduct
 
 Please read the [Code of Conduct](https://github.com/EpicBlue1/RecipeRumble/blob/master/CODE_OF_CONDUCT.md)
-
-<!-- FAQ -->
-
-## :grey_question: FAQ
-
-- Question 1
-
-  - Answer 1
-
-- Question 2
-
-  - Answer 2
 
 <!-- License -->
 
@@ -288,8 +273,6 @@ Distributed under the no License. See LICENSE.txt for more information.
 
 ## :handshake: Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
-
 Project Link: [https://github.com/EpicBlue1/RecipeRumble](https://github.com/EpicBlue1/RecipeRumble)
 
 <!-- Acknowledgments -->
@@ -298,7 +281,5 @@ Project Link: [https://github.com/EpicBlue1/RecipeRumble](https://github.com/Epi
 
 Use this section to mention useful resources and libraries that you have used in your projects.
 
-- [Shields.io](https://shields.io/)
 - [Awesome README](https://github.com/matiassingers/awesome-readme)
-- [Emoji Cheat Sheet](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md#travel--places)
 - [Readme Template](https://github.com/othneildrew/Best-README-Template)
