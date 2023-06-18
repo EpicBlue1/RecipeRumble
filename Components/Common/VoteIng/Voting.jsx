@@ -9,11 +9,13 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { updateLike } from "../../../Services/CompetitionService";
 import { Global } from "../../../Utils/GlobalStyles";
 import { VotingStyles } from "./VotingStyles";
 
 const Voting = ({ VoteData }) => {
   //useMemo
+  console.log(VoteData);
   const [Voted, setVoted] = useState(false);
   const [ShowDesc, setShowDesc] = useState(true);
   const [voteCount, setVoteCount] = useState(0);
@@ -22,12 +24,25 @@ const Voting = ({ VoteData }) => {
 
   const Vote = () => {
     setVoteCount((value) => (value < 1 ? value + 1 : value));
-    if (voteCount < 1) {
+    if (voteCount < 1 && !Voted) {
       setTimeout(function () {
         console.log("Like reset");
       }, 500);
-    } else {
+    } else if (voteCount === 1 && !Voted) {
+      console.log("Not Voted");
+      updateLike(
+        VoteData.SubID,
+        VoteData.Image,
+        VoteData.SubName,
+        VoteData.Description,
+        VoteData.Ingredients,
+        VoteData.Userid,
+        VoteData.CompetitionId,
+        VoteData.Likes + 1
+      );
       setVoted(true);
+    } else if (voteCount === 1 && Voted) {
+      console.log("Already Voted");
     }
   };
 

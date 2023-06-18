@@ -5,6 +5,7 @@ import {
   doc,
   getDocs,
   setDoc,
+  updateDoc,
 } from "firebase/firestore";
 import { db } from "../Utils/Firebase";
 
@@ -62,7 +63,7 @@ export const getSubmissionsById = async (id) => {
     snapshot.forEach((doc) => {
       console.log(doc.id, "=>", doc.data().CompetitionId);
       if (id === doc.data().CompetitionId) {
-        Competitions.push(doc.data());
+        Competitions.push({ ...doc.data(), SubID: doc.id });
       }
     });
 
@@ -70,5 +71,31 @@ export const getSubmissionsById = async (id) => {
   } catch (error) {
     console.log(error);
     return [];
+  }
+};
+
+export const updateLike = async (
+  id,
+  Image,
+  SubName,
+  Description,
+  Ingredients,
+  Userid,
+  CompetitionId,
+  Likes
+) => {
+  try {
+    await updateDoc(doc(db, "submissions", id), {
+      CompetitionId,
+      Description,
+      Image,
+      Ingredients,
+      Likes,
+      SubName,
+      Userid,
+    });
+    console.log("Voted");
+  } catch (error) {
+    console.log(error);
   }
 };
