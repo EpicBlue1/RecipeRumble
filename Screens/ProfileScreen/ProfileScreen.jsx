@@ -1,6 +1,6 @@
 import { useFocusEffect } from "@react-navigation/native";
 import * as ImagePicker from "expo-image-picker";
-import { getDownloadURL, getStorage, ref } from "firebase/storage";
+import { getStorage, ref } from "firebase/storage";
 import React, { useCallback, useEffect, useState } from "react";
 import {
   Image,
@@ -20,48 +20,38 @@ import {
   getSubmissionsByUserId,
 } from "../../Services/CompetitionService";
 import { uploadToStorage } from "../../Services/ImageService";
-import { getCurrentUserData } from "../../Services/UserService";
+import { getCurrentUserData, updateProfile } from "../../Services/UserService";
 import { GetCurrentUser, LogOut } from "../../Services/firebaseAuth";
+import { auth } from "../../Utils/Firebase";
 import { Global } from "../../Utils/GlobalStyles";
 import { HomeStyles } from "../HomeScreen/HomeScreenStyles";
 import { ProfileStyles } from "./ProfileScreenStyle";
 
 const ProfileScreen = ({ navigation }) => {
   const user = GetCurrentUser();
-  console.log(user);
   const storage = getStorage();
 
   const [image, setImage] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  const [imageUrl, setImageUrl] = useState(user.photoURL);
+  const [imageNUri, setImageNUri] = useState("");
 
   const [Competitions, setCompetitions] = useState([]);
   const [Loading, setLoading] = useState(false);
+  const [LoadingTwo, setLoadingTwo] = useState(false);
 
   const imageSource = {
     uri: imageUrl,
   };
 
-  getDownloadURL(
-    ref(storage, "gs://reciperumble-f3601.appspot.com/profile.jpg")
-  )
-    .then((url) => {
-      const xhr = new XMLHttpRequest();
-      xhr.responseType = "blob";
-      xhr.onload = (event) => {
-        const blob = xhr.response;
-      };
-      xhr.open("GET", url);
-      xhr.send();
+  const imageSourceTwo = {
+    uri: image,
+  };
 
-      // Or inserted into an <img> element
-      console.log("URL");
-      console.log(url);
-      setImageUrl(url);
-    })
-    .catch((error) => {
-      console.log(error);
-      // Handle any errors
+  const UpdateUserProfile = async () => {
+    await updateProfile(auth.currentUser, {
+      photoURL: imageUrl,
     });
+  };
 
   useFocusEffect(
     useCallback(() => {
@@ -93,20 +83,30 @@ const ProfileScreen = ({ navigation }) => {
     console.log(JSON.stringify(result, null, 2));
     if (!result.canceled) {
       setImage(result.assets[0].uri);
+      setImageNUri(result.assets[0].uri);
     }
     console.log(image);
   };
 
-  const uploadImage = async (image, path, name) => {
-    const result = await uploadToStorage(image, `${path}/${name}`);
+  const uploadImage = async () => {
+    setLoadingTwo(true);
+    const result = await uploadToStorage(
+      imageNUri,
+      `competitionImages/${GetCurrentUser().displayName}`
+    );
     setImageUrl(result);
     console.log(imageUrl);
+    UpdateUserProfile();
+    setImage("");
+    setLoadingTwo(false);
     return result;
   };
 
   return (
     <View>
       <ScrollView>
+        <Loader loading={LoadingTwo} position={"abso"} />
+
         <ImageBackground
           style={ProfileStyles.image}
           source={require("../../assets/Backgrounds/Orange_Background.png")}
@@ -116,13 +116,22 @@ const ProfileScreen = ({ navigation }) => {
               style={{ borderRadius: 15 }}
               onPress={pickImage}
             >
-              <Image style={ProfileStyles.Profile} source={imageSource} />
-            </TouchableHighlight>
-
-            <TouchableHighlight
-              style={[ProfileStyles.SaveChanges, Global.HeadingThree]}
-            >
-              <Text>Save Changes</Text>
+              {image === "" ? (
+                <Image style={ProfileStyles.Profile} source={imageSource} />
+              ) : (
+                <>
+                  <Image
+                    style={ProfileStyles.Profile}
+                    source={imageSourceTwo}
+                  />
+                  <TouchableHighlight
+                    onPress={uploadImage}
+                    style={[ProfileStyles.SaveChanges, Global.HeadingThree]}
+                  >
+                    <Text>Save Changes</Text>
+                  </TouchableHighlight>
+                </>
+              )}
             </TouchableHighlight>
 
             <View>
@@ -142,6 +151,7 @@ const ProfileScreen = ({ navigation }) => {
             <ScrollView>
               <View style={ProfileStyles.innerContainerScroll}>
                 <Loader loading={Loading} position={""} />
+
                 {Competitions.map((items) => (
                   <ProfileSubmissions
                     Image={items.Image}

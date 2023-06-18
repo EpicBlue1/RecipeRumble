@@ -120,6 +120,13 @@ const Voting = ({ VoteData }) => {
           />
           <Text style={Global.Paragraph}>Read More</Text>
         </View>
+        <View style={{ width: "100%", flexDirection: "row" }}>
+          {VoteData.Ingredients.map((Item, index) => (
+            <View key={index} style={VotingStyles.IngredientView}>
+              <Text>{`\u2022 ${Item}`}</Text>
+            </View>
+          ))}
+        </View>
       </TouchableOpacity>
     </ImageBackground>
   );

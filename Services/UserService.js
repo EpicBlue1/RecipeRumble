@@ -46,3 +46,8 @@ export const getCurrentUserData = async (email) => {
     console.log(error);
   }
 };
+
+export const updateProfile = async (id) => {
+  try {
+  } catch (error) {}
+};

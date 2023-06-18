@@ -93,7 +93,7 @@ export const VotingStyles = StyleSheet.create({
   Description: {
     width: 360,
     padding: 20,
-    height: 100,
+    // height: 130,
     backgroundColor: "#ffffff",
     paddingTop: 15,
     // borderBottomLeftRadius: 10,
@@ -108,5 +108,15 @@ export const VotingStyles = StyleSheet.create({
     backgroundColor: "#ffffff",
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
+  },
+  SideIngreds: {
+    width: "40%",
+    height: 150,
+    backgroundColor: Colors.Dirty_White_Dark,
+  },
+  IngredientView: {
+    padding: 8,
+    borderRadius: 10,
+    backgroundColor: Colors.LightGreen,
   },
 });

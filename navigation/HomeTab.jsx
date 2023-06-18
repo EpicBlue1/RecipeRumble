@@ -10,10 +10,12 @@ import {
   Text,
   View,
 } from "react-native";
+import { ColorOptions } from "react-native-neat-date-picker";
 import NavIcon from "../Components/Partials/navIcon/navIcon";
 import CompetitionScreen from "../Screens/CompetitionScreen/CompetitionScreen";
 import HomeScreen from "../Screens/HomeScreen/HomeScreen";
 import ProfileScreen from "../Screens/ProfileScreen/ProfileScreen";
+import { Colors } from "../Utils/ReUsables";
 
 const Tab = createBottomTabNavigator();
 
@@ -21,8 +23,12 @@ const Tab = createBottomTabNavigator();
 const HomeTab = () => {
   return (
     <Tab.Navigator
+      initialRouteName="Home"
       screenOptions={{
         tabBarStyle: { height: 70 },
+        tabBarActiveTintColor: Colors.Dirty_White_Darker,
+        tabBarInactiveTintColor: Colors.Dirty_White,
+
         headerShown: false,
       }}
     >
@@ -36,7 +42,12 @@ const HomeTab = () => {
           tabBarIcon: ({ size, focused, color }) => {
             return (
               <Image
-                style={{ width: 32, height: 32 }}
+                style={{
+                  width: 34,
+                  height: 34,
+                  backgroundColor: color,
+                  borderRadius: 10,
+                }}
                 source={require("../assets/icons/Home.png")}
               />
             );
@@ -53,7 +64,12 @@ const HomeTab = () => {
           tabBarIcon: ({ size, focused, color }) => {
             return (
               <Image
-                style={{ width: 32, height: 32 }}
+                style={{
+                  width: 34,
+                  height: 34,
+                  backgroundColor: color,
+                  borderRadius: 10,
+                }}
                 source={require("../assets/icons/Setting.png")}
               />
             );
