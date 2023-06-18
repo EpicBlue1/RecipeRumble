@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import {
+  AlertIOS,
   ImageBackground,
+  Platform,
   ScrollView,
   StyleSheet,
   Text,
+  ToastAndroid,
   View,
 } from "react-native";
 import DatePicker from "react-native-neat-date-picker";
@@ -55,27 +58,44 @@ const NewCompScreen = ({ navigation }) => {
     this.textInput.clear();
   };
 
-  const addSubmission = async () => {
-    let Submission = {
-      Image:
-        "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-      Date: date,
-      StartDate: startDate,
-      EndDate: endDate,
-      EventName: SubName,
-      Description: Description,
-      Requirements: Ingredients,
-      Rules: Steps,
-      Submissions: [],
-      Userid: GetCurrentUser().uid,
-    };
-
-    const success = createCompetition(Submission);
-    if (success) {
-      console.log("Added Submission");
-      navigation.goBack();
+  function notifyMessage() {
+    if (Platform.OS === "android") {
+      ToastAndroid.show("Field can't be empty", ToastAndroid.SHORT);
     } else {
-      console.log("Not added Submission");
+      AlertIOS.alert("Field can't be empty");
+    }
+  }
+
+  const addSubmission = async () => {
+    if (
+      SubName === "" ||
+      Description === "" ||
+      Ingredient === "" ||
+      startDate === ""
+    ) {
+      setDescError("Make sure to fill in all the required fields");
+    } else {
+      let Submission = {
+        Image:
+          "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+        Date: date,
+        StartDate: startDate,
+        EndDate: endDate,
+        EventName: SubName,
+        Description: Description,
+        Requirements: Ingredients,
+        Rules: Steps,
+        Submissions: [],
+        Userid: GetCurrentUser().uid,
+      };
+
+      const success = createCompetition(Submission);
+      if (success) {
+        console.log("Added Submission");
+        navigation.goBack();
+      } else {
+        console.log("Not added Submission");
+      }
     }
   };
 
@@ -177,7 +197,7 @@ const NewCompScreen = ({ navigation }) => {
             }}
           />
           <Button
-            OnPress={addRecipe}
+            OnPress={Ingredients.length === 0 ? notifyMessage : addRecipe}
             ButtonType={"Secondary"}
             ButText={"Add Requirement"}
           />
@@ -192,7 +212,7 @@ const NewCompScreen = ({ navigation }) => {
           />
           <Text style={Global.HeadingThree}>Rules(Optional):</Text>
           <View style={NewCompScreenStyle.StepsContainer}>
-            {Ingredients.length === 0 ? (
+            {Steps.length === 0 ? (
               <Text>Add rules below!</Text>
             ) : (
               Steps.map((Item, index) => (
@@ -216,7 +236,7 @@ const NewCompScreen = ({ navigation }) => {
             }}
           />
           <Button
-            OnPress={addStep}
+            OnPress={Steps.length === 0 ? notifyMessage : addStep}
             ButtonType={"Secondary"}
             ButText={"Add Step"}
           />
@@ -278,6 +298,10 @@ const NewCompScreen = ({ navigation }) => {
               borderBottomWidth: 0.5,
             }}
           />
+
+          <Text style={{ color: Colors.Red, paddingBottom: 10 }}>
+            {DescError}
+          </Text>
 
           <Button
             OnPress={addSubmission}

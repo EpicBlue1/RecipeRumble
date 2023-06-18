@@ -41,11 +41,11 @@ export const NewCompScreenStyle = StyleSheet.create({
   },
   IngredientView: {
     margin: 2,
-    height: 30,
-    paddingLeft: 10,
-    paddingRight: 10,
+    height: 40,
+    paddingLeft: 15,
+    paddingRight: 15,
     backgroundColor: Colors.LightGreen,
-    borderRadius: 15,
+    borderRadius: 20,
     justifyContent: "center",
   },
   addImage: {
@@ -76,11 +76,11 @@ export const NewCompScreenStyle = StyleSheet.create({
   StepsView: {
     width: "100%",
     margin: 2,
-    height: 30,
-    paddingLeft: 10,
-    paddingRight: 10,
+    height: 40,
+    paddingLeft: 15,
+    paddingRight: 15,
     backgroundColor: Colors.LightRed,
-    borderRadius: 15,
+    borderRadius: 20,
     justifyContent: "center",
   },
 });

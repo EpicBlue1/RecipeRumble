@@ -43,4 +43,13 @@ export const ProfileStyles = StyleSheet.create({
     marginTop: 30,
     height: "60%",
   },
+  SaveChanges: {
+    paddingLeft: 15,
+    paddingRight: 15,
+    height: 36,
+    backgroundColor: Colors.Green,
+    borderRadius: 15,
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });

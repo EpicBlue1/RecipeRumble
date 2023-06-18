@@ -5,14 +5,14 @@ export const HomeStyles = StyleSheet.create({
   Container: {
     padding: 10,
     paddingBottom: 0,
-    paddingTop: 30,
     justifyContent: "space-between",
   },
   TopContainer: {
     // paddingLeft: 10,
     paddingRight: 20,
     // width: null,
-    height: 220,
+    height: 160,
+    width: 320,
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
@@ -73,7 +73,7 @@ export const HomeStyles = StyleSheet.create({
   },
   ButtonVoteSub: {
     marginTop: 25,
-    marginBottom: 50,
+    marginBottom: 35,
     width: "100%",
     height: 90,
     backgroundColor: Colors.Dirty_White_Darker,

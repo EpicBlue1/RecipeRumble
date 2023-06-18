@@ -37,14 +37,6 @@ export const RegisterNewUser = async (username, email, password) => {
         const user = userCredential.user;
         console.log(user);
         await createUserDB(username, email, user.uid);
-        // Alert.alert("Registered ", "", [
-        //   {
-        //     text: "Okay",
-        //     onPress: () => {
-        //       // LogInFun(email, password);
-        //     },
-        //   },
-        // ]);
       })
       .catch((error) => {
         const errorCode = error.code;
