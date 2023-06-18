@@ -6,7 +6,7 @@ export const CompStyles = StyleSheet.create({
     // padding: 20,
   },
   Image: {
-    height: 270,
+    height: 250,
     width: null,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
@@ -20,7 +20,7 @@ export const CompStyles = StyleSheet.create({
   InfoContainer: {
     backgroundColor: Colors.Dirty_White,
     width: "75%",
-    height: 190,
+    height: 160,
     borderRadius: 10,
     padding: 10,
     paddingLeft: 20,
@@ -89,7 +89,7 @@ export const CompStyles = StyleSheet.create({
     borderRadius: 10,
   },
   Description: {
-    marginBottom: 35,
+    marginBottom: 10,
     // height: 120,
   },
   ButtonText: {

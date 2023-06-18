@@ -1,4 +1,5 @@
-import React, { useEffect, useMemo } from "react";
+import { useFocusEffect } from "@react-navigation/native";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import {
   Image,
   ImageBackground,
@@ -9,6 +10,7 @@ import {
   View,
 } from "react-native";
 import BackButton from "../../Components/Partials/BackButton/BackButton";
+import { getSubmissionsById } from "../../Services/CompetitionService";
 import { Global } from "../../Utils/GlobalStyles";
 import { Colors } from "../../Utils/ReUsables";
 import { NewCompScreenStyle } from "../NewCompScreen/NewCompScreenScreenStyle";
@@ -16,6 +18,27 @@ import { CompStyles } from "./CompetitionScreenStyles";
 
 const CompetitionScreen = ({ route, navigation }) => {
   const project = route.params.CompData;
+  const [Competitions, setCompetitions] = useState([]);
+  const [Loading, setLoading] = useState(false);
+
+  useFocusEffect(
+    useCallback(() => {
+      //get data when viewing screen
+      getAll();
+      return () => {
+        //clean up
+        console.log("not in view");
+      };
+    }, [])
+  );
+
+  const getAll = async () => {
+    setLoading(true);
+    console.log("getting data");
+    const allCompetitions = await getSubmissionsById(project.CompId);
+    setCompetitions(allCompetitions);
+    console.log(allCompetitions);
+  };
 
   const imageSource = {
     uri: project.Image,
@@ -31,17 +54,13 @@ const CompetitionScreen = ({ route, navigation }) => {
           <BackButton />
           <View style={CompStyles.InfoContainer}>
             <Text style={Global.HeadingTwo}>{project.EventName}</Text>
-            <Text style={Global.HeadingThree}>Name and surname</Text>
             <View style={CompStyles.innerContainer}>
               <Image
                 style={CompStyles.Icon}
                 source={require("../../assets/icons/Two-user.png")}
               />
               <Text style={Global.Paragraph}>
-                {/* {project.participants.length === 0
-                  ? 0
-                  : project.participants.length} */}
-                0
+                {Competitions.length === 0 ? 0 : Competitions.length}
               </Text>
             </View>
           </View>
@@ -58,6 +77,7 @@ const CompetitionScreen = ({ route, navigation }) => {
               marginTop: 30,
               marginBottom: 30,
               width: "90%",
+              alignSelf: "center",
               borderBottomColor: Colors.Gray,
               borderBottomWidth: 0.5,
             }}
@@ -87,6 +107,8 @@ const CompetitionScreen = ({ route, navigation }) => {
               marginTop: 30,
               marginBottom: 30,
               width: "90%",
+              alignSelf: "center",
+
               borderBottomColor: Colors.Gray,
               borderBottomWidth: 0.5,
             }}
@@ -94,7 +116,10 @@ const CompetitionScreen = ({ route, navigation }) => {
 
           <View style={CompStyles.SubmissionSection}>
             <Text style={Global.HeadingTwo}>Submissions:</Text>
-            <Text style={Global.HeadingTwo}> 0</Text>
+            <Text style={Global.HeadingTwo}>
+              {" "}
+              {Competitions.length === 0 ? 0 : Competitions.length}
+            </Text>
           </View>
 
           <Text style={Global.HeadingThree}>1d 5h 32m left</Text>

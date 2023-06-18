@@ -36,4 +36,21 @@ export const CompetitionBoxStyles = StyleSheet.create({
   HorSpacer: {
     width: 25,
   },
+  IconButtBack: {
+    width: 32,
+    height: 32,
+    backgroundColor: Colors.Dirty_White_Dark,
+    borderRadius: 10,
+    shadowColor: "#464646",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.06,
+    shadowRadius: 3,
+    elevation: 3,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
 });

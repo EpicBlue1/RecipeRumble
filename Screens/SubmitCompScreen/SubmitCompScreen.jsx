@@ -14,6 +14,7 @@ import Button from "../../Components/Partials/Button/Button";
 import Input from "../../Components/Partials/Input/Input";
 import { createSubmission } from "../../Services/CompetitionService";
 import { uploadToStorage } from "../../Services/ImageService";
+import { getCurrentUserData } from "../../Services/UserService";
 import { GetCurrentUser } from "../../Services/firebaseAuth";
 import { Global } from "../../Utils/GlobalStyles";
 import { Colors } from "../../Utils/ReUsables";
@@ -25,6 +26,7 @@ import { SubmitScreenStyle } from "./SubmitCompScreenStyle";
 
 const SubmitCompScreen = ({ route, navigation }) => {
   const data = route.params.project;
+
   console.log(data.CompId);
   const [Image, setImage] = useState("");
   const [imageNUri, setImageNUri] = useState("");
@@ -79,7 +81,7 @@ const SubmitCompScreen = ({ route, navigation }) => {
       setImageNUri(result.assets[0].uri);
       setImage(imageSource);
     }
-    console.log(image);
+    // console.log(image);
   };
 
   const uploadImage = async (image, name) => {
@@ -88,6 +90,8 @@ const SubmitCompScreen = ({ route, navigation }) => {
     console.log(imageUrl);
     return result;
   };
+
+  // console.log(getCurrentUserData(GetCurrentUser().email).PrevSubmissions);
 
   const addSubmission = async () => {
     if (SubName === "" || Description === "" || Ingredient === "") {
@@ -103,11 +107,12 @@ const SubmitCompScreen = ({ route, navigation }) => {
         Description: Description,
         Ingredients: Ingredients,
         Userid: GetCurrentUser().uid,
+        UserSubName: GetCurrentUser().displayName,
         CompetitionId: data.CompId,
         Likes: 0,
       };
 
-      const success = createSubmission(Submission);
+      const success = createSubmission(Submission, GetCurrentUser().uid);
       if (success) {
         console.log("Added Competition");
         navigation.goBack();

@@ -17,10 +17,12 @@ import {
 } from "../../Services/CompetitionService";
 import { GetCurrentUser } from "../../Services/firebaseAuth";
 import { Global } from "../../Utils/GlobalStyles";
+import { Colors } from "../../Utils/ReUsables";
 import { HomeStyles } from "./HomeScreenStyles";
 
 const HomeScreen = () => {
   const [Competitions, setCompetitions] = useState([]);
+  const [Submissions, setSubmissions] = useState();
   const [Loading, setLoading] = useState(false);
 
   useFocusEffect(
@@ -42,20 +44,15 @@ const HomeScreen = () => {
     setLoading(false);
   };
 
-  // useEffect(() => {
-  //   if (Competitions) {
-  //     setLoading(true);
-  //   } else {
-  //     setLoading(false);
-  //   }
-  // }, [Competitions]);
-
   const user = GetCurrentUser();
 
   return (
     <View style={HomeStyles.Container}>
       <ScrollView>
-        <View style={HomeStyles.TopContainer}>
+        <ImageBackground
+          source={require("../../assets/Backgrounds/HomeBackground.jpg")}
+          style={HomeStyles.TopContainer}
+        >
           <ImageBackground
             style={HomeStyles.Logo}
             source={require("../../assets/Logo.png")}
@@ -63,42 +60,31 @@ const HomeScreen = () => {
           <Text style={[Global.HeadingTwo, HomeStyles.Intro]}>
             Welcome back {user.displayName}
           </Text>
-        </View>
+        </ImageBackground>
 
-        <View style={HomeStyles.BottomContainer}></View>
-
-        <Text style={Global.HeadingTwo}>Next Event:</Text>
-
-        <TouchableOpacity style={HomeStyles.ButtonVoteSub}>
-          <ImageBackground
-            style={HomeStyles.IconButt}
-            source={require("../../assets/icons/HeartDark.png")}
-          />
-          <View>
-            <Text style={[Global.HeadingTwo, HomeStyles.ButtonText]}>
-              5h 32m
-            </Text>
-            <Text style={[Global.Paragraph, HomeStyles.ButtonText]}>
-              Something sweet
-            </Text>
-          </View>
-          <View style={HomeStyles.IconButtBack}>
-            <ImageBackground
-              style={HomeStyles.IconButt}
-              source={require("../../assets/icons/Play.png")}
-            />
-          </View>
-        </TouchableOpacity>
-
-        <Text style={Global.HeadingTwo}>Competitions:</Text>
-        <Text
-          style={
-            Competitions.length === 0 ? Global.HeadingThree : HomeStyles.hide
-          }
-        >
-          Just you wait! Competitions on their way.
-        </Text>
         <View style={HomeStyles.Competitions}>
+          <Text style={Global.HeadingOne}>Competitions:</Text>
+          <View
+            style={{
+              marginTop: 25,
+              marginBottom: 10,
+              width: "90%",
+              borderBottomColor: Colors.Gray,
+              borderBottomWidth: 0.5,
+            }}
+          />
+          <View style={{ height: 10 }}></View>
+          <Text style={[Global.HeadingThree, { textAlign: "center" }]}>
+            Tap away on a competition that sparks your dish
+          </Text>
+          <View style={{ height: 20 }}></View>
+          <Text
+            style={
+              Competitions.length === 0 ? Global.HeadingThree : HomeStyles.hide
+            }
+          >
+            Just you wait! Competitions on their way.
+          </Text>
           <View style={HomeStyles.innerContainerScroll}>
             <Loader loading={Loading} position={""} />
             {Competitions.map((item, index) => {

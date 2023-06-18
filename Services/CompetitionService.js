@@ -1,3 +1,5 @@
+import firebase from "firebase/app";
+import "firebase/firestore";
 import {
   Timestamp,
   addDoc,
@@ -23,10 +25,14 @@ export const createCompetition = async (competition) => {
   }
 };
 
-export const createSubmission = async (submission) => {
+export const createSubmission = async (submission, user) => {
   try {
     const docRef = await addDoc(collection(db, "submissions"), submission);
-    console.log("Added Submission " + docRef.id);
+    const userRef = (db, "users", user.id);
+    await updateDoc(userRef, {
+      PrevSubmissions: firebase.firestore.arrayUnion(docRef.id),
+    });
+    console.log("Added Submission " + userRef);
     if (docRef.id) {
       return true;
     } else {

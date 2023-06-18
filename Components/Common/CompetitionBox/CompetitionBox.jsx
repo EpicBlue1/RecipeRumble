@@ -1,6 +1,8 @@
-import { useNavigation } from "@react-navigation/native";
-import React from "react";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
+import React, { useCallback, useState } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { HomeStyles } from "../../../Screens/HomeScreen/HomeScreenStyles";
+import { getSubmissionsById } from "../../../Services/CompetitionService";
 import { Global } from "../../../Utils/GlobalStyles";
 import { CompetitionBoxStyles } from "./CompetitionBoxStyles";
 
@@ -8,9 +10,27 @@ const CompetitionBox = ({ CompData, route }) => {
   const imageSource = {
     uri: CompData.Image,
   };
-  console.log(CompData);
+  const [Competitions, setCompetitions] = useState([]);
 
   const navigation = useNavigation();
+
+  //TODO:Rather not this
+  useFocusEffect(
+    useCallback(() => {
+      //get data when viewing screen
+      getAll();
+      return () => {
+        //clean up
+        // console.log("not in view");
+      };
+    }, [])
+  );
+
+  const getAll = async () => {
+    console.log("getting data");
+    const allCompetitions = await getSubmissionsById(CompData.CompId);
+    setCompetitions(allCompetitions);
+  };
 
   return (
     <TouchableOpacity
@@ -24,12 +44,14 @@ const CompetitionBox = ({ CompData, route }) => {
           style={CompetitionBoxStyles.Icon}
           source={require("../../../assets/icons/Two-user.png")}
         />
-        <Text style={Global.Paragraph}>0</Text>
+        <Text style={Global.Paragraph}>{Competitions.length}</Text>
         <View style={CompetitionBoxStyles.HorSpacer}></View>
-        <Image
-          style={CompetitionBoxStyles.Icon}
-          source={require("../../../assets/icons/Play.png")}
-        />
+        <View style={CompetitionBoxStyles.IconButtBack}>
+          <Image
+            style={CompetitionBoxStyles.Icon}
+            source={require("../../../assets/icons/Play.png")}
+          />
+        </View>
       </View>
     </TouchableOpacity>
   );

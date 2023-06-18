@@ -99,7 +99,6 @@ const NewCompScreen = ({ navigation }) => {
       setImageNUri(result.assets[0].uri);
       setImage(imageSource);
     }
-    console.log(image);
   };
 
   const uploadImage = async (image, name) => {
@@ -131,6 +130,7 @@ const NewCompScreen = ({ navigation }) => {
         Description: Description,
         Requirements: Ingredients,
         Rules: Steps,
+        UserSubName: GetCurrentUser().displayName,
         Ongoing: true,
         Submissions: [],
         Userid: GetCurrentUser().uid,

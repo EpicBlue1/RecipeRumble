@@ -3,26 +3,33 @@ import { Colors } from "../../Utils/ReUsables";
 
 export const HomeStyles = StyleSheet.create({
   Container: {
-    padding: 10,
+    paddingTop: 0,
     paddingBottom: 0,
     justifyContent: "space-between",
   },
   TopContainer: {
+    padding: 10,
+    paddingTop: 35,
+    resizeMode: "cover",
     // paddingLeft: 10,
     paddingRight: 20,
+    marginBottom: 15,
     // width: null,
-    height: 160,
-    width: 320,
+    height: 200,
+    width: null,
     display: "flex",
     flexDirection: "row",
+    justifyContent: "space-between",
     alignItems: "center",
     // backgroundColor: "red",
     // marginBottom: 10,
   },
   Intro: {
+    padding: 10,
+
     backgroundColor: Colors.Dirty_White_Darker,
     padding: 20,
-    // width: 200,
+    width: 220,
     borderRadius: 10,
     marginLeft: "10%",
   },
@@ -32,8 +39,9 @@ export const HomeStyles = StyleSheet.create({
     borderRadius: 100,
   },
   Competitions: {
+    padding: 10,
+
     width: null,
-    marginTop: 20,
     // paddingBottom: 60,
   },
   hide: {

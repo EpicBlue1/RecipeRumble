@@ -30,18 +30,18 @@ export const createUserDB = async (username, email, uid) => {
 export const getCurrentUserData = async (email) => {
   try {
     const snapshot = await getDocs(collection(db, "users"));
-    let user = "";
 
     snapshot.forEach((user) => {
+      let finalUser = "";
       // console.log(user.databaseId());
       if (user.data().email === email) {
         console.log("Current User Data:");
         console.log(user.data());
-        user = user.data();
+        finalUser = user.data();
       }
-    });
 
-    return snapshot;
+      return finalUser;
+    });
   } catch (error) {
     console.log(error);
   }

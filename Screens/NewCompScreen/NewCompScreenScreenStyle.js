@@ -26,8 +26,8 @@ export const NewCompScreenStyle = StyleSheet.create({
   },
   IngredientsContainer: {
     marginVertical: 20,
-    width: "90%",
-    justifyContent: "center",
+    // width: "90%",
+    justifyContent: "flex-start",
     flexWrap: "wrap",
     flexDirection: "row",
     marginBottom: 20,
@@ -70,8 +70,9 @@ export const NewCompScreenStyle = StyleSheet.create({
   },
   StepsContainer: {
     marginVertical: 20,
-    width: "90%",
+    // width: "90%",
     justifyContent: "center",
+    alignItems: "center",
     flexWrap: "wrap",
     flexDirection: "column",
     marginBottom: 20,
