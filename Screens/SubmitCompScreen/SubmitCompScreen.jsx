@@ -106,6 +106,7 @@ const SubmitCompScreen = ({ route, navigation }) => {
         SubName: SubName,
         Description: Description,
         Ingredients: Ingredients,
+        Steps: Steps,
         Userid: GetCurrentUser().uid,
         UserSubName: GetCurrentUser().displayName,
         CompetitionId: data.CompId,

@@ -1,16 +1,32 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  ImageBackground,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { Colors } from "../../../Utils/ReUsables";
 
-const ProfileSubmissions = () => {
+const ProfileSubmissions = ({ Likes, Image, VoteData }) => {
+  const navigation = useNavigation();
+
+  const imageSource = {
+    uri: Image,
+  };
+
   return (
-    <View>
+    <TouchableOpacity
+      onPress={() => navigation.navigate("IndRecipe", { VoteData })}
+    >
       <ImageBackground
         style={styles.Container}
-        source={require("../../../assets/Test.png")}
+        source={imageSource}
       ></ImageBackground>
-      <Text style={styles.Bottom}>255</Text>
-    </View>
+      <Text style={styles.Bottom}>{Likes}</Text>
+    </TouchableOpacity>
   );
 };
 

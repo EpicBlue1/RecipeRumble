@@ -80,6 +80,27 @@ export const getSubmissionsById = async (id) => {
   }
 };
 
+export const getSubmissionsByUserId = async (id) => {
+  try {
+    var Competitions = [];
+    const snapshot = await getDocs(collection(db, "submissions"));
+    console.log("SNAP");
+    console.log(snapshot);
+
+    snapshot.forEach((doc) => {
+      console.log("GROOT" + doc.data().Userid, "=>", id);
+      if (id === doc.data().Userid) {
+        Competitions.push({ ...doc.data(), SubID: doc.id });
+      }
+    });
+
+    return Competitions;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};
+
 export const updateLike = async (
   id,
   Image,

@@ -6,7 +6,7 @@ export const IndRecipeScreenStyles = StyleSheet.create({
     // padding: 20,
   },
   Image: {
-    height: 250,
+    height: 180,
     width: null,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
@@ -20,7 +20,7 @@ export const IndRecipeScreenStyles = StyleSheet.create({
   InfoContainer: {
     backgroundColor: Colors.Dirty_White,
     width: "75%",
-    height: 160,
+    height: 100,
     borderRadius: 10,
     padding: 10,
     paddingLeft: 20,
@@ -78,7 +78,7 @@ export const IndRecipeScreenStyles = StyleSheet.create({
   },
   ButtonVoteSub: {
     marginTop: 30,
-    width: null,
+    width: "90%",
     height: 90,
     backgroundColor: Colors.Dirty_White_Darker,
     borderRadius: 10,
@@ -87,6 +87,7 @@ export const IndRecipeScreenStyles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-around",
     borderRadius: 10,
+    alignSelf: "center",
   },
   Description: {
     marginBottom: 10,

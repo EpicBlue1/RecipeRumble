@@ -15,6 +15,7 @@ import {
 import Navigation from "./Components/Partials/Navigation/Navigation";
 import CompetitionScreen from "./Screens/CompetitionScreen/CompetitionScreen";
 import HomeScreen from "./Screens/HomeScreen/HomeScreen";
+import IndRecipeScreen from "./Screens/IndRecipeScreen/IndRecipeScreen";
 import Login from "./Screens/Login/Login";
 import NewCompScreen from "./Screens/NewCompScreen/NewCompScreenScreen";
 import ProfileScreen from "./Screens/ProfileScreen/ProfileScreen";
@@ -117,7 +118,10 @@ export default function App() {
           })}
         ></Stack.Screen>
         <Stack.Screen name="NewComp" component={NewCompScreen}></Stack.Screen>
-        <Stack.Screen name="IndRecipe" component={RecipeView}></Stack.Screen>
+        <Stack.Screen
+          name="IndRecipe"
+          component={IndRecipeScreen}
+        ></Stack.Screen>
         <Stack.Screen name="Voting" component={VotingScreen}></Stack.Screen>
         <Stack.Screen name="Profile" component={ProfileScreen}></Stack.Screen>
       </Stack.Navigator>

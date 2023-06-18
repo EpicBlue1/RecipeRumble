@@ -1,6 +1,7 @@
+import { useFocusEffect } from "@react-navigation/native";
 import * as ImagePicker from "expo-image-picker";
 import { getDownloadURL, getStorage, ref } from "firebase/storage";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
   Image,
   ImageBackground,
@@ -12,6 +13,12 @@ import {
 } from "react-native";
 import ProfileSubmissions from "../../Components/Common/ProfileSubmissions/ProfileSubmissions";
 import Button from "../../Components/Partials/Button/Button";
+import Loader from "../../Components/Partials/Loader/Loader";
+import {
+  getAllCompetitions,
+  getSubmissionsById,
+  getSubmissionsByUserId,
+} from "../../Services/CompetitionService";
 import { uploadToStorage } from "../../Services/ImageService";
 import { getCurrentUserData } from "../../Services/UserService";
 import { GetCurrentUser, LogOut } from "../../Services/firebaseAuth";
@@ -21,10 +28,14 @@ import { ProfileStyles } from "./ProfileScreenStyle";
 
 const ProfileScreen = ({ navigation }) => {
   const user = GetCurrentUser();
+  console.log(user);
   const storage = getStorage();
 
   const [image, setImage] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+
+  const [Competitions, setCompetitions] = useState([]);
+  const [Loading, setLoading] = useState(false);
 
   const imageSource = {
     uri: imageUrl,
@@ -51,6 +62,25 @@ const ProfileScreen = ({ navigation }) => {
       console.log(error);
       // Handle any errors
     });
+
+  useFocusEffect(
+    useCallback(() => {
+      //get data when viewing screen
+      getAll();
+      return () => {
+        //clean up
+        console.log("not in view");
+      };
+    }, [])
+  );
+
+  const getAll = async () => {
+    setLoading(true);
+    console.log("getting data");
+    const allCompetitions = await getSubmissionsByUserId(GetCurrentUser().uid);
+    setCompetitions(allCompetitions);
+    setLoading(false);
+  };
 
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -111,11 +141,14 @@ const ProfileScreen = ({ navigation }) => {
           <View style={ProfileStyles.Competitions}>
             <ScrollView>
               <View style={ProfileStyles.innerContainerScroll}>
-                <ProfileSubmissions />
-                <ProfileSubmissions />
-                <ProfileSubmissions />
-                <ProfileSubmissions />
-                <ProfileSubmissions />
+                <Loader loading={Loading} position={""} />
+                {Competitions.map((items) => (
+                  <ProfileSubmissions
+                    Image={items.Image}
+                    Likes={items.Likes}
+                    VoteData={items}
+                  />
+                ))}
               </View>
             </ScrollView>
           </View>
