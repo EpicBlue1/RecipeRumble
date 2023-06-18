@@ -14,7 +14,7 @@ import { getSubmissionsById } from "../../Services/CompetitionService";
 import { Global } from "../../Utils/GlobalStyles";
 import { Colors } from "../../Utils/ReUsables";
 import { NewCompScreenStyle } from "../NewCompScreen/NewCompScreenScreenStyle";
-import { CompStyles } from "./CompetitionScreenStyles";
+import { IndRecipeScreenStyles } from "./IndRecipeScreenStyles";
 
 const CompetitionScreen = ({ route, navigation }) => {
   const project = route.params.CompData;
@@ -35,12 +35,6 @@ const CompetitionScreen = ({ route, navigation }) => {
 
   const remainingTime = totalTimeSpan - timeDifference;
   const percentageProgress = (remainingTime / totalTimeSpan) * 100;
-
-  console.log(
-    `The percentage progress towards the end date is ${percentageProgress.toFixed(
-      2
-    )}%`
-  );
 
   const daysLeft = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
   const hoursLeft = Math.floor((timeDifference / (1000 * 60 * 60)) % 24);
@@ -75,15 +69,18 @@ const CompetitionScreen = ({ route, navigation }) => {
   CompDate.setDate();
 
   return (
-    <View style={CompStyles.Container}>
+    <View style={IndRecipeScreenStyles.Container}>
       <ScrollView>
-        <ImageBackground style={CompStyles.Image} source={imageSource}>
+        <ImageBackground
+          style={IndRecipeScreenStyles.Image}
+          source={imageSource}
+        >
           <BackButton />
-          <View style={CompStyles.InfoContainer}>
+          <View style={IndRecipeScreenStyles.InfoContainer}>
             <Text style={Global.HeadingTwo}>{project.EventName}</Text>
-            <View style={CompStyles.innerContainer}>
+            <View style={IndRecipeScreenStyles.innerContainer}>
               <Image
-                style={CompStyles.Icon}
+                style={IndRecipeScreenStyles.Icon}
                 source={require("../../assets/icons/Two-user.png")}
               />
               <Text style={Global.Paragraph}>
@@ -92,8 +89,8 @@ const CompetitionScreen = ({ route, navigation }) => {
             </View>
           </View>
         </ImageBackground>
-        <View style={CompStyles.BottomContainer}>
-          <View style={CompStyles.Description}>
+        <View style={IndRecipeScreenStyles.BottomContainer}>
+          <View style={IndRecipeScreenStyles.Description}>
             {/* <ScrollView > */}
             <Text style={[Global.Paragraph]}>{project.Description}</Text>
             {/* </ScrollView> */}
@@ -141,7 +138,7 @@ const CompetitionScreen = ({ route, navigation }) => {
             }}
           />
 
-          <View style={CompStyles.SubmissionSection}>
+          <View style={IndRecipeScreenStyles.SubmissionSection}>
             <Text style={Global.HeadingTwo}>Submissions:</Text>
             <Text style={Global.HeadingTwo}>
               {" "}
@@ -155,11 +152,11 @@ const CompetitionScreen = ({ route, navigation }) => {
               : "Competition dusted!"}
           </Text>
 
-          <View style={date1 < date2 ? "" : CompStyles.hide}>
-            <View style={CompStyles.ProgressOuter}>
+          <View style={date1 < date2 ? "" : IndRecipeScreenStyles.hide}>
+            <View style={IndRecipeScreenStyles.ProgressOuter}>
               <View
                 style={[
-                  CompStyles.ProgressInner,
+                  IndRecipeScreenStyles.ProgressInner,
                   {
                     width: `${percentageProgress.toFixed(2)}%`,
                     backgroundColor:
@@ -172,18 +169,20 @@ const CompetitionScreen = ({ route, navigation }) => {
             </View>
             <TouchableOpacity
               onPress={() => navigation.navigate("Voting", { project })}
-              style={CompStyles.ButtonVoteSub}
+              style={IndRecipeScreenStyles.ButtonVoteSub}
             >
               <ImageBackground
-                style={CompStyles.IconButt}
+                style={IndRecipeScreenStyles.IconButt}
                 source={require("../../assets/icons/HeartDark.png")}
               />
-              <Text style={[Global.HeadingTwo, CompStyles.ButtonText]}>
+              <Text
+                style={[Global.HeadingTwo, IndRecipeScreenStyles.ButtonText]}
+              >
                 Vote
               </Text>
-              <View style={CompStyles.IconButtBack}>
+              <View style={IndRecipeScreenStyles.IconButtBack}>
                 <ImageBackground
-                  style={CompStyles.IconButt}
+                  style={IndRecipeScreenStyles.IconButt}
                   source={require("../../assets/icons/Play.png")}
                 />
               </View>
@@ -191,37 +190,41 @@ const CompetitionScreen = ({ route, navigation }) => {
 
             <TouchableOpacity
               onPress={() => navigation.navigate("SubmitComp", { project })}
-              style={CompStyles.ButtonVoteSub}
+              style={IndRecipeScreenStyles.ButtonVoteSub}
             >
               <ImageBackground
-                style={CompStyles.IconButt}
+                style={IndRecipeScreenStyles.IconButt}
                 source={require("../../assets/icons/HeartDark.png")}
               />
               {/* TODO only one submission allowed*/}
-              <Text style={[Global.HeadingTwo, CompStyles.ButtonText]}>
+              <Text
+                style={[Global.HeadingTwo, IndRecipeScreenStyles.ButtonText]}
+              >
                 Submit
               </Text>
-              <View style={CompStyles.IconButtBack}>
+              <View style={IndRecipeScreenStyles.IconButtBack}>
                 <ImageBackground
-                  style={CompStyles.IconButt}
+                  style={IndRecipeScreenStyles.IconButt}
                   source={require("../../assets/icons/Play.png")}
                 />
               </View>
             </TouchableOpacity>
           </View>
 
-          <View style={date1 < date2 ? CompStyles.hide : ""}>
+          <View style={date1 < date2 ? IndRecipeScreenStyles.hide : ""}>
             <TouchableOpacity
               onPress={() => navigation.navigate("Results", { project })}
-              style={CompStyles.ButtonVoteSub}
+              style={IndRecipeScreenStyles.ButtonVoteSub}
             >
               {/* TODO only one submission allowed*/}
-              <Text style={[Global.HeadingTwo, CompStyles.ButtonTextTwo]}>
+              <Text
+                style={[Global.HeadingTwo, IndRecipeScreenStyles.ButtonTextTwo]}
+              >
                 LeaderBoard
               </Text>
-              <View style={CompStyles.IconButtBack}>
+              <View style={IndRecipeScreenStyles.IconButtBack}>
                 <ImageBackground
-                  style={CompStyles.IconButt}
+                  style={IndRecipeScreenStyles.IconButt}
                   source={require("../../assets/icons/Sort.png")}
                 />
               </View>

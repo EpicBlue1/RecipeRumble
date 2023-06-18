@@ -13,6 +13,7 @@ import {
 } from "react-native";
 import Button from "../../Components/Partials/Button/Button";
 import Input from "../../Components/Partials/Input/Input";
+import Loader from "../../Components/Partials/Loader/Loader";
 import { RegisterNewUser } from "../../Services/firebaseAuth";
 import { Global } from "../../Utils/GlobalStyles";
 import { Colors } from "../../Utils/ReUsables";
@@ -31,19 +32,26 @@ const Register = () => {
   const [passwordErrorCon, setpasswordErrorCon] = useState("");
   const [userNameError, setuserNameError] = useState("");
 
-  const Register = () => {
+  const [Loading, setLoading] = useState(false);
+  setLoading(true);
+
+  const Register = async () => {
     console.log("Registering");
     if (email === "") {
       setemailError("Please enter your email");
+      setLoading(false);
     }
     if (password === "") {
       setpasswordError("Please enter a password");
+      setLoading(false);
     }
     if (passwordCon === "") {
       setpasswordErrorCon("Please confirm your password");
+      setLoading(false);
     }
     if (userName == "") {
       setuserNameError("Please enter a user name");
+      setLoading(false);
     }
 
     if (
@@ -53,7 +61,8 @@ const Register = () => {
       userName !== ""
     ) {
       if (passwordCon === password) {
-        RegisterNewUser(userName, email, password);
+        await RegisterNewUser(userName, email, password);
+        setLoading(false);
       } else {
         setpasswordErrorCon("Passwords don't match");
       }
@@ -62,6 +71,7 @@ const Register = () => {
 
   return (
     <ScrollView style={LoginStyles.Container}>
+      <Loader loading={Loading} position={"abso"} />
       <ImageBackground
         style={LoginStyles.Image}
         source={require("../../assets/Backgrounds/Leaf_Background.png")}

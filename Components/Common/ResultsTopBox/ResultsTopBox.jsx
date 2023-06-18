@@ -1,24 +1,58 @@
 import React from "react";
-import { ImageBackground, StyleSheet, Text, View } from "react-native";
+import {
+  ImageBackground,
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { CompStyles } from "../../../Screens/CompetitionScreen/CompetitionScreenStyles";
 import { Global } from "../../../Utils/GlobalStyles";
 import { Colors } from "../../../Utils/ReUsables";
 
-const ResultsTopBox = () => {
+const ResultsTopBox = ({ DishName, UserName, Image, Likes, Index }) => {
+  const imageSource = {
+    uri: Image,
+  };
   return (
-    <View style={styles.Container}>
-      <ImageBackground
-        style={styles.image}
-        source={require("../../../assets/Test.png")}
-      >
+    <View
+      style={[
+        styles.Container,
+        {
+          backgroundColor:
+            Index === 0
+              ? Colors.Green
+              : Index === 1
+              ? Colors.LightGreen
+              : Index === 2
+              ? Colors.Dirty_White_Dark
+              : Colors.Dirty_White_Darker,
+        },
+      ]}
+    >
+      <ImageBackground style={styles.image} source={imageSource}>
         <View style={styles.score}>
-          <Text>120</Text>
+          <Text>{Likes}</Text>
         </View>
       </ImageBackground>
 
       <View style={styles.Texts}>
-        <Text style={Global.HeadingThree}>Dish Name</Text>
-        <Text style={Global.Paragraph}>Participant Name</Text>
+        <Text style={Global.HeadingThree}>{DishName}</Text>
+        <Text style={Global.Paragraph}>{UserName}</Text>
       </View>
+
+      <TouchableOpacity
+        onPress={() => navigation.navigate("IndRecipe", { project })}
+        style={styles.ButtonVoteSub}
+      >
+        <View style={CompStyles.IconButtBack}>
+          <ImageBackground
+            style={CompStyles.IconButt}
+            source={require("../../../assets/icons/Play.png")}
+          />
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -29,33 +63,39 @@ const styles = StyleSheet.create({
   Container: {
     width: null,
     height: 80,
-    backgroundColor: Colors.Dirty_White_Darker,
     borderRadius: 10,
     justifyContent: "space-between",
     alignItems: "center",
     display: "flex",
     flexDirection: "row",
-    paddingLeft: 10,
     paddingRight: 10,
     marginTop: 20,
   },
-  image: {
-    width: 60,
-    height: 60,
+  ButtonVoteSub: {
+    // height: 90,
+    backgroundColor: Colors.Dirty_White_Darker,
     borderRadius: 10,
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-around",
+    borderRadius: 10,
+  },
+
+  image: {
+    width: 80,
+    height: 80,
   },
   score: {
     width: null,
     height: 18,
     backgroundColor: Colors.Green,
-    borderBottomRightRadius: 10,
-    borderBottomLeftRadius: 10,
-    marginTop: 42,
+    marginTop: 62,
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-end",
   },
   Texts: {
-    width: "70%",
+    width: "50%",
     height: 50,
     justifyContent: "space-around",
   },

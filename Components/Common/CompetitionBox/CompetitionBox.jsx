@@ -7,6 +7,8 @@ import { Global } from "../../../Utils/GlobalStyles";
 import { CompetitionBoxStyles } from "./CompetitionBoxStyles";
 
 const CompetitionBox = ({ CompData, route }) => {
+  console.log("LOLLOS");
+  console.log(CompData.CompId);
   const imageSource = {
     uri: CompData.Image,
   };

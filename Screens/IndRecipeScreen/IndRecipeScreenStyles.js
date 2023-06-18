@@ -1,10 +1,12 @@
 import { StyleSheet, Text, View } from "react-native";
 import { Colors } from "../../Utils/ReUsables";
 
-export const ResultsStyles = StyleSheet.create({
-  Container: {},
+export const IndRecipeScreenStyles = StyleSheet.create({
+  Container: {
+    // padding: 20,
+  },
   Image: {
-    height: 200,
+    height: 250,
     width: null,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
@@ -18,7 +20,7 @@ export const ResultsStyles = StyleSheet.create({
   InfoContainer: {
     backgroundColor: Colors.Dirty_White,
     width: "75%",
-    height: 120,
+    height: 160,
     borderRadius: 10,
     padding: 10,
     paddingLeft: 20,
@@ -47,6 +49,14 @@ export const ResultsStyles = StyleSheet.create({
     height: 55,
     backgroundColor: Colors.Dirty_White_Dark,
     borderRadius: 10,
+    shadowColor: "#464646",
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.08,
+    shadowRadius: 5,
+    elevation: 5,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -61,9 +71,13 @@ export const ResultsStyles = StyleSheet.create({
   },
   BottomContainer: {
     padding: 20,
+    display: "flex",
     flexDirection: "column",
+    justifyContent: "space-evenly",
+    paddingBottom: 85,
   },
   ButtonVoteSub: {
+    marginTop: 30,
     width: null,
     height: 90,
     backgroundColor: Colors.Dirty_White_Darker,
@@ -75,38 +89,35 @@ export const ResultsStyles = StyleSheet.create({
     borderRadius: 10,
   },
   Description: {
-    height: 120,
+    marginBottom: 10,
+    // height: 120,
   },
   ButtonText: {
     width: 125,
   },
+  ButtonTextTwo: {
+    width: 200,
+  },
   SubmissionSection: {
-    marginTop: 25,
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     height: 40,
     width: null,
+    paddingRight: 20,
   },
-  ResultsSection: {
-    width: null,
-    height: 35,
-    justifyContent: "space-between",
-    flexDirection: "row",
+  hide: {
+    display: "none",
   },
-  ParticipantsResults: {
-    height: 180,
+  ProgressOuter: {
+    marginTop: 10,
+    width: "100%",
+    height: 25,
+    backgroundColor: Colors.Dirty_White_Darker,
+    borderRadius: 25,
   },
-  Butt: {
-    height: "10%",
-    alignSelf: "center",
-  },
-  LeaderItem: {
-    // backgroundColor: Colors.LightGreen,
-    padding: 10,
-    justifyContent: "space-between",
-    alignContent: "space-between",
-    marginTop: 15,
-    height: 75,
+  ProgressInner: {
+    height: 25,
+    borderRadius: 25,
   },
 });

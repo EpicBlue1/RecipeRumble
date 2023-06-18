@@ -95,6 +95,9 @@ export const CompStyles = StyleSheet.create({
   ButtonText: {
     width: 125,
   },
+  ButtonTextTwo: {
+    width: 200,
+  },
   SubmissionSection: {
     display: "flex",
     flexDirection: "row",
@@ -102,5 +105,19 @@ export const CompStyles = StyleSheet.create({
     height: 40,
     width: null,
     paddingRight: 20,
+  },
+  hide: {
+    display: "none",
+  },
+  ProgressOuter: {
+    marginTop: 10,
+    width: "100%",
+    height: 25,
+    backgroundColor: Colors.Dirty_White_Darker,
+    borderRadius: 25,
+  },
+  ProgressInner: {
+    height: 25,
+    borderRadius: 25,
   },
 });
