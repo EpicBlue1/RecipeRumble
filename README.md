@@ -56,7 +56,6 @@ Maybe you can mention me or this repo in the acknowledgements too
   - [Installation](#gear-installation)
   - [Run Locally](#running-run-locally)
   - [Deployment](#triangular_flag_on_post-deployment)
-- [Usage](#eyes-usage)
 - [Roadmap](#compass-roadmap)
 - [FinalProduct](#Final-Product)
 - [Contributing](#wave-contributing)
@@ -126,11 +125,19 @@ Maybe you can mention me or this repo in the acknowledgements too
 
 ### :: Log In Screen
 
+<div align="center"> 
+  <img src="assetsread/Login.jpg" alt="screenshot" width="200" height="auto" />
+</div>
+
 - Log In
 - Validation
 - Loading indicator
 
 ### :: Register Screen
+
+<div align="center"> 
+  <img src="assetsread//Register.jpg" alt="screenshot" width="200" height="auto" />
+</div>
 
 - Register new user
 - Validation
@@ -138,22 +145,39 @@ Maybe you can mention me or this repo in the acknowledgements too
 
 ### :: Competitions Screen
 
+<div align="center"> 
+  <img src="assetsread/Competitions.jpg" alt="screenshot" width="200" height="auto" />
+</div>
+
 - View all competitions
 - Display current logged in user
 - Loading indicator
 
 ### :: Competition Screen
 
+<div align="center"> 
+  <img src="assetsread/Competition.jpg" alt="screenshot" width="200" height="auto" />
+</div>
+
 - Description, Required Ingredients, Rules, Banner Image
+- Progress bar and indication on how long the event is still going to be active for
 - Submit button to submit own entry
 - Vote button to vote other entries within this competition
 
 ### :: Submit Screen
 
+<div align="center"> 
+  <img src="assetsread/Submit.jpg" alt="screenshot" width="200" height="auto" />
+</div>
+
 - Upload picture
 - Ingredients Section, Steps Section, Description Section
 
 ### :: Voting Screen
+
+<div align="center"> 
+  <img src="assetsread/Voting.jpg" alt="screenshot" width="200" height="auto" />
+</div>
 
 - Double tap to vote
 - View more on the recipe before voting
@@ -161,6 +185,10 @@ Maybe you can mention me or this repo in the acknowledgements too
 - Loading indicator
 
 ### :: Leaderboard Screen
+
+<div align="center"> 
+  <img src="assetsread/Leaderboard.jpg" alt="screenshot" width="200" height="auto" />
+</div>
 
 - Top 3 recipes
 - View Recipes
@@ -212,20 +240,6 @@ Start the server
 Make sure you have expo installed on your mobile device
 Scan qr code with Ios or Android Device.
 
-<!-- Usage -->
-
-## :eyes: Usage
-
-Use this space to tell a little more about your project and how it can be used. Show additional screenshots, code samples, demos or link to other resources.
-
-```javascript
-import Component from "my-project";
-
-function App() {
-  return <Component />;
-}
-```
-
 <!-- Roadmap -->
 
 ## :compass: Roadmap
@@ -248,6 +262,18 @@ function App() {
 ✅ Real Postings
 
 # :: Final Product
+
+<div align="center"> 
+  <img src="assetsread/Mockup_One.png" alt="screenshot" width="600" height="auto" />
+</div>
+
+<div align="center"> 
+  <img src="assetsread/Mockup_Two.png.png" alt="screenshot" width="600" height="auto" />
+</div>
+
+<div align="center"> 
+  <img src="assetsread/Mockup_Three.png.png" alt="screenshot" width="600" height="auto" />
+</div>
 
 <!-- Contributing -->
 
