@@ -1,18 +1,10 @@
-<!--
-Hey, thanks for using the awesome-readme-template template.
-If you have any enhancements, then fork this project and create a pull request
-or just open an issue with the label "enhancement".
-
-Don't forget to give this project a star for additional support ;)
-Maybe you can mention me or this repo in the acknowledgements too
--->
 <div align="center">
 
   <img src="https://drive.google.com/uc?export=view&id=1N-FmjAd_rh5fBNLoki2Ukzp5uoTOUqCv" alt="screenshot" width="600" height="auto" />
   <h1>RecipeRumble</h1>
   
   <p>
-    An awesome README template for your projects! 
+    Recipe Rumble is a dynamic application built entirely in JavaScript using React Native Expo. It serves as a platform where users can engage in posting, voting, and exploring various recipes and food related competitions. With the ability to sign up and log in, users can personalize their experience by updating their profile images. The app ensures that all recipes are archived even after events have concluded, allowing users to revisit them at any time. Additionally, Recipe Rumble makes way to the discovery of new recipes and provides users with the option to share their own recipe creations.
   </p>
   
   
