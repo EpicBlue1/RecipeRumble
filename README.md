@@ -156,6 +156,17 @@
 - Submit button to submit own entry
 - Vote button to vote other entries within this competition
 
+### :: Profile Screen
+
+<div align="center"> 
+  <img src="assetsread/Profile.jpg" alt="screenshot" width="200" height="auto" />
+</div>
+
+- View Previous submissions
+- Update profile picture
+- Log Out
+- Create competition
+
 ### :: Submit Screen
 
 <div align="center"> 
