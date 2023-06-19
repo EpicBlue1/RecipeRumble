@@ -8,7 +8,7 @@ Maybe you can mention me or this repo in the acknowledgements too
 -->
 <div align="center">
 
-  <img src="assetsread/Logo.png" alt="screenshot" width="600" height="auto" />
+  <img src="https://drive.google.com/uc?export=view&id=1N-FmjAd_rh5fBNLoki2Ukzp5uoTOUqCv" alt="screenshot" width="600" height="auto" />
   <h1>RecipeRumble</h1>
   
   <p>
