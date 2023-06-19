@@ -8,7 +8,7 @@ Maybe you can mention me or this repo in the acknowledgements too
 -->
 <div align="center">
 
-  <img src="assetsread/Logo.png" alt="logo" width="250" height="auto" />
+  <img src="assetsread/Logo.png" alt="screenshot" width="600" height="auto" />
   <h1>RecipeRumble</h1>
   
   <p>
@@ -252,7 +252,7 @@ Scan qr code with Ios or Android Device.
 ✅ Individual view
 ✅ Leaderboard
 ✅ Date and competition over func
-⬜ Vote and submit buttons replace with leaderboard
+✅ Vote and submit buttons replace with leaderboard
 ✅ Circle event timer
 ✅ Fix styling on iphone
 ✅ Navigate when registered
@@ -268,11 +268,11 @@ Scan qr code with Ios or Android Device.
 </div>
 
 <div align="center"> 
-  <img src="assetsread/Mockup_Two.png.png" alt="screenshot" width="600" height="auto" />
+  <img src="assetsread/Mockup_Two.png" alt="screenshot" width="600" height="auto" />
 </div>
 
 <div align="center"> 
-  <img src="assetsread/Mockup_Three.png.png" alt="screenshot" width="600" height="auto" />
+  <img src="assetsread/Mockup_Three.png" alt="screenshot" width="600" height="auto" />
 </div>
 
 <!-- Contributing -->
